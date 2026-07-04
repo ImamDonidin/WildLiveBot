@@ -1,0 +1,349 @@
+package com.wildlivebot.regestry
+
+import com.wildlivebot.model.Animal
+import com.wildlivebot.model.Fact
+import com.wildlivebot.model.Rarity
+import com.wildlivebot.model.Region
+
+object CommonAnimals {
+    val list = listOf(
+        Animal(
+            id = "capybara",
+            nameEn = "Capybara",
+            nameRu = "Капибара",
+            nameUk = "Капібара",
+            aliasesEn = listOf("capybara", "capy", "carpincho"),
+            aliasesRu = listOf("капибара", "капи"),
+            aliasesUk = listOf("капібара", "капі", "капібарка"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/capybara.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Capybaras are the largest living rodents, native to South America, and are closely associated with aquatic habitats.",
+                    ru = "Капибары — крупнейшие современные грызуны, обитающие в Южной Америке и тесно связанные с водной средой.",
+                    uk = "Капібари — найбільші сучасні гризуни Південної Америки, тісно пов’язані з водними середовищами."
+                ),
+                Fact(
+                    en = "They are semi-aquatic herbivores that use water bodies for thermoregulation and predator avoidance.",
+                    ru = "Это полуводные травоядные животные, использующие воду для терморегуляции и защиты от хищников.",
+                    uk = "Це напівводні травоїдні тварини, що використовують воду для терморегуляції та захисту від хижаків."
+                ),
+                Fact(
+                    en = "Capybaras are highly social animals living in stable groups with complex social interactions.",
+                    ru = "Капибары — социальные животные, живущие в устойчивых группах со сложными взаимодействиями.",
+                    uk = "Капібари — соціальні тварини, що живуть у стабільних групах зі складними взаємодіями."
+                )
+            )
+        ),
+        Animal(
+            id = "red_fox",
+            nameEn = "Red Fox",
+            nameRu = "Рыжая лисица",
+            nameUk = "Руда лисиця",
+            aliasesEn = listOf("red fox", "fox"),
+            aliasesRu = listOf("рыжая лисица", "лисица", "лиса", "лиска"),
+            aliasesUk = listOf("руда лисиця", "лисиця", "лисичка", "лиса"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/red_fox.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            facts = listOf(
+                Fact(
+                    en = "The red fox is the most widely distributed wild canid, occurring across the entire Northern Hemisphere and parts of North Africa.",
+                    ru = "Рыжая лисица — самый широко распространённый дикий представитель псовых в Северном полушарии и частично в Северной Африке.",
+                    uk = "Руда лисиця — найпоширеніший дикий представник псових у Північній півкулі та частково в Північній Африці."
+                ),
+                Fact(
+                    en = "It is an opportunistic omnivore with a highly variable diet depending on habitat and season.",
+                    ru = "Это всеядный оппортунист с очень изменчивым рационом в зависимости от среды и сезона.",
+                    uk = "Це всеїдний опортуніст із дуже змінним раціоном залежно від середовища та сезону."
+                ),
+                Fact(
+                    en = "Red foxes use acute hearing to detect small prey movements, including sounds beneath snow cover.",
+                    ru = "Лисицы используют острый слух для обнаружения мелкой добычи, включая звуки под снегом.",
+                    uk = "Лисиці використовують гострий слух для виявлення дрібної здобичі, включно зі звуками під снігом."
+                )
+            )
+        ),
+        Animal(
+            id = "raccoon",
+            nameEn = "Raccoon",
+            nameRu = "Енот",
+            nameUk = "Єнот",
+            aliasesEn = listOf("raccoon", "coon"),
+            aliasesRu = listOf("енот", "енотик"),
+            aliasesUk = listOf("єнот", "єнотик", "ракун"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/raccoon.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Raccoons are native to North America and are highly adaptable omnivores that thrive in diverse habitats, including urban environments.",
+                    ru = "Еноты родом из Северной Америки и являются адаптивными всеядными, успешно живущими в различных средах, включая города.",
+                    uk = "Єноти походять із Північної Америки та є адаптивними всеїдними, що успішно живуть у різних середовищах, включно з містами."
+                ),
+                Fact(
+                    en = "They possess highly dexterous forepaws with enhanced tactile sensitivity used for manipulating objects.",
+                    ru = "У них очень ловкие передние лапы с высокой тактильной чувствительностью для манипуляции объектами.",
+                    uk = "Вони мають дуже спритні передні лапи з високою тактильною чутливістю для маніпуляції об’єктами."
+                ),
+                Fact(
+                    en = "Raccoons are primarily nocturnal and often exploit human-related food resources.",
+                    ru = "Еноты преимущественно ночные животные и часто используют пищевые ресурсы, связанные с человеком.",
+                    uk = "Єноти переважно нічні тварини та часто використовують харчові ресурси, пов’язані з людиною."
+                )
+            )
+        ),
+        Animal(
+            id = "striped_skunk",
+            nameEn = "Striped Skunk",
+            nameRu = "Полосатый скунс",
+            nameUk = "Смугастий скунс",
+            aliasesEn = listOf("striped skunk", "skunk"),
+            aliasesRu = listOf("полосатый скунс", "скунс"),
+            aliasesUk = listOf("смугастий скунс", "скунс"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/striped_skunk.jpg",
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Striped skunks are native to North America and are known for their chemical defense system involving sulfur-containing spray.",
+                    ru = "Полосатые скунсы обитают в Северной Америке и известны химической защитой с серосодержащим секретом.",
+                    uk = "Смугасті скунси мешкають у Північній Америці та відомі хімічним захистом із сірковмісним секретом."
+                ),
+                Fact(
+                    en = "They typically display warning behaviors such as stamping and tail raising before spraying.",
+                    ru = "Перед распылением они обычно демонстрируют предупреждающее поведение: топот и поднятие хвоста.",
+                    uk = "Перед розпиленням вони зазвичай демонструють попереджувальну поведінку: тупіт і підняття хвоста."
+                ),
+                Fact(
+                    en = "The spray is an effective deterrent against predators and can cause temporary irritation and disorientation.",
+                    ru = "Секрет служит эффективной защитой от хищников, вызывая временное раздражение и дезориентацию.",
+                    uk = "Секрет є ефективним захистом від хижаків, спричиняючи тимчасове подразнення та дезорієнтацію."
+                )
+            )
+        ),
+        Animal(
+            id = "european_hedgehog",
+            nameEn = "European Hedgehog",
+            nameRu = "Обыкновенный ёж",
+            nameUk = "Їжак європейський",
+            aliasesEn = listOf("european hedgehog", "hedgehog", "hoglet"),
+            aliasesRu = listOf("обыкновенный ёж", "ёж", "ёжик", "ежик"),
+            aliasesUk = listOf("їжак європейський", "їжак", "їжачок"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/european_hedgehog.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            facts = listOf(
+                Fact(
+                    en = "The European hedgehog is a nocturnal insectivorous mammal native to Europe.",
+                    ru = "Обыкновенный ёж — ночное насекомоядное млекопитающее Европы.",
+                    uk = "Європейський їжак — нічний комахоїдний ссавець Європи."
+                ),
+                Fact(
+                    en = "Its spines are modified hairs made of keratin, used as a passive defense mechanism.",
+                    ru = "Иглы представляют собой видоизменённые кератиновые волосы, выполняющие защитную функцию.",
+                    uk = "Голки є видозміненими кератиновими волосинами, що виконують захисну функцію."
+                ),
+                Fact(
+                    en = "It has an omnivorous diet dominated by invertebrates such as insects and earthworms.",
+                    ru = "Рацион всеядный, но в основном состоит из беспозвоночных, таких как насекомые и черви.",
+                    uk = "Раціон всеїдний, але переважно складається з безхребетних, таких як комахи та черви."
+                )
+            )
+        ),
+        Animal(
+            id = "meerkat",
+            nameEn = "Meerkat",
+            nameRu = "Сурикат",
+            nameUk = "Сурикат",
+            aliasesEn = listOf("meerkat", "suricate"),
+            aliasesRu = listOf("сурикат", "сурикатик"),
+            aliasesUk = listOf("сурикат", "сурикатик"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/meerkat.jpg",
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "Meerkats are small carnivorous mammals native to southern Africa.",
+                    ru = "Сурикаты — небольшие хищные млекопитающие юга Африки.",
+                    uk = "Сурикати — невеликі хижі ссавці півдня Африки."
+                ),
+                Fact(
+                    en = "They live in social groups with cooperative care of young.",
+                    ru = "Они живут в социальных группах и совместно заботятся о потомстве.",
+                    uk = "Вони живуть у соціальних групах і спільно доглядають за потомством."
+                ),
+                Fact(
+                    en = "They stand upright as sentries to watch for predators.",
+                    ru = "Они встают вертикально, выполняя функцию дозорных.",
+                    uk = "Вони стають вертикально, виконуючи роль дозорців."
+                )
+            )
+        ),
+        Animal(
+            id = "european_hare",
+            nameEn = "European Hare",
+            nameRu = "Заяц-русак",
+            nameUk = "Заєць сірий",
+            aliasesEn = listOf("european hare", "hare", "jackrabbit"),
+            aliasesRu = listOf("заяц-русак", "заяц", "зайчик", "заяц русак", "русак"),
+            aliasesUk = listOf("заєць сірий", "заєць", "зайчик", "заєць-русак", "вухань"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/european_hare.jpg",
+            hints = mapOf(
+                "кролик" to "game.hint.rabbit_not_hare",
+                "кроль" to "game.hint.rabbit_not_hare",
+                "rabbit" to "game.hint.rabbit_not_hare",
+                "bunny" to "game.hint.rabbit_not_hare"
+            ),
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "The European hare is a fast-running lagomorph adapted to open landscapes and does not construct permanent burrows.",
+                    ru = "Заяц-русак — быстрый зайцеобразный, приспособленный к открытым ландшафтам и не роющий постоянных нор.",
+                    uk = "Заєць-русак — швидкий зайцеподібний, пристосований до відкритих ландшафтів і не риє постійних нір."
+                ),
+                Fact(
+                    en = "Leverets are born fully furred, with open eyes and are capable of locomotion shortly after birth.",
+                    ru = "Зайчата рождаются покрытыми шерстью, зрячими и способными к движению вскоре после рождения.",
+                    uk = "Зайченята народжуються вкритими шерстю, зрячими та здатними до руху невдовзі після народження."
+                ),
+                Fact(
+                    en = "Hares rely on speed, endurance, and evasive zigzag running to escape predators.",
+                    ru = "Зайцы используют скорость, выносливость и зигзагообразный бег для ухода от хищников.",
+                    uk = "Зайці використовують швидкість, витривалість і біг зигзагами для втечі від хижаків."
+                )
+            )
+        ),
+        Animal(
+            id = "european_rabbit",
+            nameEn = "European Rabbit",
+            nameRu = "Дикий кролик",
+            nameUk = "Дикий кріль",
+            aliasesEn = listOf("european rabbit", "rabbit", "bunny"),
+            aliasesRu = listOf("дикий кролик", "кролик", "кроль", "кролик"),
+            aliasesUk = listOf("дикий кріль", "кріль", "кролик", "кролик"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/european_rabbit.png",
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "The European rabbit is a burrowing lagomorph that lives in complex underground warrens.",
+                    ru = "Дикий кролик — норный зайцеобразный, живущий в сложных подземных колониях.",
+                    uk = "Дикий кріль — нірний зайцеподібний, що живе у складних підземних колоніях."
+                ),
+                Fact(
+                    en = "Kits are born altricial, blind and hairless, requiring significant parental care.",
+                    ru = "Крольчата рождаются беспомощными, слепыми и без шерсти, нуждаются в заботе родителей.",
+                    uk = "Кроленята народжуються безпомічними, сліпими та без шерсті, потребують батьківського догляду."
+                ),
+                Fact(
+                    en = "Rabbits are social animals that communicate using scent marking and body language.",
+                    ru = "Кролики — социальные животные, использующие запахи и язык тела для общения.",
+                    uk = "Кролі — соціальні тварини, що спілкуються за допомогою запахів і мови тіла."
+                )
+            )
+        ),
+        Animal(
+            id = "guinea_pig",
+            nameEn = "Guinea Pig",
+            nameRu = "Морская свинка",
+            nameUk = "Морська свинка",
+            aliasesEn = listOf("guinea pig", "cavy"),
+            aliasesRu = listOf("морская свинка", "свинка"),
+            aliasesUk = listOf("морська свинка", "кавія", "свинка"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/guinea_pig.jpg",
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Guinea pigs are domesticated herbivorous rodents native to the Andes of South America.",
+                    ru = "Морские свинки — одомашненные травоядные грызуны, родом из Анд Южной Америки.",
+                    uk = "Морські свинки — одомашнені травоїдні гризуни з Анд Південної Америки."
+                ),
+                Fact(
+                    en = "They communicate using a wide range of vocalizations including whistles, chirps, and purr-like sounds.",
+                    ru = "Они используют широкий спектр звуков: свисты, щебетание и урчание.",
+                    uk = "Вони використовують широкий спектр звуків: свист, щебетання та муркотіння."
+                ),
+                Fact(
+                    en = "Unlike most mammals, they require dietary vitamin C as they cannot synthesize it endogenously.",
+                    ru = "В отличие от большинства млекопитающих, они нуждаются в витамине C из пищи.",
+                    uk = "На відміну від більшості ссавців, вони потребують вітаміну C з їжі."
+                )
+            )
+        ),
+        Animal(
+            id = "harbor_seal",
+            nameEn = "Harbor Seal",
+            nameRu = "Обыкновенный тюлень",
+            nameUk = "Тюлень звичайний",
+            aliasesEn = listOf("harbor seal", "seal", "common seal"),
+            aliasesRu = listOf("обыкновенный тюлень", "тюлень", "нерпа"),
+            aliasesUk = listOf("тюлень звичайний", "тюлень", "нерпа"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/harbor_seal.jpg",
+            region = Region.OCEANS,
+            facts = listOf(
+                Fact(
+                    en = "Harbor seals are true seals native to coastal waters of the North Atlantic and North Pacific oceans.",
+                    ru = "Обыкновенные тюлени — настоящие тюлени, обитающие в прибрежных водах Северной Атлантики и Тихого океана.",
+                    uk = "Звичайні тюлені — справжні тюлені, що мешкають у прибережних водах Північної Атлантики та Тихого океану."
+                ),
+                Fact(
+                    en = "They are strong swimmers and can dive for extended periods, typically several minutes up to half an hour.",
+                    ru = "Они сильные пловцы и могут нырять на продолжительное время — обычно от нескольких минут до получаса.",
+                    uk = "Вони сильні плавці й можуть пірнати на тривалий час — зазвичай від кількох хвилин до пів години."
+                ),
+                Fact(
+                    en = "Harbor seals haul out on land or ice to rest, molt, and reproduce.",
+                    ru = "Тюлени выходят на сушу или лёд для отдыха, линьки и размножения.",
+                    uk = "Тюлені виходять на сушу або лід для відпочинку, линьки та розмноження."
+                )
+            )
+        ),
+        Animal(
+            id = "house_sparrow",
+            nameEn = "House Sparrow",
+            nameRu = "Домовый воробей",
+            nameUk = "Горобець хатній",
+            aliasesEn = listOf(
+                "house sparrow",
+                "sparrow"
+            ),
+
+            aliasesRu = listOf(
+                "домовый воробей",
+                "воробей",
+                "воробушек"
+            ),
+
+            aliasesUk = listOf(
+                "горобець хатній",
+                "горобець",
+                "горобчик"
+            ),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/house_sparrow.jpg",
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Male and female house sparrows look noticeably different: males have a black bib and gray crown, while females are mostly brown.",
+                    ru = "Самцы и самки домовых воробьёв заметно отличаются внешне: у самцов есть чёрное пятно на груди и серая «шапочка», а самки окрашены в основном в коричневые тона.",
+                    uk = "Самці й самки хатнього горобця помітно відрізняються зовні: у самців є чорна пляма на грудях і сіра «шапочка», а самки переважно бурого кольору."
+                ),
+                Fact(
+                    en = "House sparrows have lived alongside humans for thousands of years and are one of the world's most widespread birds.",
+                    ru = "Домовые воробьи сопровождают человека уже тысячи лет и являются одними из самых широко распространённых птиц в мире.",
+                    uk = "Хатні горобці живуть поруч із людиною вже тисячі років і є одними з найпоширеніших птахів світу."
+                ),
+                Fact(
+                    en = "Although small, they are highly social birds that communicate using a wide variety of chirps and calls.",
+                    ru = "Несмотря на небольшой размер, это очень общительные птицы, использующие множество различных чириканий и других звуков для общения.",
+                    uk = "Попри невеликий розмір, це дуже товариські птахи, які використовують безліч різних цвірінькань та інших звуків для спілкування."
+                )
+            )
+        )
+    )
+}

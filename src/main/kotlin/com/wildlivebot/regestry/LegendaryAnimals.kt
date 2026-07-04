@@ -1,0 +1,349 @@
+package com.wildlivebot.regestry
+
+import com.wildlivebot.model.Animal
+import com.wildlivebot.model.Fact
+import com.wildlivebot.model.Rarity
+import com.wildlivebot.model.Region
+
+object LegendaryAnimals {
+    val list = listOf(
+        Animal(
+            id = "bandicoot",
+            nameEn = "Bandicoot",
+            nameRu = "Бандикут",
+            nameUk = "Бандікут",
+            aliasesEn = listOf("bandicoot"),
+            aliasesRu = listOf("бандикут", "сумчатый барсук"),
+            aliasesUk = listOf("бандікут", "сумчастий борсук"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/bandicoot.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Bandicoots are ground-foraging marsupials that dig extensively in soil while searching for invertebrates.",
+                    ru = "Бандикуты — наземные сумчатые, активно роющие почву в поисках беспозвоночных.",
+                    uk = "Бандікути — наземні сумчасті, що активно риють ґрунт у пошуках безхребетних."
+                ),
+                Fact(
+                    en = "Their gestation period is one of the shortest among mammals, lasting about 11–12 days.",
+                    ru = "Беременность у бандикутов одна из самых коротких среди млекопитающих — около 11–12 дней.",
+                    uk = "Вагітність у бандікутів одна з найкоротших серед ссавців — близько 11–12 днів."
+                ),
+                Fact(
+                    en = "Their pouches face backward so they don't fill with dirt while digging.",
+                    ru = "Их сумки открываются назад, чтобы внутрь не набивалась земля во время копания.",
+                    uk = "Їхні сумки відкриваються назад, щоб усередину не набивалася земля під час копання."
+                )
+            )
+        ),
+        Animal(
+            id = "african_lion",
+            nameEn = "African Lion",
+            nameRu = "Африканский лев",
+            nameUk = "Африканський лев",
+            aliasesEn = listOf("african lion", "lion"),
+            aliasesRu = listOf("африканский лев", "лев"),
+            aliasesUk = listOf("африканський лев", "лев", "левчик"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/lion.jpg",
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "A lion's roar is so loud it can be heard from up to 8 kilometers away.",
+                    ru = "Рык льва настолько громкий, что слышен на расстоянии до 8 километров.",
+                    uk = "Рік лева настільки гучний, що його чути на відстані до 8 кілометрів."
+                ),
+                Fact(
+                    en = "Unlike other cats, they are highly social and live in family groups called prides.",
+                    ru = "В отличие от других кошачьих, они социальны и живут большими семьями — прайдами.",
+                    uk = "На відміну від інших котячих, вони є соціальними й живуть великими родинами — прайдами."
+                ),
+                Fact(
+                    en = "Male lion manes vary in color and density, and are influenced by age, genetics, and environmental conditions.",
+                    ru = "Цвет и густота гривы у львов зависят от возраста, генетики и условий среды.",
+                    uk = "Колір і густота гриви у левів залежать від віку, генетики та умов середовища."
+                )
+            )
+        ),
+        Animal(
+            id = "snow_leopard",
+            nameEn = "Snow Leopard",
+            nameRu = "Снежный барс",
+            nameUk = "Сніговий барс",
+            aliasesEn = listOf("snow leopard", "leopard"),
+            aliasesRu = listOf("снежный барс", "ирбис", "барс"),
+            aliasesUk = listOf("сніговий барс", "ірбіс", "барс"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/snow_leopard.jpg",
+            region = Region.MOUNTAINS,
+            facts = listOf(
+                Fact(
+                    en = "Known as the 'ghost of the mountains' because they are incredibly well-camouflaged and solitary.",
+                    ru = "Их называют «призраками гор», так как они идеально маскируются и живут в строгом одиночестве.",
+                    uk = "Їх називають «привидами гір», оскільки вони ідеально маскуються і живуть у строгому усамітненні."
+                ),
+                Fact(
+                    en = "Snow leopards cannot produce a true roar due to differences in their larynx anatomy compared to big roaring cats.",
+                    ru = "Снежные барсы не способны рычать из-за особенностей строения гортани, отличающих их от «рычащих» крупных кошек.",
+                    uk = "Снігові барси не здатні ричати через особливості будови гортані, які відрізняють їх від «рикуючих» великих котів."
+                ),
+                Fact(
+                    en = "Their long, thick tails are used for balance and wrapped around their faces like a blanket for warmth.",
+                    ru = "Длинный пушистый хвост служит им балансиром при прыжках и согревает морду в мороз как одеяло.",
+                    uk = "Довгий пухнастий хвост служить їм балансиром при стрибках і зігріває морду в мороз як ковдра."
+                )
+            )
+        ),
+        Animal(
+            id = "grizzly_bear",
+            nameEn = "Grizzly Bear",
+            nameRu = "Гризли",
+            nameUk = "Ведмідь гризлі",
+            aliasesEn = listOf("grizzly bear", "grizzly", "silvertip"),
+            aliasesRu = listOf("гризли", "серый медведь", "медведь гризли"),
+            aliasesUk = listOf("гризлі", "ведмідь гризлі"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/grizzly.jpg",
+            region = Region.BOREAL_FORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Grizzlies have an incredible sense of smell, able to detect food sources from miles away, outperforming even hounds.",
+                    ru = "У гризли невероятное обоняние — они чуют еду за многие километры, превосходя в этом даже ищеек.",
+                    uk = "У гризлі неймовірний нюх — вони чують їжу за багато кілометрів, перевершуючи в цьому навіть шукачів."
+                ),
+                Fact(
+                    en = "The shoulder hump is composed of muscle mass that supports digging and short bursts of running.",
+                    ru = "Горб на плечах состоит из мышечной массы, которая помогает при рытье и коротких рывках бега.",
+                    uk = "Горб на плечах складається з м’язової маси, яка допомагає при ритті та коротких ривках бігу."
+                )
+            )
+        ),
+        Animal(
+            id = "cougar",
+            nameEn = "Cougar",
+            nameRu = "Пума",
+            nameUk = "Пума",
+            aliasesEn = listOf("cougar", "mountain lion", "puma", "panther"),
+            aliasesRu = listOf("пума", "кугуар", "горный лев"),
+            aliasesUk = listOf("пума", "кугуар", "гірський лев"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/cougar.jpg",
+            region = Region.MOUNTAINS,
+            hints = mapOf(
+                "лев" to "game.hint.cougar_not_lion",
+                "lion" to "game.hint.cougar_not_lion",
+                "пантера" to "game.hint.cougar_not_panther",
+                "panther" to "game.hint.cougar_not_panther"
+            ),
+            facts = listOf(
+                Fact(
+                    en = "Cougars are known by many regional names across the Americas, reflecting their wide distribution.",
+                    ru = "Пумы имеют множество региональных названий в Америке из-за широкого ареала обитания.",
+                    uk = "Пуми мають багато регіональних назв в Америці через широкий ареал поширення."
+                ),
+                Fact(
+                    en = "They are unmatched jumpers, capable of leaping up to 5.5 meters vertically into the air.",
+                    ru = "Они непревзойденные прыгуны, способные взлетать по вертикали вверх почти на 5,5 метров.",
+                    uk = "Вони є неперевершеними стрибунами, здатними злітати по вертикалі вгору майже на 5,5 метрів."
+                )
+            )
+        ),
+        Animal(
+            id = "pink_fairy_armadillo",
+            nameEn = "Pink Fairy Armadillo",
+            nameRu = "Плащеносный броненосец",
+            nameUk = "Плащеносець казковий",
+            aliasesEn = listOf("pink fairy armadillo", "fairy armadillo", "pichiciego"),
+            aliasesRu = listOf("плащеносный броненосец", "розовый броненосец", "сказочный броненосец", "малый броненосец"),
+            aliasesUk = listOf("плащеносець казковий", "рожевий броненосець", "казковий броненосець", "плащеносець"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/pink_fairy_armadillo.jpg",
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "They are the smallest armadillos in the world, easily fitting into a human palm.",
+                    ru = "Это самые крошечные броненосцы в мире, которые легко помещаются на ладони человека.",
+                    uk = "Це найменші броненосці у світі, які легко поміщаються на долоні людини."
+                ),
+                Fact(
+                    en = "Their vascularized shell helps with thermoregulation in sandy desert environments.",
+                    ru = "Их панцирь с развитой сетью сосудов помогает регулировать температуру тела в песчаных пустынях.",
+                    uk = "Їхній панцир із розвиненою мережею судин допомагає регулювати температуру тіла в піщаних пустелях."
+                ),
+                Fact(
+                    en = "They are 'sand swimmers'—they can completely bury themselves in loose soil within seconds if startled.",
+                    ru = "Их называют «песчаными пловцами» — испугавшись, они могут за секунды целиком зарыться в рыхлую землю.",
+                    uk = "Їх називають «піщаними плавцями» — злякавшись, вони можуть за лічені секунди повністю заритися в пухку землю."
+                )
+            )
+        ),
+        Animal(
+            id = "wolverine",
+            nameEn = "Wolverine",
+            nameRu = "Росомаха",
+            nameUk = "Росомаха",
+            aliasesEn = listOf("wolverine", "glutton"),
+            aliasesRu = listOf("росомаха"),
+            aliasesUk = listOf("росомаха"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/wolverine.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            hints = mapOf(
+                "барсук" to "game.hint.wolverine_not_badger",
+                "badger" to "game.hint.wolverine_not_badger"
+            ),
+            facts = listOf(
+                Fact(
+                    en = "Wolverines are highly aggressive and can defend kills against larger predators when necessary.",
+                    ru = "Росомахи отличаются высокой агрессивностью и способны защищать добычу от более крупных хищников.",
+                    uk = "Росомахи відрізняються високою агресивністю та здатні захищати здобич від більших хижаків."
+                ),
+                Fact(
+                    en = "Their dense frost-resistant fur is unique because it doesn't trap moisture, preventing it from freezing.",
+                    ru = "Их плотный мех уникален: он полностью отталкивает влагу, благодаря чему никогда не покрывается коркой льда.",
+                    uk = "Їхнє щільне хутро унікальне: воно повністю відштовхує вологу, завдяки чому ніколи не покривається кіркою льоду."
+                )
+            )
+        ),
+        Animal(
+            id = "european_bison",
+            nameEn = "European Bison",
+            nameRu = "Зубр",
+            nameUk = "Зубр",
+            aliasesEn = listOf("european bison", "wisent"),
+            aliasesRu = listOf("зубр", "европейский бизон"),
+            aliasesUk = listOf("зубр", "європейський бізон"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/european_bison.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            hints = mapOf(
+                "бизон" to "game.hint.wisent_not_bison",
+                "bison" to "game.hint.wisent_not_bison",
+                "american bison" to "game.hint.wisent_not_bison"
+            ),
+            facts = listOf(
+                Fact(
+                    en = "The European bison is the heaviest land animal in Europe, saved from total extinction through careful breeding programs.",
+                    ru = "Зубр — самое тяжелое наземное животное Европы, которое удалось спасти от полного вымирания буквально в последний момент.",
+                    uk = "Зубр — найважча наземна тварина Європи, яку вдалося врятувати від повного вимирання буквально в останній момент."
+                ),
+                Fact(
+                    en = "They are strictly forest dwellers, unlike their open-plain American cousins.",
+                    ru = "В отличие от американских сородичей, предпочитающих открытые прерии, зубры — исключительно лесные жители.",
+                    uk = "На відміну від американських родичів, які віддають перевагу відкритим преріям, зубри — виключно лісові мешканці."
+                )
+            )
+        ),
+        Animal(
+            id = "african_elephant",
+            nameEn = "African Elephant",
+            nameRu = "Африканский слон",
+            nameUk = "Африканський слон",
+            aliasesEn = listOf("african elephant", "elephant"),
+            aliasesRu = listOf("африканский слон", "слон", "слоник"),
+            aliasesUk = listOf("африканський слон", "слон", "слоник"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/african_elephant.jpg",
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "Their trunks contain over 40,000 different muscles, allowing them to pick up a single blade of grass or knock down trees.",
+                    ru = "Их хобот содержит более 40 000 различных мышц, что позволяет им поднимать как одну травинку, так и валить огромные деревья.",
+                    uk = "Їхній хобот містить понад 40 000 різних м'язів, що дозволяє їм піднімати як одну травинку, так і валити величезні дерева."
+                ),
+                Fact(
+                    en = "African elephants can recognize themselves in a mirror, demonstrating a high level of self-awareness and intelligence.",
+                    ru = "Африканские слоны способны узнавать себя в зеркале, что доказывает их высокий уровень самосознания и интеллекта.",
+                    uk = "Африканські слони здатні впізнавати себе в дзеркалі, що доводить їхній високий рівень самосвідомості та інтелекту."
+                ),
+                Fact(
+                    en = "They use their massive ears not just for hearing, but as air conditioners to cool down blood pumping through them.",
+                    ru = "Они используют свои массивные уши как кондиционеры для охлаждения крови, циркулирующей по многочисленным сосудам.",
+                    uk = "Вони використовують свої масивні вуха як кондиціонери для охолодження крові, що циркулює по численних судинах."
+                )
+            )
+        ),
+        Animal(
+            id = "axolotl",
+            nameEn = "Axolotl",
+            nameRu = "Аксолотль",
+            nameUk = "Аксолотль",
+            aliasesEn = listOf("axolotl", "water dragon"),
+            aliasesRu = listOf("аксолотль", "водяной дракон", "водяной дракончик", "аксик"),
+            aliasesUk = listOf("аксолотль", "водяний дракон", "аксик"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/axolotl.jpg",
+            region = Region.RIVERS_LAKES,
+            facts = listOf(
+                Fact(
+                    en = "Axolotls are famous for their incredible healing powers, capable of perfectly regenerating lost limbs, tails, and even parts of their brains.",
+                    ru = "Аксолотли знамениты своей невероятной регенерацией: они могут полностью восстанавливать утраченные лапы, хвост и даже части мозга.",
+                    uk = "Аксолотлі знамениті своєю неймовірною регенерацією: вони можуть повністю відновлювати втрачені лапи, хвіст і навіть частини мозку."
+                ),
+                Fact(
+                    en = "They retain their larval features their entire lives without ever undergoing full metamorphosis, a trait known as neoteny.",
+                    ru = "Они всю жизнь сохраняют личиночный вид и не проходят через полноценное превращение во взрослую амфибию — это называется неотенией.",
+                    uk = "Вони все життя зберігають личинковий вигляд і не проходять через повноцінне перетворення на дорослу амфібію — це називається неотенією."
+                )
+            )
+        ),
+        Animal(
+            id = "polar_bear",
+            nameEn = "Polar Bear",
+            nameRu = "Белый медведь",
+            nameUk = "Полярний ведмідь",
+            aliasesEn = listOf("polar bear", "ice bear"),
+            aliasesRu = listOf("белый медведь", "полярный медведь"),
+            aliasesUk = listOf("полярний ведмідь", "білий ведмідь"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/polar_bear.jpg",
+            region = Region.ARCTIC,
+            facts = listOf(
+                Fact(
+                    en = "Underneath their thick white camouflage fur, polar bears actually have pitch-black skin to absorb heat from the sun.",
+                    ru = "Под густым белым маскировочным мехом у белых медведей скрывается абсолютно чёрная кожа, помогающая поглощать солнечное тепло.",
+                    uk = "Під густим білим маскувальним хутром у білих ведмедів ховається абсолютно чорна шкіра, що допомагає поглинати сонячне тепло."
+                ),
+                Fact(
+                    en = "Polar bears are marine mammals in a biological sense due to their dependence on sea ice habitats and marine hunting.",
+                    ru = "Белые медведи считаются морскими млекопитающими из-за зависимости от морского льда и морской добычи.",
+                    uk = "Білі ведмеді вважаються морськими ссавцями через залежність від морського льоду та морського полювання."
+                )
+            )
+        ),
+        Animal(
+            id = "ostrich",
+            nameEn = "Common Ostrich",
+            nameRu = "Обыкновенный страус",
+            nameUk = "Страус звичайний",
+            aliasesEn = listOf("common ostrich", "ostrich"),
+            aliasesRu = listOf("обыкновенный страус", "страус"),
+            aliasesUk = listOf("страус звичайний", "страус"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/ostrich.jpg",
+            hints = mapOf(
+                "ему" to "game.hint.ostrich_not_emu",
+                "эму" to "game.hint.ostrich_not_emu",
+                "emu" to "game.hint.ostrich_not_emu"
+            ),
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "Contrary to a popular myth, ostriches do not bury their heads in the sand. They lower their heads to turn eggs, inspect nests, or search for food.",
+                    ru = "Вопреки распространённому мифу, страусы не прячут голову в песок. Они опускают её к земле, чтобы переворачивать яйца, проверять гнездо или искать пищу.",
+                    uk = "Попри поширений міф, страуси не ховають голову в пісок. Вони опускають її до землі, щоб перевертати яйця, перевіряти гніздо або шукати їжу."
+                ),
+                Fact(
+                    en = "The common ostrich is the largest living bird in the world, reaching up to 2.7 meters in height.",
+                    ru = "Обыкновенный страус — крупнейшая современная птица в мире, достигающая почти 2,7 метра в высоту.",
+                    uk = "Страус звичайний — найбільший сучасний птах у світі, що сягає майже 2,7 метра заввишки."
+                ),
+                Fact(
+                    en = "Although they cannot fly, ostriches can run at speeds of up to 70 km/h, making them the fastest birds on land.",
+                    ru = "Несмотря на неспособность летать, страусы развивают скорость до 70 км/ч и являются самыми быстрыми птицами на суше.",
+                    uk = "Попри нездатність літати, страуси розвивають швидкість до 70 км/год і є найшвидшими птахами на суходолі."
+                )
+            )
+        )
+    )
+}
