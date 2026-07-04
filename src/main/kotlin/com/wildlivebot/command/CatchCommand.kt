@@ -3,7 +3,7 @@ package com.wildlivebot.command
 import com.wildlivebot.game.GameManager
 import com.wildlivebot.regestry.AnimalRepository
 import com.wildlivebot.utils.LangManager
-import com.wildlivebot.util.ImageUtils
+import com.wildlivebot.utils.ImageUtils
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
