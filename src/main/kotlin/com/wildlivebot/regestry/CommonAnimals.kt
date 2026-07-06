@@ -300,6 +300,11 @@ object CommonAnimals {
                     en = "Harbor seals haul out on land or ice to rest, molt, and reproduce.",
                     ru = "Тюлени выходят на сушу или лёд для отдыха, линьки и размножения.",
                     uk = "Тюлені виходять на сушу або лід для відпочинку, линьки та розмноження."
+                ),
+                Fact(
+                    en = "Harbor seals sometimes slap the surface of the water with their bellies or flippers to communicate with other seals, especially during the breeding season.",
+                    ru = "Обыкновенные тюлени иногда громко хлопают животом или ластами по поверхности воды, общаясь с другими тюленями, особенно в период размножения.",
+                    uk = "Звичайні тюлені іноді голосно ляскають животом або ластами по поверхні води, спілкуючись з іншими тюленями, особливо під час сезону розмноження."
                 )
             )
         ),
@@ -342,6 +347,80 @@ object CommonAnimals {
                     en = "Although small, they are highly social birds that communicate using a wide variety of chirps and calls.",
                     ru = "Несмотря на небольшой размер, это очень общительные птицы, использующие множество различных чириканий и других звуков для общения.",
                     uk = "Попри невеликий розмір, це дуже товариські птахи, які використовують безліч різних цвірінькань та інших звуків для спілкування."
+                )
+            )
+        ),
+        Animal(
+            id = "rock_pigeon",
+            nameEn = "Rock Pigeon",
+            nameRu = "Сизый голубь",
+            nameUk = "Сизий голуб",
+            aliasesEn = listOf("rock pigeon", "pigeon", "common pigeon"),
+            aliasesRu = listOf("сизый голубь", "голубь", "дикий голубь", "голуб"),
+            aliasesUk = listOf("сизий голуб", "голуб", "дикий голуб"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/rock_pigeon.jpg",
+            region = Region.CLIFFS,
+            facts = listOf(
+                Fact(
+                    en = "The rock pigeon is the wild ancestor of all domestic and feral pigeons found in cities around the world.",
+                    ru = "Сизый голубь — дикий предок всех домашних и городских голубей, встречающихся по всему миру.",
+                    uk = "Сизий голуб — дикий предок усіх свійських і міських голубів, яких можна зустріти по всьому світу."
+                ),
+                Fact(
+                    en = "Rock pigeons have excellent navigation abilities and can return to their nests from hundreds of kilometers away.",
+                    ru = "Сизые голуби обладают превосходной ориентацией и способны возвращаться к своему гнезду с расстояния в сотни километров.",
+                    uk = "Сизі голуби мають чудову здатність орієнтуватися та можуть повертатися до свого гнізда з відстані у сотні кілометрів."
+                ),
+                Fact(
+                    en = "Both parents produce a nutritious substance called crop milk to feed their chicks during the first days of life.",
+                    ru = "Оба родителя вырабатывают особое «голубиное молочко», которым кормят птенцов в первые дни жизни.",
+                    uk = "Обоє батьків виробляють особливе «голубине молочко», яким годують пташенят у перші дні життя."
+                )
+            )
+        ),
+        Animal(
+            id = "thomsons_gazelle",
+            nameEn = "Thomson's Gazelle",
+            nameRu = "Газель Томсона",
+            nameUk = "Газель Томсона",
+            aliasesEn = listOf(
+                "thomson's gazelle",
+                "thomsons gazelle",
+                "gazelle",
+                "thomson gazelle"
+            ),
+            aliasesRu = listOf(
+                "газель томсона",
+                "газель",
+                "газель томпсона"
+            ),
+            aliasesUk = listOf(
+                "газель томсона",
+                "газель"
+            ),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/thomsons_gazelle.jpg",
+            region = Region.SAVANNAS,
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic"
+            ),
+            facts = listOf(
+                Fact(
+                    en = "Thomson's gazelles are among the fastest land mammals and can reach speeds of up to 80 km/h (50 mph).",
+                    ru = "Газели Томсона — одни из самых быстрых наземных млекопитающих. Они способны развивать скорость до 80 км/ч.",
+                    uk = "Газелі Томсона — одні з найшвидших наземних ссавців. Вони здатні розвивати швидкість до 80 км/год."
+                ),
+                Fact(
+                    en = "When threatened, they perform high, springing jumps called stotting, which may confuse predators and demonstrate their fitness.",
+                    ru = "При опасности они совершают высокие прыжки, называемые стоттингом. Такое поведение может сбивать хищников с толку и демонстрировать отличную физическую форму.",
+                    uk = "У разі небезпеки вони виконують високі стрибки, що називаються стотингом. Така поведінка може збивати хижаків з пантелику та демонструвати чудову фізичну форму."
+                ),
+                Fact(
+                    en = "They are an important prey species for lions, cheetahs, leopards, and many other African predators.",
+                    ru = "Они являются одной из основных жертв львов, гепардов, леопардов и многих других африканских хищников.",
+                    uk = "Вони є однією з основних здобичей левів, гепардів, леопардів та багатьох інших африканських хижаків."
                 )
             )
         )

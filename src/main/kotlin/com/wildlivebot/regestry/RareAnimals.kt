@@ -216,9 +216,9 @@ object RareAnimals {
                     uk = "Передні ласти використовуються для пересування на суші та плавання у воді."
                 ),
                 Fact(
-                    en = "They are capable of complex learning and are commonly studied in marine mammal cognition research.",
-                    ru = "Они способны к сложному обучению и часто используются в исследованиях когнитивных способностей морских млекопитающих.",
-                    uk = "Вони здатні до складного навчання і часто використовуються в дослідженнях когнітивних здібностей морських ссавців."
+                    en = "California sea lions are highly intelligent and easily trained, making them popular performers in aquariums and marine parks around the world.",
+                    ru = "Калифорнийские морские львы отличаются высоким интеллектом и легко поддаются дрессировке, благодаря чему часто выступают в океанариумах и морских парках по всему миру.",
+                    uk = "Каліфорнійські морські леви вирізняються високим інтелектом і легко піддаються дресируванню, тому часто виступають в океанаріумах і морських парках по всьому світу."
                 )
             )
         ),
@@ -261,6 +261,68 @@ object RareAnimals {
                     en = "Ravens are much larger than crows and can be recognized by their massive bill and wedge-shaped tail in flight.",
                     ru = "Вороны заметно крупнее ворон, а в полёте их легко узнать по массивному клюву и клиновидному хвосту.",
                     uk = "Круки значно більші за ворон, а в польоті їх легко впізнати за масивним дзьобом і клиноподібним хвостом."
+                )
+            )
+        ),
+        Animal(
+            id = "barn_swallow",
+            nameEn = "Barn Swallow",
+            nameRu = "Деревенская ласточка",
+            nameUk = "Сільська ластівка",
+            aliasesEn = listOf("barn swallow", "swallow"),
+            aliasesRu = listOf("деревенская ласточка", "ласточка", "касатка"),
+            aliasesUk = listOf("сільська ластівка", "ластівка", "касатка"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/barn_swallow.jpg",
+            hints = mapOf(
+                "стриж" to "game.hint.swallow_not_swift",
+                "swift" to "game.hint.swallow_not_swift"
+            ),
+            region = Region.GRASSLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Barn swallows are migratory birds found across Europe, Asia, Africa, and the Americas.",
+                    ru = "Деревенские ласточки — перелётные птицы, распространённые в Европе, Азии, Африке и Америке.",
+                    uk = "Сільські ластівки — перелітні птахи, поширені в Європі, Азії, Африці та Америці."
+                ),
+                Fact(
+                    en = "They catch insects in flight, spending most of the day hunting while airborne.",
+                    ru = "Они ловят насекомых прямо в полёте, проводя большую часть дня в воздухе.",
+                    uk = "Вони ловлять комах просто в польоті, проводячи більшу частину дня в повітрі."
+                ),
+                Fact(
+                    en = "Although often confused with swifts, barn swallows have a deeply forked tail and can perch on branches and wires.",
+                    ru = "Их часто путают со стрижами, однако ласточек легко узнать по глубоко раздвоенному хвосту и способности сидеть на ветках и проводах.",
+                    uk = "Їх часто плутають зі стрижами, проте ластівок легко впізнати за глибоко роздвоєним хвостом і здатністю сидіти на гілках та дротах."
+                )
+            )
+        ),
+        Animal(
+            id = "plains_zebra",
+            nameEn = "Plains Zebra",
+            nameRu = "Равнинная зебра",
+            nameUk = "Рівнинна зебра",
+            aliasesEn = listOf("plains zebra", "zebra"),
+            aliasesRu = listOf("равнинная зебра", "зебра"),
+            aliasesUk = listOf("рівнинна зебра", "зебра"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/plains_zebra.jpg",
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "Despite popular belief, zebras have black skin. Their white stripes are areas where the fur lacks pigment.",
+                    ru = "Несмотря на распространённое мнение, кожа у зебр чёрная. Белые полосы — это участки шерсти, лишённые пигмента.",
+                    uk = "Попри поширену думку, шкіра зебр чорна. Білі смуги — це ділянки шерсті без пігменту."
+                ),
+                Fact(
+                    en = "Every zebra has a unique stripe pattern, much like a human fingerprint.",
+                    ru = "У каждой зебры уникальный рисунок полос, подобно отпечаткам пальцев у человека.",
+                    uk = "Кожна зебра має унікальний візерунок смуг, подібно до відбитків пальців у людини."
+                ),
+                Fact(
+                    en = "Living in herds helps zebras spot predators early and increases their chances of survival.",
+                    ru = "Жизнь в стаде помогает зебрам раньше замечать хищников и повышает их шансы на выживание.",
+                    uk = "Життя в табуні допомагає зебрам раніше помічати хижаків і підвищує їхні шанси на виживання."
                 )
             )
         )

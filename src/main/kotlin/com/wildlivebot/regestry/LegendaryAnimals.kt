@@ -252,14 +252,24 @@ object LegendaryAnimals {
                     uk = "Їхній хобот містить понад 40 000 різних м'язів, що дозволяє їм піднімати як одну травинку, так і валити величезні дерева."
                 ),
                 Fact(
-                    en = "African elephants can recognize themselves in a mirror, demonstrating a high level of self-awareness and intelligence.",
-                    ru = "Африканские слоны способны узнавать себя в зеркале, что доказывает их высокий уровень самосознания и интеллекта.",
-                    uk = "Африканські слони здатні впізнавати себе в дзеркалі, що доводить їхній високий рівень самосвідомості та інтелекту."
+                    en = "African elephants communicate using powerful low-frequency sounds that can travel several kilometers, allowing distant herds to stay in contact.",
+                    ru = "Африканские слоны общаются с помощью мощных инфразвуковых сигналов, которые распространяются на несколько километров и позволяют стадам поддерживать связь на больших расстояниях.",
+                    uk = "Африканські слони спілкуються за допомогою потужних інфразвукових сигналів, які поширюються на кілька кілометрів і дозволяють стадам підтримувати зв'язок на великих відстанях."
                 ),
                 Fact(
                     en = "They use their massive ears not just for hearing, but as air conditioners to cool down blood pumping through them.",
                     ru = "Они используют свои массивные уши как кондиционеры для охлаждения крови, циркулирующей по многочисленным сосудам.",
                     uk = "Вони використовують свої масивні вуха як кондиціонери для охолодження крові, що циркулює по численних судинах."
+                ),
+                Fact(
+                    en = "African elephants have exceptional long-term memory. They can remember migration routes, water sources, and recognize other elephants even after many years.",
+                    ru = "Африканские слоны обладают феноменальной долговременной памятью. Они запоминают маршруты миграций, водопои и узнают других слонов даже спустя многие годы.",
+                    uk = "Африканські слони мають феноменальну довготривалу пам'ять. Вони запам'ятовують маршрути міграції, водопої та впізнають інших слонів навіть через багато років."
+                ),
+                Fact(
+                    en = "Adult males periodically enter a state called musth, during which testosterone levels rise dramatically, making them far more aggressive and increasing their chances of mating.",
+                    ru = "Взрослые самцы периодически входят в состояние, называемое муст. В это время уровень тестостерона резко возрастает, из-за чего они становятся значительно агрессивнее и получают больше шансов на размножение.",
+                    uk = "Дорослі самці періодично входять у стан, який називається муст. У цей час рівень тестостерону різко зростає, через що вони стають значно агресивнішими та мають більше шансів на розмноження."
                 )
             )
         ),
@@ -342,6 +352,64 @@ object LegendaryAnimals {
                     en = "Although they cannot fly, ostriches can run at speeds of up to 70 km/h, making them the fastest birds on land.",
                     ru = "Несмотря на неспособность летать, страусы развивают скорость до 70 км/ч и являются самыми быстрыми птицами на суше.",
                     uk = "Попри нездатність літати, страуси розвивають швидкість до 70 км/год і є найшвидшими птахами на суходолі."
+                )
+            )
+        ),
+        Animal(
+            id = "southern_cassowary",
+            nameEn = "Southern Cassowary",
+            nameRu = "Южный казуар",
+            nameUk = "Південний казуар",
+            aliasesEn = listOf("southern cassowary", "cassowary"),
+            aliasesRu = listOf("южный казуар", "казуар"),
+            aliasesUk = listOf("південний казуар", "казуар"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/southern_cassowary.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Southern cassowaries inhabit the tropical rainforests of northeastern Australia and New Guinea.",
+                    ru = "Южные казуары обитают во влажных тропических лесах северо-востока Австралии и Новой Гвинеи.",
+                    uk = "Південні казуари мешкають у вологих тропічних лісах північного сходу Австралії та Нової Гвінеї."
+                ),
+                Fact(
+                    en = "Cassowaries are among the largest birds in the world and have a sharp claw on each foot that can reach up to 12 cm in length.",
+                    ru = "Казуары — одни из крупнейших птиц в мире. На каждой ноге у них есть острый коготь длиной до 12 см.",
+                    uk = "Казуари — одні з найбільших птахів у світі. На кожній нозі вони мають гострий кіготь завдовжки до 12 см."
+                ),
+                Fact(
+                    en = "Female cassowaries lay striking emerald-green eggs, after which the male incubates them and raises the chicks alone.",
+                    ru = "Самки казуаров откладывают удивительные изумрудно-зелёные яйца, после чего самец самостоятельно высиживает их и заботится о птенцах.",
+                    uk = "Самки казуарів відкладають дивовижні смарагдово-зелені яйця, після чого самець самостійно висиджує їх і доглядає за пташенятами."
+                )
+            )
+        ),
+        Animal(
+            id = "king_penguin",
+            nameEn = "King Penguin",
+            nameRu = "Королевский пингвин",
+            nameUk = "Королівський пінгвін",
+            aliasesEn = listOf("king penguin", "penguin"),
+            aliasesRu = listOf("королевский пингвин", "пингвин"),
+            aliasesUk = listOf("королівський пінгвін", "пінгвін"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/king_penguin.jpg",
+            region = Region.ANTARCTICA,
+            facts = listOf(
+                Fact(
+                    en = "King penguins inhabit subantarctic islands and the cold waters surrounding Antarctica.",
+                    ru = "Королевские пингвины обитают на субантарктических островах и в холодных водах, окружающих Антарктиду.",
+                    uk = "Королівські пінгвіни мешкають на субантарктичних островах і в холодних водах навколо Антарктиди."
+                ),
+                Fact(
+                    en = "King penguins do not build nests. Instead, they balance their single egg on their feet and keep it warm beneath a fold of skin.",
+                    ru = "Королевские пингвины не строят гнёзд. Единственное яйцо они удерживают на лапах и согревают под специальной кожной складкой.",
+                    uk = "Королівські пінгвіни не будують гнізд. Єдине яйце вони тримають на лапах і зігрівають під спеціальною шкірною складкою."
+                ),
+                Fact(
+                    en = "Parents take turns caring for the egg and chick, sometimes traveling hundreds of kilometers across the ocean in search of food.",
+                    ru = "Родители по очереди заботятся о яйце и птенце, иногда преодолевая сотни километров по океану в поисках пищи.",
+                    uk = "Батьки по черзі доглядають за яйцем і пташеням, іноді долаючи сотні кілометрів океаном у пошуках їжі."
                 )
             )
         )

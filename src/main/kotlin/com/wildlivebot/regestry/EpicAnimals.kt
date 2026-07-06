@@ -388,6 +388,99 @@ object EpicAnimals {
                     uk = "Під час шлюбного ритуалу самець розкриває свій віял і швидко вібрує ним, створюючи шелест і мерехтливий ефект, що приваблює самок."
                 )
             )
+        ),
+        Animal(
+            id = "shoebill",
+            nameEn = "Shoebill",
+            nameRu = "Китоглав",
+            nameUk = "Китоголов",
+            aliasesEn = listOf("shoebill", "shoebill stork", "whalehead"),
+            aliasesRu = listOf("китоглав"),
+            aliasesUk = listOf("китоголов"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/shoebill.jpg",
+            region = Region.WETLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Shoebills inhabit the vast freshwater swamps of Central and East Africa, where they patiently hunt fish.",
+                    ru = "Китоглавы обитают на обширных пресноводных болотах Центральной и Восточной Африки, где терпеливо охотятся на рыбу.",
+                    uk = "Китоголови мешкають на великих прісноводних болотах Центральної та Східної Африки, де терпляче полюють на рибу."
+                ),
+                Fact(
+                    en = "Their enormous shoe-shaped bill allows them to catch large prey such as lungfish, catfish, and even young crocodiles.",
+                    ru = "Огромный клюв в форме башмака позволяет им ловить крупную добычу: двоякодышащих рыб, сомов и даже молодых крокодилов.",
+                    uk = "Величезний дзьоб у формі черевика дає змогу ловити велику здобич: дводишних риб, сомів і навіть молодих крокодилів."
+                ),
+                Fact(
+                    en = "Shoebills are threatened by habitat loss and illegal hunting. Protect these remarkable birds—never buy wildlife trophies or products made from them.",
+                    ru = "Китоглавам угрожают уничтожение болот и незаконная охота. Берегите этих удивительных птиц — никогда не покупайте трофеи и изделия из диких животных.",
+                    uk = "Китоголовам загрожують знищення боліт і незаконне полювання. Бережіть цих дивовижних птахів — ніколи не купуйте трофеї та вироби з диких тварин."
+                )
+            )
+        ),
+        Animal(
+            id = "gerenuk",
+            nameEn = "Gerenuk",
+            nameRu = "Геренук",
+            nameUk = "Геренук",
+            aliasesEn = listOf("gerenuk", "giraffe gazelle"),
+            aliasesRu = listOf("геренук", "жирафовая газель"),
+            aliasesUk = listOf("геренук", "жирафова газель"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/gerenuk.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            region = Region.SAVANNAS,
+            facts = listOf(
+                Fact(
+                    en = "Gerenuks have unusually long necks and legs, allowing them to reach leaves that most other antelopes cannot.",
+                    ru = "Геренуки отличаются необычайно длинной шеей и ногами, благодаря которым могут доставать листья, недоступные большинству других антилоп.",
+                    uk = "Геренуки мають надзвичайно довгу шию та ноги, завдяки яким можуть діставати листя, недоступне більшості інших антилоп."
+                ),
+                Fact(
+                    en = "They often stand upright on their hind legs while feeding, balancing without support for several minutes.",
+                    ru = "Во время кормления они часто встают на задние ноги и могут удерживать равновесие без опоры в течение нескольких минут.",
+                    uk = "Під час живлення вони часто стають на задні ноги й можуть утримувати рівновагу без опори протягом кількох хвилин."
+                ),
+                Fact(
+                    en = "Unlike many other antelopes, gerenuks can survive for long periods without drinking, obtaining most of their water from the plants they eat.",
+                    ru = "В отличие от многих других антилоп, геренуки могут долго обходиться без питья, получая большую часть влаги из растений.",
+                    uk = "На відміну від багатьох інших антилоп, геренуки можуть довго обходитися без пиття, отримуючи більшість вологи з рослин."
+                )
+            )
+        ),
+        Animal(
+            id = "mountain_goat",
+            nameEn = "Mountain Goat",
+            nameRu = "Горный козёл",
+            nameUk = "Гірський козел",
+            aliasesEn = listOf("mountain goat", "goat"),
+            aliasesRu = listOf("горный козёл", "горный козел", "козёл", "козел", "снежная коза"),
+            aliasesUk = listOf("гірський козел", "козел", "cнігова коза"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/mountain_goat.jpg",
+            region = Region.MOUNTAINS,
+            facts = listOf(
+                Fact(
+                    en = "Mountain goats inhabit steep rocky mountains in western North America.",
+                    ru = "Горные козлы обитают на крутых скалистых склонах западной части Северной Америки.",
+                    uk = "Гірські козли мешкають на крутих скелястих схилах заходу Північної Америки."
+                ),
+                Fact(
+                    en = "Their hooves have hard outer edges and soft rubber-like pads, giving them exceptional grip on narrow cliffs.",
+                    ru = "Их копыта имеют твёрдый внешний край и мягкие цепкие подушечки, благодаря которым они уверенно держатся даже на почти отвесных скалах.",
+                    uk = "Їхні копита мають твердий зовнішній край і м'які чіпкі подушечки, завдяки яким вони впевнено тримаються навіть на майже стрімких скелях."
+                ),
+                Fact(
+                    en = "Both males and females have black horns that continue growing throughout their lives.",
+                    ru = "И самцы, и самки имеют чёрные рога, которые продолжают расти на протяжении всей жизни.",
+                    uk = "І самці, і самки мають чорні роги, які ростуть упродовж усього життя."
+                )
+            )
         )
     )
 }

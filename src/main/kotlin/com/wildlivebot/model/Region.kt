@@ -75,5 +75,10 @@ enum class Region(
         "Antarctica",
         "Антарктида",
         "Антарктида"
+    ),
+    CLIFFS(
+    "Cliffs",
+    "Скалы",
+    "Скелі"
     )
 }
