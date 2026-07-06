@@ -22,12 +22,12 @@ A feature-rich, multi-language Discord bot built with **Kotlin** and **JDA (Java
 ## How to Run
 
 ### 1. Environment Variables
-The bot follows security best practices and does not hardcode private tokens. Before running the application, you must pass your Discord Bot Token via your system's environment variables:
+Before running the application, you must pass your Discord Bot Token via your system's environment variables:
 * **Variable Name:** `BOT_TOKEN`
 * **Variable Value:** `your_discord_bot_token_here`
 
 ### 2. Building and Running with Gradle
-The project is fully configured and ready to build. Open your terminal in the root directory and run:
+Open your terminal in the root directory and run:
 
 ```bash
 # On Windows:
