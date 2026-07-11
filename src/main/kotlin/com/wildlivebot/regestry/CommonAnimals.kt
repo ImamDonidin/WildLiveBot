@@ -423,6 +423,64 @@ object CommonAnimals {
                     uk = "Вони є однією з основних здобичей левів, гепардів, леопардів та багатьох інших африканських хижаків."
                 )
             )
+        ),
+        Animal(
+            id = "black_winged_stilt",
+            nameEn = "Black-winged Stilt",
+            nameRu = "Ходулочник",
+            nameUk = "Ходуличник",
+            aliasesEn = listOf("black-winged stilt", "stilt"),
+            aliasesRu = listOf("ходулочник"),
+            aliasesUk = listOf("ходуличник"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/black_winged_stilt.jpg",
+            region = Region.WETLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Black-winged stilts inhabit shallow wetlands, marshes, and lake shores across much of the world.",
+                    ru = "Ходулочники обитают на мелководных болотах, озёрах и других водно-болотных угодьях во многих частях света.",
+                    uk = "Ходуличники мешкають на мілководних болотах, озерах та інших водно-болотних угіддях у багатьох куточках світу."
+                ),
+                Fact(
+                    en = "Their legs are among the longest relative to body size of any bird, allowing them to wade through shallow water with ease.",
+                    ru = "Их ноги — одни из самых длинных относительно размеров тела среди всех птиц, что позволяет им легко передвигаться по мелководью.",
+                    uk = "Їхні ноги — одні з найдовших відносно розміру тіла серед усіх птахів, що дозволяє їм легко пересуватися мілководдям."
+                ),
+                Fact(
+                    en = "They feed by carefully picking insects, crustaceans, and other small aquatic animals from the water's surface or mud.",
+                    ru = "Они осторожно собирают с поверхности воды и ила насекомых, ракообразных и других мелких водных животных.",
+                    uk = "Вони обережно збирають з поверхні води та мулу комах, ракоподібних та інших дрібних водних тварин."
+                )
+            )
+        ),
+        Animal(
+            id = "greater_egyptian_jerboa",
+            nameEn = "Greater Egyptian Jerboa",
+            nameRu = "Большой египетский тушканчик",
+            nameUk = "Великий єгипетський тушканчик",
+            aliasesEn = listOf("greater egyptian jerboa", "egyptian jerboa", "jerboa"),
+            aliasesRu = listOf("большой египетский тушканчик", "египетский тушканчик", "тушканчик"),
+            aliasesUk = listOf("великий єгипетський тушканчик", "єгипетський тушканчик", "тушканчик"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/greater_egyptian_jerboa.jpg",
+            region = Region.DESERTS_SEMIDESERTS,
+            facts = listOf(
+                Fact(
+                    en = "Greater Egyptian jerboas inhabit the deserts and semi-deserts of North Africa and the Middle East, where they spend the daytime in underground burrows.",
+                    ru = "Большие египетские тушканчики обитают в пустынях и полупустынях Северной Африки и Ближнего Востока, проводя день в подземных норах.",
+                    uk = "Великі єгипетські тушканчики мешкають у пустелях і напівпустелях Північної Африки та Близького Сходу, проводячи день у підземних норах."
+                ),
+                Fact(
+                    en = "They travel by long, kangaroo-like jumps and can leap several meters in a single bound while using their tail for balance.",
+                    ru = "Они передвигаются длинными прыжками, словно миниатюрные кенгуру, и используют хвост для удержания равновесия.",
+                    uk = "Вони пересуваються довгими стрибками, немов крихітні кенгуру, і використовують хвіст для підтримання рівноваги."
+                ),
+                Fact(
+                    en = "Their enormous ears provide excellent hearing and help release excess body heat, an important adaptation for surviving in hot deserts.",
+                    ru = "Их огромные уши обеспечивают превосходный слух и помогают отводить лишнее тепло — важное приспособление для жизни в жаркой пустыне.",
+                    uk = "Їхні величезні вуха забезпечують чудовий слух і допомагають відводити зайве тепло — важливе пристосування для життя в спекотній пустелі."
+                )
+            )
         )
     )
 }

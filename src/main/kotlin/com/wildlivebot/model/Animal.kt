@@ -4,7 +4,8 @@ enum class Rarity(val displayName: String, val colorHex: String, val rewardPoint
     COMMON("Common", "#7F8C8D", 100),
     RARE("Rare", "#3498DB", 150),
     EPIC("Epic", "#9B59B6", 250),
-    LEGENDARY("Legendary", "#F1C40F", 500)
+    LEGENDARY("Legendary", "#F1C40F", 500),
+    MYTHIC("Mythic", "#CC0605", 1000)
 }
 
 data class Animal(

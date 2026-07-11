@@ -5,15 +5,21 @@ import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
 
 object AnimalRepository {
-    private val animals = CommonAnimals.list + RareAnimals.list + EpicAnimals.list + LegendaryAnimals.list
+    private val animals = CommonAnimals.list +
+            RareAnimals.list +
+            EpicAnimals.list +
+            LegendaryAnimals.list +
+            MythicAnimals.list
 
     fun getRandomAnimal(targetRegion: Region? = null): Animal {
         val roll = (1..100).random()
+
         val selectedRarity = when {
-            roll <= 50 -> Rarity.COMMON
-            roll <= 75 -> Rarity.RARE
-            roll <= 90 -> Rarity.EPIC
-            else -> Rarity.LEGENDARY
+            roll <= 45 -> Rarity.COMMON
+            roll <= 70 -> Rarity.RARE
+            roll <= 85 -> Rarity.EPIC
+            roll <= 97 -> Rarity.LEGENDARY
+            else -> Rarity.MYTHIC
         }
 
         var pool = animals.filter { it.rarity == selectedRarity }

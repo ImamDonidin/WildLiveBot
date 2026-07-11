@@ -412,6 +412,35 @@ object LegendaryAnimals {
                     uk = "Батьки по черзі доглядають за яйцем і пташеням, іноді долаючи сотні кілометрів океаном у пошуках їжі."
                 )
             )
+        ),
+        Animal(
+            id = "narwhal",
+            nameEn = "Narwhal",
+            nameRu = "Нарвал",
+            nameUk = "Нарвал",
+            aliasesEn = listOf("narwhal"),
+            aliasesRu = listOf("нарвал", "морской единорог"),
+            aliasesUk = listOf("нарвал", "морський єдиноріг"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/narwhal.jpg",
+            region = Region.OCEANS,
+            facts = listOf(
+                Fact(
+                    en = "Narwhals inhabit the icy Arctic waters around Greenland, Canada, and Russia.",
+                    ru = "Нарвалы обитают в холодных арктических водах у берегов Гренландии, Канады и России.",
+                    uk = "Нарвали мешкають у холодних арктичних водах біля берегів Гренландії, Канади та Росії."
+                ),
+                Fact(
+                    en = "The famous 'horn' of a narwhal is actually an elongated canine tooth that can grow up to 3 meters long and contains millions of nerve endings.",
+                    ru = "Знаменитый «рог» нарвала на самом деле является сильно удлинённым клыком, который может достигать 3 метров в длину и содержит миллионы нервных окончаний.",
+                    uk = "Знаменитий «ріг» нарвала насправді є сильно видовженим іклом, яке може сягати 3 метрів завдовжки та містить мільйони нервових закінчень."
+                ),
+                Fact(
+                    en = "Because of their long tusk, narwhals have often been called the 'unicorns of the sea'.",
+                    ru = "Из-за длинного бивня нарвалов часто называют «морскими единорогами».",
+                    uk = "Через довгий бивень нарвалів часто називають «морськими єдинорогами»."
+                )
+            )
         )
     )
 }

@@ -325,6 +325,99 @@ object RareAnimals {
                     uk = "Життя в табуні допомагає зебрам раніше помічати хижаків і підвищує їхні шанси на виживання."
                 )
             )
+        ),
+        Animal(
+            id = "black_skimmer",
+            nameEn = "Black Skimmer",
+            nameRu = "Чёрный водорез",
+            nameUk = "Чорний водоріз",
+            aliasesEn = listOf("black skimmer", "skimmer"),
+            aliasesRu = listOf("чёрный водорез", "черный водорез", "водорез"),
+            aliasesUk = listOf("чорний водоріз", "водоріз"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/black_skimmer.jpg",
+            region = Region.COASTS,
+            facts = listOf(
+                Fact(
+                    en = "Black skimmers are coastal birds famous for their unique hunting technique. They fly low over the water with the lower half of their bill slicing through the surface until it snaps shut on a fish.",
+                    ru = "Чёрные водорезы — прибрежные птицы, знаменитые необычным способом охоты. Они летят прямо над водой, погружая нижнюю часть клюва в воду, пока та не захлопнется на добыче.",
+                    uk = "Чорні водорізи — прибережні птахи, відомі своїм незвичайним способом полювання. Вони летять просто над водою, занурюючи нижню частину дзьоба у воду, доки він не захлопнеться на здобичі."
+                ),
+                Fact(
+                    en = "They are primarily ichthyophagous, meaning that fish make up the majority of their diet.",
+                    ru = "Они являются преимущественно ихтиофагами — основу их рациона составляет рыба.",
+                    uk = "Вони є переважно іхтіофагами — основу їхнього раціону становить риба."
+                ),
+                Fact(
+                    en = "The lower mandible of a black skimmer is noticeably longer than the upper one, a rare adaptation among birds.",
+                    ru = "Нижняя часть клюва у чёрного водореза заметно длиннее верхней — это очень редкое приспособление среди птиц.",
+                    uk = "Нижня частина дзьоба у чорного водоріза помітно довша за верхню — це дуже рідкісне пристосування серед птахів."
+                )
+            )
+        ),
+        Animal(
+            id = "grey_heron",
+            nameEn = "Grey Heron",
+            nameRu = "Серая цапля",
+            nameUk = "Сіра чапля",
+            aliasesEn = listOf("grey heron", "gray heron", "heron"),
+            aliasesRu = listOf("серая цапля", "цапля"),
+            aliasesUk = listOf("сіра чапля", "чапля"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/grey_heron.jpg",
+            region = Region.WETLANDS,
+            facts = listOf(
+                Fact(
+                    en = "Grey herons inhabit wetlands, lakes, rivers, and coastal areas across Europe, Asia, and parts of Africa.",
+                    ru = "Серые цапли обитают на болотах, озёрах, реках и морских побережьях Европы, Азии и части Африки.",
+                    uk = "Сірі чаплі мешкають на болотах, озерах, річках і морських узбережжях Європи, Азії та частини Африки."
+                ),
+                Fact(
+                    en = "They are primarily ichthyophagous, feeding mainly on fish, though they also catch amphibians, reptiles, insects, and small mammals.",
+                    ru = "Они являются преимущественно ихтиофагами, питаясь в основном рыбой, хотя также ловят земноводных, пресмыкающихся, насекомых и мелких млекопитающих.",
+                    uk = "Вони є переважно іхтіофагами, живлячись головним чином рибою, хоча також ловлять земноводних, плазунів, комах і дрібних ссавців."
+                ),
+                Fact(
+                    en = "Grey herons can stand perfectly still for several minutes before striking prey with a lightning-fast stab of their bill.",
+                    ru = "Серые цапли могут неподвижно стоять несколько минут, а затем молниеносно пронзить добычу своим длинным клювом.",
+                    uk = "Сірі чаплі можуть нерухомо стояти кілька хвилин, а потім блискавично вразити здобич своїм довгим дзьобом."
+                )
+            )
+        ),
+        Animal(
+            id = "kirks_dik_dik",
+            nameEn = "Kirk's Dik-dik",
+            nameRu = "Дик-дик Кирка",
+            nameUk = "Дік-дік Кірка",
+            aliasesEn = listOf("kirk's dik-dik", "dik-dik", "dikdik"),
+            aliasesRu = listOf("дик-дик кирка", "дик-дик", "дикдик"),
+            aliasesUk = listOf("дік-дік Кірка", "дік-дік", "дікдік"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/kirks_dik_dik.jpg",
+            region = Region.SAVANNAS,
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            facts = listOf(
+                Fact(
+                    en = "Kirk's dik-diks are among the smallest antelopes in the world, standing only about 35–45 cm tall.",
+                    ru = "Дик-дики Кирка — одни из самых маленьких антилоп в мире. Их высота составляет всего около 35–45 см.",
+                    uk = "Дік-діки Кірка — одні з найменших антилоп у світі. Їхня висота становить лише близько 35–45 см."
+                ),
+                Fact(
+                    en = "Their name comes from the sharp alarm call they make when frightened, which sounds like 'dik-dik'.",
+                    ru = "Своё название они получили благодаря тревожному крику, который звучит примерно как «дик-дик».",
+                    uk = "Свою назву вони отримали завдяки тривожному крику, який звучить приблизно як «дік-дік»."
+                ),
+                Fact(
+                    en = "Unlike many antelopes, dik-diks usually form lifelong pairs and defend a shared territory together.",
+                    ru = "В отличие от многих антилоп, дик-дики обычно образуют пары на всю жизнь и вместе защищают свою территорию.",
+                    uk = "На відміну від багатьох антилоп, дік-діки зазвичай утворюють пари на все життя й разом захищають свою територію."
+                )
+            )
         )
     )
 }

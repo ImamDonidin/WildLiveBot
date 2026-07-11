@@ -34,9 +34,12 @@ object ImageUtils {
             }
         }
 
+        val pathLower = imagePath.lowercase(Locale.ROOT)
+
         val format = when {
-            imagePath.lowercase(Locale.ROOT).endsWith(".png") -> "png"
-            else -> "jpg"
+            pathLower.endsWith(".png") -> "png"
+            pathLower.endsWith(".jpg") || pathLower.endsWith(".jpeg") || pathLower.endsWith(".jpe") -> "jpeg"
+            else -> "jpeg"
         }
 
         val imageType = if (format == "png") BufferedImage.TYPE_INT_ARGB else BufferedImage.TYPE_INT_RGB

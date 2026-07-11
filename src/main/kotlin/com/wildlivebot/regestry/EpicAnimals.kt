@@ -481,6 +481,35 @@ object EpicAnimals {
                     uk = "І самці, і самки мають чорні роги, які ростуть упродовж усього життя."
                 )
             )
+        ),
+        Animal(
+            id = "harpy_eagle",
+            nameEn = "Harpy Eagle",
+            nameRu = "Гарпия",
+            nameUk = "Гарпія",
+            aliasesEn = listOf("harpy eagle", "harpy"),
+            aliasesRu = listOf("гарпия", "орёл гарпия"),
+            aliasesUk = listOf("гарпія", "орел гарпія"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/harpy_eagle.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            facts = listOf(
+                Fact(
+                    en = "Harpy eagles inhabit the tropical rainforests of Central and South America, where they hunt in the forest canopy.",
+                    ru = "Гарпии обитают во влажных тропических лесах Центральной и Южной Америки, охотясь высоко в кронах деревьев.",
+                    uk = "Гарпії мешкають у вологих тропічних лісах Центральної та Південної Америки, полюючи високо в кронах дерев."
+                ),
+                Fact(
+                    en = "Their talons can reach 13 cm in length—longer than the claws of a grizzly bear—and are powerful enough to seize monkeys and sloths.",
+                    ru = "Их когти достигают 13 см в длину — они длиннее когтей медведя гризли и способны удерживать обезьян и ленивцев.",
+                    uk = "Їхні кігті сягають 13 см завдовжки — вони довші за кігті ведмедя гризлі й здатні утримувати мавп і лінивців."
+                ),
+                Fact(
+                    en = "Harpy eagles are among the strongest birds of prey in the world, capable of lifting prey weighing several kilograms.",
+                    ru = "Гарпии — одни из самых сильных хищных птиц в мире и способны поднимать добычу весом в несколько килограммов.",
+                    uk = "Гарпії — одні з найсильніших хижих птахів у світі й здатні підіймати здобич вагою в кілька кілограмів."
+                )
+            )
         )
     )
 }

@@ -85,12 +85,14 @@ class QuestsCommand : ListenerAdapter() {
                                     Rarity.RARE -> "Редкое"
                                     Rarity.EPIC -> "Эпическое"
                                     Rarity.LEGENDARY -> "Легендарное"
+                                    Rarity.MYTHIC -> "Мифическое"
                                 }
                                 DiscordLocale.UKRAINIAN -> when (rar) {
                                     Rarity.COMMON -> "Звичайне"
                                     Rarity.RARE -> "Рідкісне"
                                     Rarity.EPIC -> "Епічне"
                                     Rarity.LEGENDARY -> "Легендарне"
+                                    Rarity.MYTHIC -> "Міфічне"
                                 }
                                 else -> rar.displayName
                             }
