@@ -81,10 +81,6 @@ class CatchCommand : ListenerAdapter() {
                 GameManager.setCooldown(userId)
                 GameManager.spawnAnimal(channelId, animal)
 
-                if (activeBait != null) {
-                    GameManager.removeActiveBaitForChannel(channelId)
-                }
-
                 val fileName = animal.imagePath.substringAfterLast("/")
                 val file = FileUpload.fromData(imageBytes, fileName)
 

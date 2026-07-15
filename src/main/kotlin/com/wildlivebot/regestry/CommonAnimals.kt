@@ -1,6 +1,7 @@
 package com.wildlivebot.regestry
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
@@ -18,6 +19,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/capybara.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Capybaras are the largest living rodents, native to South America, and are closely associated with aquatic habitats.",
@@ -47,6 +49,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/red_fox.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "The red fox is the most widely distributed wild canid, occurring across the entire Northern Hemisphere and parts of North Africa.",
@@ -76,6 +79,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/raccoon.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Raccoons are native to North America and are highly adaptable omnivores that thrive in diverse habitats, including urban environments.",
@@ -105,6 +109,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/striped_skunk.jpg",
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Striped skunks are native to North America and are known for their chemical defense system involving sulfur-containing spray.",
@@ -134,6 +139,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/european_hedgehog.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "The European hedgehog is a nocturnal insectivorous mammal native to Europe.",
@@ -163,6 +169,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/meerkat.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Meerkats are small carnivorous mammals native to southern Africa.",
@@ -198,6 +205,7 @@ object CommonAnimals {
                 "bunny" to "game.hint.rabbit_not_hare"
             ),
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "The European hare is a fast-running lagomorph adapted to open landscapes and does not construct permanent burrows.",
@@ -227,6 +235,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/european_rabbit.png",
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "The European rabbit is a burrowing lagomorph that lives in complex underground warrens.",
@@ -256,6 +265,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/guinea_pig.jpg",
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Guinea pigs are domesticated herbivorous rodents native to the Andes of South America.",
@@ -285,6 +295,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/harbor_seal.jpg",
             region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Harbor seals are true seals native to coastal waters of the North Atlantic and North Pacific oceans.",
@@ -317,13 +328,11 @@ object CommonAnimals {
                 "house sparrow",
                 "sparrow"
             ),
-
             aliasesRu = listOf(
                 "домовый воробей",
                 "воробей",
                 "воробушек"
             ),
-
             aliasesUk = listOf(
                 "горобець хатній",
                 "горобець",
@@ -332,6 +341,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/house_sparrow.jpg",
             region = Region.GRASSLANDS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Male and female house sparrows look noticeably different: males have a black bib and gray crown, while females are mostly brown.",
@@ -361,6 +371,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/rock_pigeon.jpg",
             region = Region.CLIFFS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "The rock pigeon is the wild ancestor of all domestic and feral pigeons found in cities around the world.",
@@ -406,6 +417,7 @@ object CommonAnimals {
                 "антилопа" to "game.hint.antelope_generic",
                 "antelope" to "game.hint.antelope_generic"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Thomson's gazelles are among the fastest land mammals and can reach speeds of up to 80 km/h (50 mph).",
@@ -435,6 +447,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/black_winged_stilt.jpg",
             region = Region.WETLANDS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Black-winged stilts inhabit shallow wetlands, marshes, and lake shores across much of the world.",
@@ -464,6 +477,7 @@ object CommonAnimals {
             rarity = Rarity.COMMON,
             imagePath = "/images/greater_egyptian_jerboa.jpg",
             region = Region.DESERTS_SEMIDESERTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Greater Egyptian jerboas inhabit the deserts and semi-deserts of North Africa and the Middle East, where they spend the daytime in underground burrows.",
@@ -479,6 +493,107 @@ object CommonAnimals {
                     en = "Their enormous ears provide excellent hearing and help release excess body heat, an important adaptation for surviving in hot deserts.",
                     ru = "Их огромные уши обеспечивают превосходный слух и помогают отводить лишнее тепло — важное приспособление для жизни в жаркой пустыне.",
                     uk = "Їхні величезні вуха забезпечують чудовий слух і допомагають відводити зайве тепло — важливе пристосування для життя в спекотній пустелі."
+                )
+            )
+        ),
+        Animal(
+            id = "woodcock",
+            nameEn = "Eurasian Woodcock",
+            nameRu = "Вальдшнеп",
+            nameUk = "Вальдшнеп",
+            aliasesEn = listOf("eurasian woodcock", "woodcock"),
+            aliasesRu = listOf("вальдшнеп"),
+            aliasesUk = listOf("вальдшнеп"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/woodcock.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "The Eurasian woodcock is a forest-dwelling wading bird found across Europe and Asia.",
+                    ru = "Вальдшнеп — лесная болотная птица, широко распространённая в Европе и Азии.",
+                    uk = "Вальдшнеп — лісовий болотний птах, поширений у Європі та Азії."
+                ),
+                Fact(
+                    en = "Its long sensitive bill helps it locate and extract earthworms and other invertebrates from soft soil.",
+                    ru = "Длинный чувствительный клюв помогает ему находить и доставать дождевых червей и других беспозвоночных из мягкой почвы.",
+                    uk = "Довгий чутливий дзьоб допомагає йому знаходити та діставати дощових черв'яків та інших безхребетних із м'якого ґрунту."
+                ),
+                Fact(
+                    en = "Woodcocks walk with a distinctive bobbing motion that helps them detect prey hidden in the soil.",
+                    ru = "Вальдшнепы ходят характерной покачивающейся походкой, которая помогает им обнаруживать добычу, скрытую в почве.",
+                    uk = "Вальдшнепи ходять характерною похитуючою ходою, яка допомагає їм виявляти здобич, приховану в ґрунті."
+                ),
+                Fact(
+                    en = "Their calls have become an internet meme, as some people compare the sounds they make to the word 'meep'.",
+                    ru = "Их голос стал интернет-мемом, поскольку некоторые люди сравнивают издаваемые ими звуки со словом «мип».",
+                    uk = "Їхній голос став інтернет-мемом, оскільки дехто порівнює звуки, які вони видають, зі словом «міп»."
+                )
+            )
+        ),
+        Animal(
+            id = "european_ground_squirrel",
+            nameEn = "European Ground Squirrel",
+            nameRu = "Европейский суслик",
+            nameUk = "Європейський ховрах",
+            aliasesEn = listOf("european ground squirrel", "ground squirrel", "suslik"),
+            aliasesRu = listOf("европейский суслик", "суслик"),
+            aliasesUk = listOf("європейський ховрах", "ховрах", "суслик"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/european_ground_squirrel.jpg",
+            region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "European ground squirrels inhabit steppes, meadows, and grasslands, where they live in extensive burrow systems.",
+                    ru = "Европейские суслики обитают в степях, лугах и открытых травянистых местностях, где роют сложные системы нор.",
+                    uk = "Європейські ховрахи мешкають у степах, луках і відкритих трав'янистих місцевостях, де риють складні системи нір."
+                ),
+                Fact(
+                    en = "When danger approaches, they emit loud alarm calls that warn other members of the colony.",
+                    ru = "При появлении опасности они издают громкие тревожные сигналы, предупреждая остальных членов колонии.",
+                    uk = "При появі небезпеки вони видають гучні тривожні сигнали, попереджаючи інших членів колонії."
+                ),
+                Fact(
+                    en = "European ground squirrels spend several months in hibernation during winter to survive periods of cold and food scarcity.",
+                    ru = "Зимой европейские суслики впадают в длительную спячку, которая может продолжаться несколько месяцев.",
+                    uk = "Взимку європейські ховрахи впадають у тривалу сплячку, яка може тривати кілька місяців."
+                )
+            )
+        ),
+        Animal(
+            id = "springbok",
+            nameEn = "Springbok",
+            nameRu = "Спрингбок",
+            nameUk = "Спрингбок",
+            aliasesEn = listOf("springbok"),
+            aliasesRu = listOf("спрингбок"),
+            aliasesUk = listOf("спрингбок"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/springbok.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Springboks are medium-sized antelopes native to southern Africa.",
+                    ru = "Спрингбоки — антилопы среднего размера, обитающие на юге Африки.",
+                    uk = "Спрингбоки — антилопи середнього розміру, що мешкають на півдні Африки."
+                ),
+                Fact(
+                    en = "When excited or alarmed, they perform spectacular leaps called pronking, reaching heights of over 3 meters.",
+                    ru = "При возбуждении или тревоге они совершают эффектные прыжки, называемые пронкингом, поднимаясь более чем на 3 метра.",
+                    uk = "Коли вони збуджені або стривожені, то виконують видовищні стрибки, що називаються пронкінгом, підіймаючись більш ніж на 3 метри."
+                ),
+                Fact(
+                    en = "The springbok is the national animal of South Africa.",
+                    ru = "Спрингбок является национальным животным Южно-Африканской Республики.",
+                    uk = "Спрингбок є національною твариною Південно-Африканської Республіки."
                 )
             )
         )

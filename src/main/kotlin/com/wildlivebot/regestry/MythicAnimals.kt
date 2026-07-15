@@ -1,6 +1,7 @@
 package com.wildlivebot.regestry
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
@@ -18,6 +19,7 @@ object MythicAnimals {
             rarity = Rarity.MYTHIC,
             imagePath = "/images/bearded_vulture.jpg",
             region = Region.MOUNTAINS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Bearded vultures inhabit mountain ranges across southern Europe, Africa, and Asia.",
@@ -47,6 +49,14 @@ object MythicAnimals {
             rarity = Rarity.MYTHIC,
             imagePath = "/images/blue_and_yellow_macaw.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic",
+                "ара" to "game.hint.parrot_generic",
+                "macaw" to "game.hint.parrot_generic"
+            ),
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Blue-and-yellow macaws inhabit the tropical rainforests and wetlands of South America.",
@@ -76,6 +86,7 @@ object MythicAnimals {
             rarity = Rarity.MYTHIC,
             imagePath = "/images/blue_whale.jpg",
             region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Blue whales are the largest animals known to have ever lived on Earth, reaching lengths of over 30 meters and weights exceeding 180 tons.",
@@ -105,6 +116,7 @@ object MythicAnimals {
             rarity = Rarity.MYTHIC,
             imagePath = "/images/pangolin.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Pangolins are the world's only mammals completely covered in protective keratin scales.",
@@ -120,6 +132,71 @@ object MythicAnimals {
                     en = "Despite their excellent natural armor, pangolins are the world's most illegally trafficked mammals. Protect them—never buy products made from their scales.",
                     ru = "Несмотря на превосходную природную броню, панголины — самые незаконно продаваемые млекопитающие в мире. Берегите их и никогда не покупайте изделия из их чешуи.",
                     uk = "Попри чудовий природний захист, панголіни є найбільш незаконно продаваними ссавцями у світі. Бережіть їх і ніколи не купуйте вироби з їхньої луски."
+                )
+            )
+        ),
+        Animal(
+            id = "sperm_whale",
+            nameEn = "Sperm Whale",
+            nameRu = "Кашалот",
+            nameUk = "Кашалот",
+            aliasesEn = listOf("sperm whale", "cachalot"),
+            aliasesRu = listOf("кашалот"),
+            aliasesUk = listOf("кашалот"),
+            rarity = Rarity.MYTHIC,
+            imagePath = "/images/sperm_whale.jpg",
+            region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Sperm whales are the largest toothed predators on Earth, with males reaching over 16 meters in length.",
+                    ru = "Кашалоты — крупнейшие зубатые хищники на Земле. Самцы могут достигать более 16 метров в длину.",
+                    uk = "Кашалоти — найбільші зубаті хижаки на Землі. Самці можуть сягати понад 16 метрів завдовжки."
+                ),
+                Fact(
+                    en = "They can dive to depths of more than 2,000 meters and remain underwater for over an hour while hunting giant squid.",
+                    ru = "Они способны погружаться на глубину более 2000 метров и оставаться под водой свыше часа, охотясь на гигантских кальмаров.",
+                    uk = "Вони здатні занурюватися на глибину понад 2000 метрів і залишатися під водою більше години, полюючи на гігантських кальмарів."
+                ),
+                Fact(
+                    en = "The huge block in a sperm whale's head contains a waxy substance called spermaceti, which helps with echolocation and deep diving.",
+                    ru = "Огромный орган в голове кашалота содержит особое вещество — спермацет, которое помогает при эхолокации и глубоководных погружениях.",
+                    uk = "Величезний орган у голові кашалота містить особливу речовину — спермацет, яка допомагає під час ехолокації та глибоководних занурень."
+                )
+            )
+        ),
+        Animal(
+            id = "kakapo",
+            nameEn = "Kakapo",
+            nameRu = "Какапо",
+            nameUk = "Какапо",
+            aliasesEn = listOf("kakapo", "owl parrot"),
+            aliasesRu = listOf("какапо", "совиный попугай"),
+            aliasesUk = listOf("какапо", "совиний папуга"),
+            rarity = Rarity.MYTHIC,
+            imagePath = "/images/kakapo.jpg",
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic"
+            ),
+            region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Kakapos are large nocturnal parrots found only in New Zealand.",
+                    ru = "Какапо — крупные ночные попугаи, обитающие только в Новой Зеландии.",
+                    uk = "Какапо — великі нічні папуги, що мешкають лише в Новій Зеландії."
+                ),
+                Fact(
+                    en = "Unlike most parrots, kakapos cannot fly and are the heaviest parrots in the world.",
+                    ru = "В отличие от большинства попугаев, какапо не умеют летать и являются самыми тяжёлыми попугаями в мире.",
+                    uk = "На відміну від більшості папуг, какапо не вміють літати та є найважчими папугами у світі."
+                ),
+                Fact(
+                    en = "Male kakapos produce deep booming calls that can travel several kilometers during the breeding season.",
+                    ru = "В брачный период самцы какапо издают низкие гулкие звуки, которые можно услышать за несколько километров.",
+                    uk = "У шлюбний період самці какапо видають низькі гулкі звуки, які можна почути за кілька кілометрів."
                 )
             )
         )

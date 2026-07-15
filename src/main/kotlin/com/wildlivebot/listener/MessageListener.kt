@@ -1,11 +1,14 @@
 package com.wildlivebot.listener
 
 import com.wildlivebot.game.GameManager
+import com.wildlivebot.regestry.AnimalRepository
 import com.wildlivebot.utils.LangManager
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.dv8tion.jda.api.interactions.components.buttons.Button
 import java.awt.Color
 
 class MessageListener : ListenerAdapter() {
@@ -70,38 +73,51 @@ class MessageListener : ListenerAdapter() {
         }
 
         if (matchedLocale != null) {
+
+            if (activeAnimal.type == com.wildlivebot.model.AnimalType.BIRD) {
+                if (!GameManager.hasTool(userId, "sky_camera")) {
+                    val localizedAnimalName = when (matchedLocale) {
+                        DiscordLocale.UKRAINIAN -> activeAnimal.nameUk
+                        DiscordLocale.RUSSIAN -> activeAnimal.nameRu
+                        else -> activeAnimal.nameEn
+                    }
+
+                    val noCameraMessage = LangManager.getString(
+                        matchedLocale,
+                        "game.error.no_camera",
+                        event.author.asMention,
+                        localizedAnimalName
+                    )
+                    event.channel.sendMessage(noCameraMessage).queue()
+                    return
+                }
+            }
+
             GameManager.removeActiveAnimal(channelId)
+            GameManager.removeActiveBaitForChannel(channelId)
 
             val pointsToAward = activeAnimal.rarity.rewardPoints
             val totalPoints = GameManager.addPoints(userId, pointsToAward)
 
             GameManager.catchAnimalForCollection(userId, activeAnimal.id)
-
             GameManager.updateQuestProgress(userId, activeAnimal)
-
-            val animalName = when (matchedLocale) {
-                DiscordLocale.UKRAINIAN -> activeAnimal.nameUk
-                DiscordLocale.RUSSIAN -> activeAnimal.nameRu
-                else -> activeAnimal.nameEn
-            }
-
-            val randomFactObject = activeAnimal.facts.random()
-            val translatedFact = when (matchedLocale) {
-                DiscordLocale.UKRAINIAN -> randomFactObject.uk
-                DiscordLocale.RUSSIAN -> randomFactObject.ru
-                else -> randomFactObject.en
-            }
 
             val successEmbed = EmbedBuilder()
                 .setTitle(LangManager.getString(matchedLocale, "game.correct_catch"))
-                .setDescription(LangManager.getString(matchedLocale, "game.congratulations", event.author.asMention, animalName))
+                .setDescription(LangManager.getString(matchedLocale, "game.congratulations", event.author.asMention, "???"))
                 .addField(LangManager.getString(matchedLocale, "game.points_earned"), "+$pointsToAward 🏆 (${activeAnimal.rarity.displayName})", true)
                 .addField(LangManager.getString(matchedLocale, "game.total_score"), "$totalPoints 🪙", true)
-                .addField(LangManager.getString(matchedLocale, "game.fun_fact"), translatedFact, false)
                 .setColor(Color.GREEN)
                 .build()
 
-            event.channel.sendMessageEmbeds(successEmbed).queue()
+            val revealButton = Button.secondary(
+                "reveal:${activeAnimal.id}:$userId",
+                LangManager.getString(matchedLocale, "game.reveal_button")
+            )
+
+            event.channel.sendMessageEmbeds(successEmbed)
+                .setActionRow(revealButton)
+                .queue()
         }
         else {
             val customHintKey = activeAnimal.hints[userAnswer]
@@ -123,5 +139,55 @@ class MessageListener : ListenerAdapter() {
                 event.message.reply(response).queue()
             }
         }
+    }
+
+    override fun onButtonInteraction(event: ButtonInteractionEvent) {
+        if (!event.componentId.startsWith("reveal:")) return
+
+        val parts = event.componentId.split(":")
+        val animalId = parts[1]
+        val catcherId = parts[2]
+        val clickerId = event.user.id
+
+        val userLocale = event.userLocale
+        val displayLocale = when (userLocale) {
+            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
+            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
+            else -> DiscordLocale.ENGLISH_US
+        }
+
+        if (clickerId != catcherId) {
+            val failMessage = LangManager.getString(displayLocale, "game.reveal.locked_error")
+            event.reply(failMessage).setEphemeral(true).queue()
+            return
+        }
+
+        val animal = com.wildlivebot.regestry.AnimalRepository.getAnimalById(animalId)
+        if (animal == null) {
+            event.reply("Critical error: Animal not found.").setEphemeral(true).queue()
+            return
+        }
+
+        val animalName = when (displayLocale) {
+            DiscordLocale.UKRAINIAN -> animal.nameUk
+            DiscordLocale.RUSSIAN -> animal.nameRu
+            else -> animal.nameEn
+        }
+
+        val randomFactObject = animal.facts.random()
+        val translatedFact = when (displayLocale) {
+            DiscordLocale.UKRAINIAN -> randomFactObject.uk
+            DiscordLocale.RUSSIAN -> randomFactObject.ru
+            else -> randomFactObject.en
+        }
+
+        val revealEmbed = EmbedBuilder()
+            .setTitle(LangManager.getString(displayLocale, "game.reveal.title"))
+            .addField(LangManager.getString(displayLocale, "game.reveal.name"), "**$animalName**", false)
+            .addField(LangManager.getString(displayLocale, "game.fun_fact"), translatedFact, false)
+            .setColor(Color.decode(animal.rarity.colorHex))
+            .build()
+
+        event.replyEmbeds(revealEmbed).setEphemeral(true).queue()
     }
 }

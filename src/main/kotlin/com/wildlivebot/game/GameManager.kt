@@ -1,6 +1,7 @@
 package com.wildlivebot.game
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Region
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Quest
@@ -22,6 +23,7 @@ data class BotData(
     val collections: Map<String, List<String>> = emptyMap(),
     val favorites: Map<String, String> = emptyMap(),
     val inventories: Map<String, Map<String, Int>> = emptyMap(),
+    val tools: Map<String, List<String>> = emptyMap(),
     val weeklyQuests: List<Quest> = emptyList(),
     val userQuestProgress: Map<String, List<Int>> = emptyMap(),
     val userClaimedWeekly: Map<String, Boolean> = emptyMap(),
@@ -63,6 +65,10 @@ object GameManager {
     private const val COOLDOWN_MINUTES = 30L
     private const val WEEKLY_BONUS_POINTS = 500
 
+    private val tools = ConcurrentHashMap<String, MutableList<String>>().apply {
+        botData.tools.forEach { (k, v) -> put(k, v.toMutableList()) }
+    }
+
     private fun loadData(): BotData {
         if (!jsonFile.exists()) return BotData()
         return try {
@@ -81,6 +87,7 @@ object GameManager {
                 collections.mapValues { it.value.toList() },
                 favorites.toMap(),
                 inventories.mapValues { it.value.toMap() },
+                tools.mapValues { it.value.toList() },
                 weeklyQuests.toList(),
                 userQuestProgress.mapValues { it.value.toList() },
                 userClaimedWeekly.toMap(),
@@ -132,7 +139,9 @@ object GameManager {
     }
 
     fun getActiveBaitForChannel(channelId: String): Region? = activeBaits[channelId]
-    fun removeActiveBaitForChannel(channelId: String) { activeBaits.remove(channelId) }
+    fun removeActiveBaitForChannel(channelId: String) {
+        activeBaits.remove(channelId)
+    }
 
     fun checkWeeklyReset() {
         val now = Instant.now().epochSecond
@@ -149,14 +158,19 @@ object GameManager {
         val randomRegion = Region.values().random()
         weeklyQuests.add(Quest("q_region", QuestType.CATCH_REGION, randomRegion.name.lowercase(), 3))
 
-        val randomRarity = listOf(Rarity.COMMON, Rarity.RARE, Rarity.EPIC).random()
-        weeklyQuests.add(Quest("q_rarity", QuestType.CATCH_RARITY, randomRarity.name.lowercase(), 2))
+        if ((0..1).random() == 0) {
+            val randomRarity = listOf(Rarity.COMMON, Rarity.RARE, Rarity.EPIC).random()
+            weeklyQuests.add(Quest("q_rarity", QuestType.CATCH_RARITY, randomRarity.name.lowercase(), 2))
+        } else {
+            val randomType = AnimalType.values().random()
+            weeklyQuests.add(Quest("q_type", QuestType.CATCH_TYPE, randomType.name.lowercase(), 3))
+        }
 
         weeklyQuests.add(Quest("q_any", QuestType.CATCH_ANY, "", 7))
 
         nextQuestResetEpoch = Instant.now().plus(Duration.ofDays(7)).epochSecond
         saveData()
-        logger.info("Generated 3 new weekly quests based on the new biome system.")
+        logger.info("Generated 3 new weekly quests.")
     }
 
     fun getWeeklyQuests(): List<Quest> {
@@ -182,6 +196,7 @@ object GameManager {
                 val matches = when (quest.type) {
                     QuestType.CATCH_REGION -> animal.region.name.lowercase() == quest.targetValue.lowercase()
                     QuestType.CATCH_RARITY -> animal.rarity.name.lowercase() == quest.targetValue.lowercase()
+                    QuestType.CATCH_TYPE -> animal.type.name.lowercase() == quest.targetValue.lowercase()
                     QuestType.CATCH_ANY -> true
                 }
                 if (matches) {
@@ -218,6 +233,11 @@ object GameManager {
 
     fun getUserCollection(userId: String): List<String> = collections[userId] ?: emptyList()
 
+    fun hasCaught(userId: String, animalId: String): Boolean {
+        val userCollection = collections[userId] ?: return false
+        return userCollection.contains(animalId)
+    }
+
     fun setFavoriteAnimal(userId: String, animalId: String): Boolean {
         val caughtAnimals = getUserCollection(userId)
         if (animalId in caughtAnimals) {
@@ -236,7 +256,10 @@ object GameManager {
         return if (index != -1) index + 1 else sortedPlayers.size + 1
     }
 
-    fun setGuildChannel(guildId: String, channelId: String) { guildChannels[guildId] = channelId; saveData() }
+    fun setGuildChannel(guildId: String, channelId: String) {
+        guildChannels[guildId] = channelId; saveData()
+    }
+
     fun getGuildChannel(guildId: String): String? = guildChannels[guildId]
 
     fun getRemainingCooldown(userId: String): Long? {
@@ -251,13 +274,20 @@ object GameManager {
         activeSpawns[channelId] = animal
         roundWrongGuesses[channelId] = Collections.newSetFromMap(ConcurrentHashMap<String, Boolean>())
     }
+
     fun getActiveAnimal(channelId: String): Animal? = activeSpawns[channelId]
-    fun removeActiveAnimal(channelId: String) { activeSpawns.remove(channelId); roundWrongGuesses.remove(channelId) }
+    fun removeActiveAnimal(channelId: String) {
+        activeSpawns.remove(channelId); roundWrongGuesses.remove(channelId)
+    }
+
     fun addPointsForWrongGuess(channelId: String, userId: String): Boolean {
         val wrongUsers = roundWrongGuesses[channelId] ?: return false
-        if (wrongUsers.add(userId)) { addPoints(userId, 10); return true }
+        if (wrongUsers.add(userId)) {
+            addPoints(userId, 10); return true
+        }
         return false
     }
+
     fun addPoints(userId: String, points: Int): Int {
         val currentPoints = leaderboards.getOrDefault(userId, 0)
         val newPoints = currentPoints + points
@@ -265,6 +295,28 @@ object GameManager {
         saveData()
         return newPoints
     }
-    fun getTopPlayers(limit: Int = 10): List<Pair<String, Int>> = leaderboards.entries.sortedByDescending { it.value }.take(limit).map { it.key to it.value }
+
+    fun getTopPlayers(limit: Int = 10): List<Pair<String, Int>> =
+        leaderboards.entries.sortedByDescending { it.value }.take(limit).map { it.key to it.value }
+
     fun getPoints(userId: String): Int = leaderboards.getOrDefault(userId, 0)
+
+    fun hasTool(userId: String, toolId: String): Boolean {
+        return tools[userId]?.contains(toolId.lowercase()) ?: false
+    }
+
+    fun buyTool(userId: String, toolId: String, price: Int): Boolean {
+        val currentPoints = getPoints(userId)
+        if (currentPoints < price) return false
+
+        val cleanToolId = toolId.lowercase().trim()
+        val userTools = tools.computeIfAbsent(userId) { Collections.synchronizedList(mutableListOf()) }
+
+        if (userTools.contains(cleanToolId)) return false
+
+        addPoints(userId, -price)
+        userTools.add(cleanToolId)
+        saveData()
+        return true
+    }
 }

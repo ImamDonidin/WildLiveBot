@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 enum class QuestType {
     CATCH_REGION,
     CATCH_RARITY,
+    CATCH_TYPE,
     CATCH_ANY
 }
 

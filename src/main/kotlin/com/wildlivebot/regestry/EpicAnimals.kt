@@ -1,6 +1,7 @@
 package com.wildlivebot.regestry
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
@@ -24,6 +25,7 @@ object EpicAnimals {
                 "свинья" to "game.hint.pig_generic",
                 "pig" to "game.hint.pig_generic"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Wild boars are widespread suids native to Eurasia and North Africa, inhabiting forests, grasslands, and wetlands.",
@@ -53,6 +55,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/armadillo.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Nine-banded armadillos are armored mammals native to the Americas, with a carapace formed by osteoderms.",
@@ -82,6 +85,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/platypus.jpg",
             region = Region.RIVERS_LAKES,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Platypuses are monotremes native to eastern Australia and Tasmania, laying eggs instead of giving birth.",
@@ -111,6 +115,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/beaver.jpg",
             region = Region.RIVERS_LAKES,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "North American beavers are large semi-aquatic rodents native to freshwater ecosystems.",
@@ -140,6 +145,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/european_badger.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "European badgers are fossorial mustelids living in extensive underground burrow systems.",
@@ -168,7 +174,14 @@ object EpicAnimals {
             aliasesUk = listOf("сайгак", "сайга", "степова антилопа"),
             rarity = Rarity.EPIC,
             imagePath = "/images/saiga_antelope.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Saiga antelopes are steppe-dwelling ungulates native to Central Asia.",
@@ -198,6 +211,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/african_buffalo.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "African buffalo are large bovids native to sub-Saharan Africa, living in herds of varying sizes.",
@@ -227,6 +241,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/giraffe.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Giraffes are the tallest terrestrial mammals, native to African savannas and woodlands.",
@@ -256,6 +271,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/grey_wolf.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Grey wolves are social canids that live in structured packs with cooperative behavior.",
@@ -284,6 +300,7 @@ object EpicAnimals {
                 "seal" to "game.hint.seal_not_walrus"
             ),
             region = Region.ARCTIC,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Walruses are large pinnipeds inhabiting Arctic marine environments.",
@@ -313,6 +330,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/elephant_seal.jpg",
             region = Region.ANTARCTICA,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Southern elephant seals are the largest pinnipeds and are highly adapted to marine life.",
@@ -342,6 +360,7 @@ object EpicAnimals {
                 "морская черепаха" to "game.hint.tortoise_not_sea",
                 "sea turtle" to "game.hint.tortoise_not_sea"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "They are fully terrestrial reptiles and do not swim; deep water can be dangerous for them.",
@@ -371,6 +390,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/indian_peafowl.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Male Indian peafowl have spectacular colorful trains, while females are mostly brown and lack the long ornamental feathers.",
@@ -400,6 +420,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/shoebill.jpg",
             region = Region.WETLANDS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Shoebills inhabit the vast freshwater swamps of Central and East Africa, where they patiently hunt fish.",
@@ -435,6 +456,7 @@ object EpicAnimals {
                 "gazelle" to "game.hint.antelope_generic"
             ),
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Gerenuks have unusually long necks and legs, allowing them to reach leaves that most other antelopes cannot.",
@@ -464,6 +486,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/mountain_goat.jpg",
             region = Region.MOUNTAINS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Mountain goats inhabit steep rocky mountains in western North America.",
@@ -493,6 +516,7 @@ object EpicAnimals {
             rarity = Rarity.EPIC,
             imagePath = "/images/harpy_eagle.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Harpy eagles inhabit the tropical rainforests of Central and South America, where they hunt in the forest canopy.",
@@ -508,6 +532,171 @@ object EpicAnimals {
                     en = "Harpy eagles are among the strongest birds of prey in the world, capable of lifting prey weighing several kilograms.",
                     ru = "Гарпии — одни из самых сильных хищных птиц в мире и способны поднимать добычу весом в несколько килограммов.",
                     uk = "Гарпії — одні з найсильніших хижих птахів у світі й здатні підіймати здобич вагою в кілька кілограмів."
+                )
+            )
+        ),
+        Animal(
+            id = "stoat",
+            nameEn = "Stoat",
+            nameRu = "Горностай",
+            nameUk = "Горностай",
+            aliasesEn = listOf("stoat", "ermine", "short-tailed weasel"),
+            aliasesRu = listOf("горностай"),
+            aliasesUk = listOf("горностай"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/stoat.jpg",
+            hints = mapOf(
+                "ласка" to "game.hint.stoat_not_weasel",
+                "weasel" to "game.hint.stoat_not_weasel"
+            ),
+            region = Region.BOREAL_FORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Stoats inhabit forests, tundra, and grasslands across much of the Northern Hemisphere.",
+                    ru = "Горностаи обитают в лесах, тундрах и открытых ландшафтах большей части Северного полушария.",
+                    uk = "Горностаї мешкають у лісах, тундрі та відкритих ландшафтах більшої частини Північної півкулі."
+                ),
+                Fact(
+                    en = "In winter, their fur often turns completely white, while the tip of the tail remains black.",
+                    ru = "Зимой их мех часто становится полностью белым, но кончик хвоста остаётся чёрным.",
+                    uk = "Взимку їхнє хутро часто стає повністю білим, але кінчик хвоста залишається чорним."
+                ),
+                Fact(
+                    en = "Despite their small size, stoats are fearless predators capable of hunting prey larger than themselves.",
+                    ru = "Несмотря на небольшие размеры, горностаи являются бесстрашными хищниками и могут охотиться на добычу крупнее себя.",
+                    uk = "Попри невеликі розміри, горностаї є безстрашними хижаками й можуть полювати на здобич більшу за себе."
+                )
+            )
+        ),
+        Animal(
+            id = "bottlenose_dolphin",
+            nameEn = "Bottlenose Dolphin",
+            nameRu = "Дельфин-афалина",
+            nameUk = "Афаліна звичайна",
+            aliasesEn = listOf("bottlenose dolphin", "dolphin"),
+            aliasesRu = listOf("дельфин-афалина", "афалина", "дельфин"),
+            aliasesUk = listOf("афаліна", "дельфін-афаліна", "дельфін"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/bottlenose_dolphin.jpg",
+            region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Bottlenose dolphins inhabit warm and temperate seas around the world and are among the most studied marine mammals.",
+                    ru = "Дельфины-афалины обитают в тёплых и умеренных морях по всему миру и являются одними из самых изученных морских млекопитающих.",
+                    uk = "Афаліни мешкають у теплих і помірних морях по всьому світу та є одними з найвивченіших морських ссавців."
+                ),
+                Fact(
+                    en = "Their large and highly developed brains are associated with advanced learning, problem-solving, self-recognition, and complex social behavior.",
+                    ru = "Их крупный и хорошо развитый мозг связан со способностью к обучению, решению задач, узнаванию себя в зеркале и сложному социальному поведению.",
+                    uk = "Їхній великий і добре розвинений мозок пов'язаний зі здатністю до навчання, розв'язання задач, упізнавання себе в дзеркалі та складною соціальною поведінкою."
+                ),
+                Fact(
+                    en = "Dolphins are known to play with fish and other animals, and some observations suggest they may deliberately interact with pufferfish, possibly because of the toxins they contain.",
+                    ru = "Дельфины известны своей игривостью: они могут играть с рыбами и другой добычей. Некоторые наблюдения также показывают, что они специально взаимодействуют с иглобрюхами, возможно из-за содержащихся в них токсинов.",
+                    uk = "Дельфіни відомі своєю грайливістю: вони можуть гратися з рибою та іншою здобиччю. Деякі спостереження також свідчать, що вони навмисно взаємодіють із рибами-іглобрюхами, можливо через токсини, які ті містять."
+                )
+            )
+        ),
+        Animal(
+            id = "blue_footed_booby",
+            nameEn = "Blue-footed Booby",
+            nameRu = "Голубоногая олуша",
+            nameUk = "Блакитнонога олуша",
+            aliasesEn = listOf("blue-footed booby", "booby"),
+            aliasesRu = listOf("голубоногая олуша", "олуша"),
+            aliasesUk = listOf("блакитнонога олуша", "олуша"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/blue_footed_booby.jpg",
+            region = Region.COASTS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Blue-footed boobies inhabit the Pacific coasts and islands of Central and South America, especially the Galápagos Islands.",
+                    ru = "Голубоногие олуши обитают на тихоокеанском побережье и островах Центральной и Южной Америки, особенно на Галапагосах.",
+                    uk = "Блакитноногі олуші мешкають на тихоокеанському узбережжі та островах Центральної й Південної Америки, особливо на Галапагоських островах."
+                ),
+                Fact(
+                    en = "Their bright blue feet are a sign of health and play a major role in courtship displays.",
+                    ru = "Их ярко-голубые лапы служат показателем здоровья и играют важную роль в брачных танцах.",
+                    uk = "Їхні яскраво-блакитні лапи є показником здоров'я та відіграють важливу роль у шлюбних танцях."
+                ),
+                Fact(
+                    en = "They hunt fish by diving from the air and can hit the water at speeds exceeding 90 km/h.",
+                    ru = "Они охотятся на рыбу, пикируя с воздуха, и могут входить в воду на скорости свыше 90 км/ч.",
+                    uk = "Вони полюють на рибу, пірнаючи з повітря, і можуть входити у воду на швидкості понад 90 км/год."
+                )
+            )
+        ),
+        Animal(
+            id = "african_grey_parrot",
+            nameEn = "African Grey Parrot",
+            nameRu = "Жако",
+            nameUk = "Жако",
+            aliasesEn = listOf("african grey parrot", "grey parrot", "african gray parrot"),
+            aliasesRu = listOf("жако", "серый попугай"),
+            aliasesUk = listOf("жако", "сірий папуга"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/african_grey_parrot.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic"
+            ),
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "African grey parrots inhabit tropical forests of Central and West Africa.",
+                    ru = "Жако обитают во влажных тропических лесах Центральной и Западной Африки.",
+                    uk = "Жако мешкають у вологих тропічних лісах Центральної та Західної Африки."
+                ),
+                Fact(
+                    en = "They are considered among the most intelligent birds on Earth and can learn hundreds of words.",
+                    ru = "Они считаются одними из самых умных птиц на Земле и способны запоминать сотни слов.",
+                    uk = "Вони вважаються одними з найрозумніших птахів на Землі та здатні запам'ятовувати сотні слів."
+                ),
+                Fact(
+                    en = "Some African grey parrots can associate words with objects, colors, numbers, and simple concepts.",
+                    ru = "Некоторые жако способны связывать слова с предметами, цветами, числами и простыми понятиями.",
+                    uk = "Деякі жако здатні пов'язувати слова з предметами, кольорами, числами та простими поняттями."
+                )
+            )
+        ),
+        Animal(
+            id = "common_eland",
+            nameEn = "Common Eland",
+            nameRu = "Обыкновенная канна",
+            nameUk = "Канна звичайна",
+            aliasesEn = listOf("common eland", "eland"),
+            aliasesRu = listOf("обыкновенная канна", "канна", "антилопа канна"),
+            aliasesUk = listOf("канна звичайна", "канна"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/common_eland.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "The common eland is the largest antelope in the world and can weigh nearly one ton.",
+                    ru = "Обыкновенная канна — крупнейшая антилопа в мире. Масса крупных самцов может приближаться к одной тонне.",
+                    uk = "Канна звичайна — найбільша антилопа у світі. Маса великих самців може наближатися до однієї тонни."
+                ),
+                Fact(
+                    en = "Despite their size, elands can jump over fences more than 2 meters high.",
+                    ru = "Несмотря на огромные размеры, канны способны перепрыгивать препятствия высотой более 2 метров.",
+                    uk = "Попри величезні розміри, канни здатні перестрибувати перешкоди заввишки понад 2 метри."
+                ),
+                Fact(
+                    en = "When walking, their tendons produce audible clicking sounds that can be heard from hundreds of meters away.",
+                    ru = "Во время ходьбы их сухожилия издают характерные щелчки, которые можно услышать на расстоянии в сотни метров.",
+                    uk = "Під час ходьби їхні сухожилля видають характерні клацання, які можна почути на відстані сотень метрів."
                 )
             )
         )

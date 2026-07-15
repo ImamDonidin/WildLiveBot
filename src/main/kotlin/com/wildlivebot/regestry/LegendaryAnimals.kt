@@ -1,6 +1,7 @@
 package com.wildlivebot.regestry
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
@@ -18,6 +19,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/bandicoot.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Bandicoots are ground-foraging marsupials that dig extensively in soil while searching for invertebrates.",
@@ -47,6 +49,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/lion.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "A lion's roar is so loud it can be heard from up to 8 kilometers away.",
@@ -76,6 +79,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/snow_leopard.jpg",
             region = Region.MOUNTAINS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Known as the 'ghost of the mountains' because they are incredibly well-camouflaged and solitary.",
@@ -105,6 +109,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/grizzly.jpg",
             region = Region.BOREAL_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Grizzlies have an incredible sense of smell, able to detect food sources from miles away, outperforming even hounds.",
@@ -135,6 +140,7 @@ object LegendaryAnimals {
                 "пантера" to "game.hint.cougar_not_panther",
                 "panther" to "game.hint.cougar_not_panther"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Cougars are known by many regional names across the Americas, reflecting their wide distribution.",
@@ -159,6 +165,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/pink_fairy_armadillo.jpg",
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "They are the smallest armadillos in the world, easily fitting into a human palm.",
@@ -192,6 +199,7 @@ object LegendaryAnimals {
                 "барсук" to "game.hint.wolverine_not_badger",
                 "badger" to "game.hint.wolverine_not_badger"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Wolverines are highly aggressive and can defend kills against larger predators when necessary.",
@@ -221,6 +229,7 @@ object LegendaryAnimals {
                 "bison" to "game.hint.wisent_not_bison",
                 "american bison" to "game.hint.wisent_not_bison"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "The European bison is the heaviest land animal in Europe, saved from total extinction through careful breeding programs.",
@@ -245,6 +254,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/african_elephant.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Their trunks contain over 40,000 different muscles, allowing them to pick up a single blade of grass or knock down trees.",
@@ -284,6 +294,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/axolotl.jpg",
             region = Region.RIVERS_LAKES,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Axolotls are famous for their incredible healing powers, capable of perfectly regenerating lost limbs, tails, and even parts of their brains.",
@@ -308,6 +319,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/polar_bear.jpg",
             region = Region.ARCTIC,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Underneath their thick white camouflage fur, polar bears actually have pitch-black skin to absorb heat from the sun.",
@@ -337,6 +349,7 @@ object LegendaryAnimals {
                 "emu" to "game.hint.ostrich_not_emu"
             ),
             region = Region.SAVANNAS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Contrary to a popular myth, ostriches do not bury their heads in the sand. They lower their heads to turn eggs, inspect nests, or search for food.",
@@ -366,6 +379,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/southern_cassowary.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Southern cassowaries inhabit the tropical rainforests of northeastern Australia and New Guinea.",
@@ -395,6 +409,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/king_penguin.jpg",
             region = Region.ANTARCTICA,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "King penguins inhabit subantarctic islands and the cold waters surrounding Antarctica.",
@@ -424,6 +439,7 @@ object LegendaryAnimals {
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/narwhal.jpg",
             region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Narwhals inhabit the icy Arctic waters around Greenland, Canada, and Russia.",
@@ -439,6 +455,107 @@ object LegendaryAnimals {
                     en = "Because of their long tusk, narwhals have often been called the 'unicorns of the sea'.",
                     ru = "Из-за длинного бивня нарвалов часто называют «морскими единорогами».",
                     uk = "Через довгий бивень нарвалів часто називають «морськими єдинорогами»."
+                )
+            )
+        ),
+        Animal(
+            id = "red_kangaroo",
+            nameEn = "Red Kangaroo",
+            nameRu = "Рыжий кенгуру",
+            nameUk = "Рудий кенгуру",
+            aliasesEn = listOf("red kangaroo", "kangaroo"),
+            aliasesRu = listOf("рыжий кенгуру", "кенгуру"),
+            aliasesUk = listOf("рудий кенгуру", "кенгуру"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/red_kangaroo.jpg",
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Red kangaroos are the largest marsupials in the world and inhabit the arid regions of Australia.",
+                    ru = "Рыжие кенгуру — крупнейшие сумчатые животные на планете, обитающие в засушливых районах Австралии.",
+                    uk = "Руді кенгуру — найбільші сумчасті тварини на планеті, що мешкають у посушливих районах Австралії."
+                ),
+                Fact(
+                    en = "Male kangaroos are much larger and more muscular than females, often engaging in boxing matches to compete for mates.",
+                    ru = "Самцы кенгуру значительно крупнее и мускулистее самок и часто устраивают «боксёрские» поединки за право спаривания.",
+                    uk = "Самці кенгуру значно більші та мускулистіші за самок і часто влаштовують «боксерські» поєдинки за право спаровування."
+                ),
+                Fact(
+                    en = "Large kangaroos can leap up to 3 meters high and more than 8 meters long in a single bound.",
+                    ru = "Крупные кенгуру способны прыгать на высоту до 3 метров и преодолевать более 8 метров в длину одним прыжком.",
+                    uk = "Великі кенгуру здатні стрибати на висоту до 3 метрів і долати понад 8 метрів у довжину одним стрибком."
+                )
+            )
+        ),
+        Animal(
+            id = "palm_cockatoo",
+            nameEn = "Palm Cockatoo",
+            nameRu = "Пальмовый какаду",
+            nameUk = "Пальмовий какаду",
+            aliasesEn = listOf("palm cockatoo", "goliath cockatoo"),
+            aliasesRu = listOf("пальмовый какаду", "чёрный какаду"),
+            aliasesUk = listOf("пальмовий какаду", "чорний какаду"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/palm_cockatoo.jpg",
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic"
+            ),
+            region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Palm cockatoos inhabit the tropical forests of New Guinea and northern Australia.",
+                    ru = "Пальмовые какаду обитают во влажных тропических лесах Новой Гвинеи и северной Австралии.",
+                    uk = "Пальмові какаду мешкають у вологих тропічних лісах Нової Гвінеї та північної Австралії."
+                ),
+                Fact(
+                    en = "They are the largest cockatoos in the world and are easily recognized by their huge crest and red facial skin.",
+                    ru = "Это самые крупные какаду в мире, которых легко узнать по огромному хохлу и красным голым щекам.",
+                    uk = "Це найбільші какаду у світі, яких легко впізнати за величезним чубом і червоними голими щоками."
+                ),
+                Fact(
+                    en = "Palm cockatoos are among the few animals known to use tools to make music, drumming on tree trunks with sticks.",
+                    ru = "Пальмовые какаду — одни из немногих животных, использующих инструменты для создания ритма: они барабанят палками по стволам деревьев.",
+                    uk = "Пальмові какаду — одні з небагатьох тварин, що використовують інструменти для створення ритму: вони барабанять палицями по стовбурах дерев."
+                )
+            )
+        ),
+        Animal(
+            id = "sable_antelope",
+            nameEn = "Sable Antelope",
+            nameRu = "Чёрная антилопа",
+            nameUk = "Чорна антилопа",
+            aliasesEn = listOf("sable antelope", "sable"),
+            aliasesRu = listOf("чёрная антилопа", "черная антилопа"),
+            aliasesUk = listOf("чорна антилопа"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/sable_antelope.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Sable antelopes inhabit woodlands and savannas of eastern and southern Africa.",
+                    ru = "Чёрные антилопы обитают в редколесьях и саваннах Восточной и Южной Африки.",
+                    uk = "Чорні антилопи мешкають у рідколіссях і саванах Східної та Південної Африки."
+                ),
+                Fact(
+                    en = "Both males and females possess impressive curved horns, but those of males can exceed 150 cm in length.",
+                    ru = "И самцы, и самки имеют впечатляющие изогнутые рога, однако у самцов их длина может превышать 150 см.",
+                    uk = "І самці, і самки мають вражаючі вигнуті роги, проте у самців їхня довжина може перевищувати 150 см."
+                ),
+                Fact(
+                    en = "Sable antelopes are known for their courage and may aggressively defend themselves against predators, including lions.",
+                    ru = "Чёрные антилопы известны своей смелостью и могут яростно защищаться даже от львов.",
+                    uk = "Чорні антилопи відомі своєю сміливістю й можуть люто захищатися навіть від левів."
                 )
             )
         )

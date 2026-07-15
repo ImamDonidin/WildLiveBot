@@ -3,6 +3,7 @@ package com.wildlivebot.command
 import com.wildlivebot.game.GameManager
 import com.wildlivebot.model.Region
 import com.wildlivebot.model.Rarity
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.QuestType
 import com.wildlivebot.utils.LangManager
 import net.dv8tion.jda.api.EmbedBuilder
@@ -100,12 +101,25 @@ class QuestsCommand : ListenerAdapter() {
                             quest.targetValue
                         }
                     }
+                    QuestType.CATCH_TYPE -> {
+                        val animType = try { AnimalType.valueOf(quest.targetValue.uppercase().trim()) } catch (e: Exception) { null }
+                        if (animType != null) {
+                            when (displayLocale) {
+                                DiscordLocale.RUSSIAN -> animType.displayNameRu
+                                DiscordLocale.UKRAINIAN -> animType.displayNameUk
+                                else -> animType.displayNameEn
+                            }
+                        } else {
+                            quest.targetValue
+                        }
+                    }
                     QuestType.CATCH_ANY -> ""
                 }
 
                 val key = when (quest.type) {
                     QuestType.CATCH_REGION -> "quest.type.catch_region"
                     QuestType.CATCH_RARITY -> "quest.type.catch_rarity"
+                    QuestType.CATCH_TYPE -> "quest.type.catch_type"
                     QuestType.CATCH_ANY -> "quest.type.catch_any"
                 }
 

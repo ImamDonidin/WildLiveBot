@@ -1,6 +1,7 @@
 package com.wildlivebot.regestry
 
 import com.wildlivebot.model.Animal
+import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
 import com.wildlivebot.model.Region
@@ -23,6 +24,7 @@ object RareAnimals {
                 "european bison" to "game.hint.bison_not_wisent",
                 "wisent" to "game.hint.bison_not_wisent"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "American bison are the largest terrestrial mammals in North America and are native to grassland ecosystems.",
@@ -52,6 +54,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/panda.jpg",
             region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Giant pandas are bears native to central China, primarily inhabiting temperate bamboo forests.",
@@ -80,7 +83,14 @@ object RareAnimals {
             aliasesUk = listOf("вилоріг", "вилорога антилопа"),
             rarity = Rarity.RARE,
             imagePath = "/images/pronghorn.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
             region = Region.GRASSLANDS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Pronghorns are North American ungulates and the fastest long-distance runners in the Western Hemisphere.",
@@ -105,6 +115,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/red_deer.jpg",
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Red deer are widespread cervids native to Europe, parts of Asia, and North Africa.",
@@ -134,6 +145,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/bactrian_camel.jpg",
             region = Region.DESERTS_SEMIDESERTS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Bactrian camels are large ungulates native to Central Asia and adapted to extreme continental climates.",
@@ -170,6 +182,7 @@ object RareAnimals {
                 "свинья" to "game.hint.pig_generic",
                 "pig" to "game.hint.pig_generic"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Warthogs are wild suids native to African savannas and open woodlands.",
@@ -204,6 +217,7 @@ object RareAnimals {
                 "seal" to "game.hint.seal_not_sealion"
             ),
             region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "California sea lions are eared seals native to the eastern North Pacific Ocean.",
@@ -246,6 +260,7 @@ object RareAnimals {
                 "crow" to "game.hint.raven_not_crow"
             ),
             region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Common ravens are among the most intelligent birds, capable of solving complex problems and using tools.",
@@ -279,6 +294,7 @@ object RareAnimals {
                 "swift" to "game.hint.swallow_not_swift"
             ),
             region = Region.GRASSLANDS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Barn swallows are migratory birds found across Europe, Asia, Africa, and the Americas.",
@@ -308,6 +324,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/plains_zebra.jpg",
             region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Despite popular belief, zebras have black skin. Their white stripes are areas where the fur lacks pigment.",
@@ -337,6 +354,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/black_skimmer.jpg",
             region = Region.COASTS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Black skimmers are coastal birds famous for their unique hunting technique. They fly low over the water with the lower half of their bill slicing through the surface until it snaps shut on a fish.",
@@ -366,6 +384,7 @@ object RareAnimals {
             rarity = Rarity.RARE,
             imagePath = "/images/grey_heron.jpg",
             region = Region.WETLANDS,
+            type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
                     en = "Grey herons inhabit wetlands, lakes, rivers, and coastal areas across Europe, Asia, and parts of Africa.",
@@ -401,6 +420,7 @@ object RareAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
+            type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
                     en = "Kirk's dik-diks are among the smallest antelopes in the world, standing only about 35–45 cm tall.",
@@ -416,6 +436,142 @@ object RareAnimals {
                     en = "Unlike many antelopes, dik-diks usually form lifelong pairs and defend a shared territory together.",
                     ru = "В отличие от многих антилоп, дик-дики обычно образуют пары на всю жизнь и вместе защищают свою территорию.",
                     uk = "На відміну від багатьох антилоп, дік-діки зазвичай утворюють пари на все життя й разом захищають свою територію."
+                )
+            )
+        ),
+        Animal(
+            id = "pukeko",
+            nameEn = "Pūkeko",
+            nameRu = "Пукеко",
+            nameUk = "Пукеко",
+            aliasesEn = listOf("pukeko", "purple swamphen"),
+            aliasesRu = listOf("пукеко", "султанка"),
+            aliasesUk = listOf("пукеко", "султанка"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/pukeko.jpg",
+            region = Region.WETLANDS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Pūkeko are colorful wetland birds native to New Zealand and belong to the rail family.",
+                    ru = "Пукеко — ярко окрашенные болотные птицы Новой Зеландии, относящиеся к семейству пастушковых.",
+                    uk = "Пукеко — яскраво забарвлені болотні птахи Нової Зеландії, що належать до родини пастушкових."
+                ),
+                Fact(
+                    en = "Their long red legs and oversized feet help them walk across muddy ground and marsh vegetation.",
+                    ru = "Их длинные красные ноги и большие лапы помогают передвигаться по грязи и болотной растительности.",
+                    uk = "Їхні довгі червоні ноги та великі лапи допомагають пересуватися болотистою місцевістю та серед рослинності."
+                ),
+                Fact(
+                    en = "Pūkeko often live in family groups where several adults may help raise and protect chicks.",
+                    ru = "Пукеко часто живут семейными группами, где несколько взрослых птиц помогают выращивать и защищать птенцов.",
+                    uk = "Пукеко часто живуть сімейними групами, де кілька дорослих птахів допомагають вирощувати та захищати пташенят."
+                )
+            )
+        ),
+        Animal(
+            id = "major_mitchell_cockatoo",
+            nameEn = "Major Mitchell's Cockatoo",
+            nameRu = "Розовый какаду",
+            nameUk = "Рожевий какаду",
+            aliasesEn = listOf("major mitchell's cockatoo", "pink cockatoo"),
+            aliasesRu = listOf("розовый какаду", "какаду инка", "инка какаду"),
+            aliasesUk = listOf("рожевий какаду", "какаду інка"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/major_mitchell_cockatoo.jpg",
+            region = Region.SAVANNAS,
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic"
+            ),
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Major Mitchell's cockatoos inhabit dry woodlands and savannas of Australia.",
+                    ru = "Розовые какаду обитают в редколесьях и саваннах Австралии.",
+                    uk = "Рожеві какаду мешкають у рідколіссях і саванах Австралії."
+                ),
+                Fact(
+                    en = "They are famous for their spectacular crest colored in red, yellow, and white.",
+                    ru = "Они знамениты своим роскошным хохлом, окрашенным в красные, жёлтые и белые цвета.",
+                    uk = "Вони відомі своїм розкішним чубчиком, забарвленим у червоні, жовті та білі кольори."
+                ),
+                Fact(
+                    en = "Many ornithologists consider them among the most beautiful parrots in the world.",
+                    ru = "Многие орнитологи считают их одними из самых красивых попугаев в мире.",
+                    uk = "Багато орнітологів вважають їх одними з найкрасивіших папуг у світі."
+                )
+            )
+        ),
+        Animal(
+            id = "cockatiel",
+            nameEn = "Cockatiel",
+            nameRu = "Корелла",
+            nameUk = "Корела",
+            aliasesEn = listOf("cockatiel"),
+            aliasesRu = listOf("корелла"),
+            aliasesUk = listOf("корела"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/cockatiel.jpg",
+            region = Region.SAVANNAS,
+            hints = mapOf(
+                "папуга" to "game.hint.parrot_generic",
+                "попугай" to "game.hint.parrot_generic",
+                "parrot" to "game.hint.parrot_generic"
+            ),
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Cockatiels are small parrots native to Australia and are among the world's most popular pet birds.",
+                    ru = "Кореллы — небольшие попугаи Австралии и одни из самых популярных домашних птиц в мире.",
+                    uk = "Корели — невеликі папуги Австралії та одні з найпопулярніших домашніх птахів у світі."
+                ),
+                Fact(
+                    en = "They can learn to whistle melodies and imitate various household sounds.",
+                    ru = "Они способны насвистывать мелодии и подражать различным бытовым звукам.",
+                    uk = "Вони здатні насвистувати мелодії та наслідувати різні побутові звуки."
+                ),
+                Fact(
+                    en = "Their expressive crest helps communicate mood and emotions.",
+                    ru = "Их подвижный хохолок помогает выражать настроение и эмоции.",
+                    uk = "Їхній рухливий чубчик допомагає виражати настрій та емоції."
+                )
+            )
+        ),
+        Animal(
+            id = "arabian_oryx",
+            nameEn = "Arabian Oryx",
+            nameRu = "Белый орикс",
+            nameUk = "Білий орикс",
+            aliasesEn = listOf("arabian oryx", "oryx"),
+            aliasesRu = listOf("белый орикс", "орикс"),
+            aliasesUk = listOf("білий орикс", "орикс"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/arabian_oryx.jpg",
+            hints = mapOf(
+                "антилопа" to "game.hint.antelope_generic",
+                "газель" to "game.hint.antelope_generic",
+                "antelope" to "game.hint.antelope_generic",
+                "gazelle" to "game.hint.antelope_generic"
+            ),
+            region = Region.DESERTS_SEMIDESERTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "The Arabian oryx inhabits the deserts of the Arabian Peninsula and is well adapted to extreme heat.",
+                    ru = "Белый орикс обитает в пустынях Аравийского полуострова и прекрасно приспособлен к экстремальной жаре.",
+                    uk = "Білий орикс мешкає в пустелях Аравійського півострова та чудово пристосований до екстремальної спеки."
+                ),
+                Fact(
+                    en = "It can survive for long periods without drinking water, obtaining much of its moisture from plants.",
+                    ru = "Орикс способен долго обходиться без воды, получая значительную часть влаги из растений.",
+                    uk = "Орикс здатний довго обходитися без води, отримуючи значну частину вологи з рослин."
+                ),
+                Fact(
+                    en = "Its long straight horns inspired some ancient legends about unicorns.",
+                    ru = "Его длинные прямые рога могли стать одним из источников древних легенд о единорогах.",
+                    uk = "Його довгі прямі роги могли стати одним із джерел давніх легенд про єдинорогів."
                 )
             )
         )

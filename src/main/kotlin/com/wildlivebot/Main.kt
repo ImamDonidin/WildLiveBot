@@ -71,15 +71,23 @@ fun main() {
             }
         })
 
-        val regionChoices = Region.values().map { region ->
+        val buyChoices = Region.values().map { region ->
+            net.dv8tion.jda.api.interactions.commands.Command.Choice(region.nameEn, region.name.lowercase())
+        }.toMutableList()
+
+        buyChoices.add(
+            net.dv8tion.jda.api.interactions.commands.Command.Choice("Sky Camera (sky_camera)", "sky_camera")
+        )
+
+        val useChoices = Region.values().map { region ->
             net.dv8tion.jda.api.interactions.commands.Command.Choice(region.nameEn, region.name.lowercase())
         }
 
-        val buyBaitOption = OptionData(OptionType.STRING, "id", "The ID of the biome bait from the shop", true)
-            .addChoices(regionChoices)
+        val buyItemOption = OptionData(OptionType.STRING, "id", "The ID of the item or bait you want to buy", true)
+            .addChoices(buyChoices)
 
         val useBaitOption = OptionData(OptionType.STRING, "id", "The ID of the biome bait you want to activate", true)
-            .addChoices(regionChoices)
+            .addChoices(useChoices)
 
         jda.updateCommands().addCommands(
             Commands.slash("catch", "Catch a wild animal!"),
@@ -97,7 +105,7 @@ fun main() {
 
             Commands.slash("shop", "Open the hunting bait shop"),
 
-            Commands.slash("buy", "Buy a specific biome bait").addOptions(buyBaitOption),
+            Commands.slash("buy", "Buy a specific item or biome bait").addOptions(buyItemOption),
             Commands.slash("use", "Activate a biome bait in the current channel").addOptions(useBaitOption),
 
             Commands.slash("quests", "Manage your weekly hunting quests")

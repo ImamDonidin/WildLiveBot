@@ -20,5 +20,6 @@ data class Animal(
     val imagePath: String,
     val hints: Map<String, String> = emptyMap(),
     val facts: List<Fact>,
-    val region: Region
+    val region: Region,
+    val type: AnimalType
 )
