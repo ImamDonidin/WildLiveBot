@@ -574,6 +574,36 @@ object RareAnimals {
                     uk = "Його довгі прямі роги могли стати одним із джерел давніх легенд про єдинорогів."
                 )
             )
+        ),
+        Animal(
+            id = "veiled_chameleon",
+            nameEn = "Veiled Chameleon",
+            nameRu = "Йеменский хамелеон",
+            nameUk = "Єменський хамелеон",
+            aliasesEn = listOf("veiled chameleon", "chameleon"),
+            aliasesRu = listOf("йеменский хамелеон", "хамелеон"),
+            aliasesUk = listOf("єменський хамелеон", "хамелеон"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/veiled_chameleon.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Veiled chameleons are native to the mountainous regions of Yemen and southwestern Saudi Arabia.",
+                    ru = "Йеменские хамелеоны обитают в горных районах Йемена и юго-западной части Саудовской Аравии.",
+                    uk = "Єменські хамелеони мешкають у гірських районах Ємену та південно-західної частини Саудівської Аравії."
+                ),
+                Fact(
+                    en = "Their eyes can move independently, allowing them to observe two different directions at the same time.",
+                    ru = "Их глаза могут двигаться независимо друг от друга, позволяя одновременно наблюдать за двумя разными направлениями.",
+                    uk = "Їхні очі можуть рухатися незалежно одне від одного, дозволяючи одночасно спостерігати за двома різними напрямками."
+                ),
+                Fact(
+                    en = "Contrary to popular belief, chameleons do not mainly change color for camouflage. Their colors often reflect mood, body temperature, and communication with other chameleons.",
+                    ru = "Вопреки популярному мифу, хамелеоны меняют цвет не только для маскировки. Окраска часто отражает их настроение, температуру тела и помогает общаться с другими хамелеонами.",
+                    uk = "Всупереч поширеному міфу, хамелеони змінюють колір не лише для маскування. Забарвлення часто відображає їхній настрій, температуру тіла та допомагає спілкуватися з іншими хамелеонами."
+                )
+            )
         )
     )
 }

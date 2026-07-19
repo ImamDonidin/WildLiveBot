@@ -699,6 +699,36 @@ object EpicAnimals {
                     uk = "Під час ходьби їхні сухожилля видають характерні клацання, які можна почути на відстані сотень метрів."
                 )
             )
+        ),
+        Animal(
+            id = "common_wombat",
+            nameEn = "Common Wombat",
+            nameRu = "Обыкновенный вомбат",
+            nameUk = "Вомбат звичайний",
+            aliasesEn = listOf("common wombat", "wombat"),
+            aliasesRu = listOf("обыкновенный вомбат", "вомбат"),
+            aliasesUk = listOf("вомбат звичайний", "вомбат"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/common_wombat.jpg",
+            region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Common wombats are burrowing marsupials native to southeastern Australia.",
+                    ru = "Обыкновенные вомбаты — роющие сумчатые животные, обитающие на юго-востоке Австралии.",
+                    uk = "Вомбати звичайні — риючі сумчасті тварини, що мешкають на південному сході Австралії."
+                ),
+                Fact(
+                    en = "Wombats produce distinctive cube-shaped droppings, which help prevent them from rolling away on uneven terrain.",
+                    ru = "Вомбаты известны своими кубическими экскрементами, которые не скатываются с камней и помогают метить территорию.",
+                    uk = "Вомбати відомі своїми кубічними екскрементами, які не скочуються з каміння та допомагають позначати територію."
+                ),
+                Fact(
+                    en = "Their rear end is reinforced with thick cartilage and tough skin, allowing them to block burrow entrances from predators.",
+                    ru = "Задняя часть тела вомбата укреплена толстой кожей и хрящами, благодаря чему он может буквально затыкать вход в нору от хищников.",
+                    uk = "Задня частина тіла вомбата укріплена товстою шкірою та хрящами, завдяки чому він може буквально затуляти вхід до нори від хижаків."
+                )
+            )
         )
     )
 }

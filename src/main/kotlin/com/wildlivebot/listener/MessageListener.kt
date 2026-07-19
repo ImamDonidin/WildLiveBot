@@ -10,8 +10,10 @@ import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.components.buttons.Button
 import java.awt.Color
+import org.slf4j.LoggerFactory
 
 class MessageListener : ListenerAdapter() {
+    private val logger = LoggerFactory.getLogger(MessageListener::class.java)
 
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if (event.author.isBot || !event.isFromGuild) return
@@ -73,6 +75,18 @@ class MessageListener : ListenerAdapter() {
         }
 
         if (matchedLocale != null) {
+
+            val selfMember = event.guild.selfMember
+            val channel = event.channel.asGuildMessageChannel()
+
+            if (selfMember.hasPermission(channel, net.dv8tion.jda.api.Permission.MESSAGE_MANAGE)) {
+                event.message.delete().queue(
+                    null,
+                    { error -> logger.warn("Failed to delete user's guess message: ${error.message}") }
+                )
+            } else {
+                logger.warn("Skipped message deletion: Missing MESSAGE_MANAGE permission in channel ${channel.name}")
+            }
 
             if (activeAnimal.type == com.wildlivebot.model.AnimalType.BIRD) {
                 if (!GameManager.hasTool(userId, "sky_camera")) {

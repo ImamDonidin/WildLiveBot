@@ -558,6 +558,36 @@ object LegendaryAnimals {
                     uk = "Чорні антилопи відомі своєю сміливістю й можуть люто захищатися навіть від левів."
                 )
             )
+        ),
+        Animal(
+            id = "orca",
+            nameEn = "Orca",
+            nameRu = "Косатка",
+            nameUk = "Косатка",
+            aliasesEn = listOf("orca", "killer whale"),
+            aliasesRu = listOf("косатка"),
+            aliasesUk = listOf("косатка"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/orca.jpg",
+            region = Region.OCEANS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Orcas are the largest members of the dolphin family and can be found in every ocean on Earth.",
+                    ru = "Косатки — крупнейшие представители семейства дельфиновых и встречаются во всех океанах Земли.",
+                    uk = "Косатки — найбільші представники родини дельфінових і трапляються в усіх океанах Землі."
+                ),
+                Fact(
+                    en = "Different populations of orcas specialize in different prey. Some hunt fish almost exclusively, while others prefer seals, dolphins, sharks, or even large whales.",
+                    ru = "Разные популяции косаток специализируются на разной добыче. Одни питаются почти исключительно рыбой, тогда как другие охотятся на тюленей, дельфинов, акул и даже крупных китов.",
+                    uk = "Різні популяції косаток спеціалізуються на різній здобичі. Одні харчуються майже виключно рибою, тоді як інші полюють на тюленів, дельфінів, акул і навіть великих китів."
+                ),
+                Fact(
+                    en = "These hunting traditions are passed down through generations. Different groups of orcas have their own cultures, dialects, and hunting techniques.",
+                    ru = "Все охотничьи традиции передаются из поколения в поколение. Разные группы косаток имеют собственную культуру, диалекты и уникальные способы охоты.",
+                    uk = "Ці мисливські традиції передаються з покоління в покоління. Різні групи косаток мають власну культуру, діалекти та унікальні способи полювання."
+                )
+            )
         )
     )
 }
