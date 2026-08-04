@@ -156,6 +156,37 @@ class MessageListener : ListenerAdapter() {
     }
 
     override fun onButtonInteraction(event: ButtonInteractionEvent) {
+        if (event.componentId.startsWith("col:prev:") || event.componentId.startsWith("col:next:")) {
+            val parts = event.componentId.split(":")
+            val action = parts[1]
+            val ownerId = parts[2]
+            val currentIndex = parts[3].toInt()
+            val clickerId = event.user.id
+
+            val userLocale = event.userLocale
+            val displayLocale = LangManager.getSupportedLocale(userLocale)
+
+            if (clickerId != ownerId) {
+                val failMessage = LangManager.getString(displayLocale, "game.reveal.locked_error")
+                event.reply(failMessage).setEphemeral(true).queue()
+                return
+            }
+
+            val newIndex = if (action == "next") currentIndex + 1 else currentIndex - 1
+
+            val response = com.wildlivebot.command.CollectionCommand.buildCollectionPage(
+                ownerId,
+                newIndex,
+                event.user.name,
+                displayLocale
+            )
+
+            event.editMessageEmbeds(response.first)
+                .setActionRow(response.second)
+                .queue()
+            return
+        }
+
         if (!event.componentId.startsWith("reveal:")) return
 
         val parts = event.componentId.split(":")

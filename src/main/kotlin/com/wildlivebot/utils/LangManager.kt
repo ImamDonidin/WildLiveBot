@@ -54,4 +54,13 @@ object LangManager {
         val template = if (bundle.containsKey(key)) bundle.getString(key) else defaultBundle.getString(key)
         return MessageFormat.format(template, *args)
     }
+
+    fun getSupportedLocale(discordLocale: DiscordLocale?): DiscordLocale {
+        if (discordLocale == null) return DiscordLocale.ENGLISH_US
+        return when (discordLocale) {
+            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
+            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
+            else -> DiscordLocale.ENGLISH_US
+        }
+    }
 }

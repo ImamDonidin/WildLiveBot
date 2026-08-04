@@ -604,6 +604,36 @@ object RareAnimals {
                     uk = "Всупереч поширеному міфу, хамелеони змінюють колір не лише для маскування. Забарвлення часто відображає їхній настрій, температуру тіла та допомагає спілкуватися з іншими хамелеонами."
                 )
             )
+        ),
+        Animal(
+            id = "brown_throated_sloth",
+            nameEn = "Brown-throated Sloth",
+            nameRu = "Трёхпалый ленивец",
+            nameUk = "Трипалий лінивець",
+            aliasesEn = listOf("brown-throated sloth", "three-toed sloth", "sloth"),
+            aliasesRu = listOf("трёхпалый ленивец", "ленивец"),
+            aliasesUk = listOf("трипалий лінивець", "лінивець"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/brown_throated_sloth.jpg",
+            region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Brown-throated sloths spend almost their entire lives hanging upside down in the tropical forests of Central and South America.",
+                    ru = "Трёхпалые ленивцы проводят почти всю жизнь, свисая вниз головой в тропических лесах Центральной и Южной Америки.",
+                    uk = "Трипалі лінивці проводять майже все життя, звисаючи вниз головою у тропічних лісах Центральної та Південної Америки."
+                ),
+                Fact(
+                    en = "Their metabolism is one of the slowest among mammals, allowing them to survive on a diet consisting almost entirely of leaves.",
+                    ru = "У ленивцев один из самых медленных обменов веществ среди млекопитающих, благодаря чему они могут питаться почти исключительно листьями.",
+                    uk = "Лінивці мають один із найповільніших обмінів речовин серед ссавців, що дозволяє їм харчуватися майже виключно листям."
+                ),
+                Fact(
+                    en = "Their fur hosts an entire miniature ecosystem. Algae, fungi, bacteria, insects, and even moths can live on a sloth's coat, helping it blend into the forest canopy.",
+                    ru = "Шерсть ленивца — это настоящая мини-экосистема. На ней могут жить зелёные водоросли, грибы, бактерии, насекомые и даже особые мотыльки, помогая животному сливаться с окружающей листвой.",
+                    uk = "Хутро лінивця — справжня міні-екосистема. На ньому можуть жити зелені водорості, гриби, бактерії, комахи й навіть особливі метелики, допомагаючи тварині маскуватися серед листя."
+                )
+            )
         )
     )
 }

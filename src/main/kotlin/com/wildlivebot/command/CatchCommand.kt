@@ -19,12 +19,7 @@ class CatchCommand : ListenerAdapter() {
         if (event.name != "catch") return
 
         event.deferReply().queue({ hook ->
-            val userLocale = event.userLocale
-            val displayLocale = when (userLocale) {
-                DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-                DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-                else -> DiscordLocale.ENGLISH_US
-            }
+            val displayLocale = LangManager.getSupportedLocale(event.guild?.locale)
 
             try {
                 val userId = event.user.id

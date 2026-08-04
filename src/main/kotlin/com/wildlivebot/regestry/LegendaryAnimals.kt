@@ -588,6 +588,43 @@ object LegendaryAnimals {
                     uk = "Ці мисливські традиції передаються з покоління в покоління. Різні групи косаток мають власну культуру, діалекти та унікальні способи полювання."
                 )
             )
+        ),
+        Animal(
+            id = "cheetah",
+            nameEn = "Cheetah",
+            nameRu = "Гепард",
+            nameUk = "Гепард",
+            aliasesEn = listOf("cheetah"),
+            aliasesRu = listOf("гепард"),
+            aliasesUk = listOf("гепард"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/cheetah.jpg",
+            hints = mapOf(
+                "кот" to "game.hint.cat_generic",
+                "кошка" to "game.hint.cat_generic",
+                "леопард" to "game.hint.cheetah_not_leopard",
+                "cat" to "game.hint.cat_generic",
+                "leopard" to "game.hint.cheetah_not_leopard"
+            ),
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Cheetahs inhabit the savannas and open grasslands of Africa, where they rely on speed rather than strength to catch prey.",
+                    ru = "Гепарды обитают в саваннах и открытых равнинах Африки, где полагаются на скорость, а не на силу.",
+                    uk = "Гепарди мешкають у саванах і відкритих рівнинах Африки, де покладаються на швидкість, а не на силу."
+                ),
+                Fact(
+                    en = "Cheetahs can sprint at speeds of up to 100–110 km/h, making them the fastest land animals. However, they can maintain such speed for only about 20–30 seconds before overheating.",
+                    ru = "Гепарды способны развивать скорость до 100–110 км/ч, что делает их самыми быстрыми наземными животными. Однако такую скорость они могут поддерживать лишь около 20–30 секунд, после чего перегреваются и вынуждены отдыхать.",
+                    uk = "Гепарди здатні розвивати швидкість до 100–110 км/год, що робить їх найшвидшими наземними тваринами. Проте таку швидкість вони можуть підтримувати лише близько 20–30 секунд, після чого перегріваються й змушені відпочивати."
+                ),
+                Fact(
+                    en = "Unlike most big cats, cheetahs cannot roar. Instead, they communicate by chirping, purring, hissing, and growling.",
+                    ru = "В отличие от большинства крупных кошек, гепарды не умеют рычать. Вместо этого они мурлычут, чирикают, шипят и рычат.",
+                    uk = "На відміну від більшості великих кішок, гепарди не вміють ревіти. Натомість вони муркочуть, цвірінькають, шиплять і гарчать."
+                )
+            )
         )
     )
 }

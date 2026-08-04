@@ -199,6 +199,41 @@ object MythicAnimals {
                     uk = "У шлюбний період самці какапо видають низькі гулкі звуки, які можна почути за кілька кілометрів."
                 )
             )
+        ),
+        Animal(
+            id = "tiger",
+            nameEn = "Tiger",
+            nameRu = "Тигр",
+            nameUk = "Тигр",
+            aliasesEn = listOf("tiger"),
+            aliasesRu = listOf("тигр"),
+            aliasesUk = listOf("тигр"),
+            rarity = Rarity.MYTHIC,
+            imagePath = "/images/tiger.jpg",
+            hints = mapOf(
+                "кот" to "game.hint.cat_generic",
+                "кошка" to "game.hint.cat_generic",
+                "cat" to "game.hint.cat_generic"
+            ),
+            region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Tigers are the largest living cats and inhabit forests, grasslands, and mangrove swamps across Asia.",
+                    ru = "Тигры — самые крупные представители семейства кошачьих. Они обитают в лесах, саваннах и мангровых болотах Азии.",
+                    uk = "Тигри — найбільші представники родини котових. Вони мешкають у лісах, саванах і мангрових болотах Азії."
+                ),
+                Fact(
+                    en = "Every tiger has a unique stripe pattern. No two tigers have exactly the same markings, just like human fingerprints.",
+                    ru = "У каждого тигра уникальный рисунок полос. Не существует двух тигров с одинаковым узором — так же, как не бывает одинаковых отпечатков пальцев у людей.",
+                    uk = "Кожен тигр має унікальний візерунок смуг. Не існує двох тигрів з однаковим малюнком — так само, як і однакових відбитків пальців у людей."
+                ),
+                Fact(
+                    en = "Despite their enormous size, tigers are excellent swimmers and often cross rivers or cool off in water, unlike most other cats.",
+                    ru = "Несмотря на огромные размеры, тигры отлично плавают и любят воду, что необычно для большинства представителей семейства кошачьих.",
+                    uk = "Попри величезні розміри, тигри чудово плавають і люблять воду, що незвично для більшості представників родини котових."
+                )
+            )
         )
     )
 }

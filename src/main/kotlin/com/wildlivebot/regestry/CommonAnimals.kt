@@ -596,6 +596,36 @@ object CommonAnimals {
                     uk = "Спрингбок є національною твариною Південно-Африканської Республіки."
                 )
             )
+        ),
+        Animal(
+            id = "llama",
+            nameEn = "Llama",
+            nameRu = "Лама",
+            nameUk = "Лама",
+            aliasesEn = listOf("llama"),
+            aliasesRu = listOf("лама"),
+            aliasesUk = listOf("лама"),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/llama.jpg",
+            region = Region.MOUNTAINS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Llamas are domesticated camelids native to the Andes Mountains of South America, where they have served as pack animals for thousands of years.",
+                    ru = "Ламы — одомашненные представители семейства верблюдовых, обитающие в Андах Южной Америки. Уже тысячи лет они используются людьми как вьючные животные.",
+                    uk = "Лами — одомашнені представники родини верблюдових, що мешкають в Андах Південної Америки. Уже тисячі років вони використовуються людьми як в'ючні тварини."
+                ),
+                Fact(
+                    en = "When annoyed or threatened, llamas spit a mixture of saliva and stomach contents to warn rivals or predators.",
+                    ru = "Если лама раздражена или чувствует угрозу, она может плюнуть смесью слюны и содержимого желудка, отпугивая соперников или хищников.",
+                    uk = "Якщо лама роздратована або відчуває загрозу, вона може плюнути сумішшю слини й вмісту шлунка, відлякуючи суперників або хижаків."
+                ),
+                Fact(
+                    en = "Unlike camels, llamas do not have humps. They store fat throughout their bodies instead of in a hump.",
+                    ru = "В отличие от верблюдов, у лам нет горбов. Запасы жира распределяются по всему телу, а не накапливаются в одном месте.",
+                    uk = "На відміну від верблюдів, лами не мають горбів. Запаси жиру розподіляються по всьому тілу, а не накопичуються в одному місці."
+                )
+            )
         )
     )
 }

@@ -729,6 +729,151 @@ object EpicAnimals {
                     uk = "Задня частина тіла вомбата укріплена товстою шкірою та хрящами, завдяки чому він може буквально затуляти вхід до нори від хижаків."
                 )
             )
+        ),
+        Animal(
+            id = "caracal",
+            nameEn = "Caracal",
+            nameRu = "Каракал",
+            nameUk = "Каракал",
+            aliasesEn = listOf("caracal"),
+            aliasesRu = listOf("каракал"),
+            aliasesUk = listOf("каракал"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/caracal.jpg",
+            hints = mapOf(
+                "шлёпа" to "game.hint.caracal_not_bigfloppa",
+                "шлепа" to "game.hint.caracal_not_bigfloppa",
+                "floppa" to "game.hint.caracal_not_bigfloppa",
+                "big floppa" to "game.hint.caracal_not_bigfloppa"
+            ),
+            region = Region.SAVANNAS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Caracals inhabit Africa, the Middle East, and parts of Central Asia, living in savannas, semi-deserts, and dry woodlands.",
+                    ru = "Каракалы обитают в Африке, на Ближнем Востоке и в некоторых районах Центральной Азии, населяя саванны, полупустыни и редколесья.",
+                    uk = "Каракали мешкають в Африці, на Близькому Сході та в деяких районах Центральної Азії, населяючи савани, напівпустелі й рідколісся."
+                ),
+                Fact(
+                    en = "Their powerful hind legs allow them to leap over 3 meters into the air and catch birds in flight.",
+                    ru = "Благодаря мощным задним лапам каракалы способны подпрыгивать более чем на 3 метра и ловить птиц прямо в воздухе.",
+                    uk = "Завдяки потужним заднім лапам каракали можуть стрибати більш ніж на 3 метри у висоту й ловити птахів просто в повітрі."
+                ),
+                Fact(
+                    en = "Their long black ear tufts improve visual communication, although their exact purpose is still being studied.",
+                    ru = "Длинные чёрные кисточки на ушах помогают каракалам общаться между собой с помощью визуальных сигналов, хотя их точная функция до сих пор изучается.",
+                    uk = "Довгі чорні китички на вухах допомагають каракалам спілкуватися за допомогою візуальних сигналів, хоча їхня точна функція досі вивчається."
+                ),
+                Fact(
+                    en = "Caracals became internet celebrities thanks to the famous meme cat 'Big Floppa', introducing millions of people to this wild species.",
+                    ru = "Каракалы стали настоящими интернет-знаменитостями благодаря знаменитому мему «Шлёпа» (Big Floppa), благодаря которому миллионы людей впервые узнали об этом виде.",
+                    uk = "Каракали стали справжніми інтернет-знаменитостями завдяки знаменитому мему «Шльопа» (Big Floppa), завдяки якому мільйони людей вперше дізналися про цей вид."
+                )
+            )
+        ),
+        Animal(
+            id = "pallas_cat",
+            nameEn = "Pallas's Cat",
+            nameRu = "Манул",
+            nameUk = "Манул",
+            aliasesEn = listOf("pallas's cat", "pallas cat", "manul"),
+            aliasesRu = listOf("манул"),
+            aliasesUk = listOf("манул"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/pallas_cat.jpg",
+            hints = mapOf(
+                "кот" to "game.hint.cat_generic",
+                "кошка" to "game.hint.cat_generic",
+                "cat" to "game.hint.cat_generic"
+            ),
+            region = Region.MOUNTAINS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Pallas's cats inhabit the cold steppes and rocky mountains of Central Asia, where their dense fur protects them from harsh winters.",
+                    ru = "Манулы обитают в холодных степях и горных районах Центральной Азии, где их очень густой мех защищает от суровых зим.",
+                    uk = "Манули мешкають у холодних степах і гірських районах Центральної Азії, де їхнє дуже густе хутро захищає від суворих зим."
+                ),
+                Fact(
+                    en = "Unlike domestic cats, Pallas's cats are solitary animals and are extremely difficult to tame. They become stressed around humans and are not suitable as pets.",
+                    ru = "В отличие от домашних кошек, манулы — одиночки. Они очень плохо переносят присутствие человека и практически не поддаются приручению.",
+                    uk = "На відміну від домашніх кішок, манули — одинаки. Вони дуже погано переносять присутність людини й практично не піддаються прирученню."
+                ),
+                Fact(
+                    en = "Despite their grumpy expression, Pallas's cats became internet celebrities thanks to countless photos and memes featuring their unique appearance.",
+                    ru = "Несмотря на своё «недовольное» выражение морды, манулы стали настоящими звёздами интернета благодаря своему необычному внешнему виду.",
+                    uk = "Попри свій «невдоволений» вираз морди, манули стали справжніми зірками інтернету завдяки своїй незвичайній зовнішності."
+                )
+            )
+        ),
+        Animal(
+            id = "eurasian_lynx",
+            nameEn = "Eurasian Lynx",
+            nameRu = "Европейская рысь",
+            nameUk = "Рись євразійська",
+            aliasesEn = listOf("eurasian lynx", "lynx"),
+            aliasesRu = listOf("европейская рысь", "рысь"),
+            aliasesUk = listOf("рись євразійська", "рись"),
+            rarity = Rarity.RARE,
+            imagePath = "/images/eurasian_lynx.jpg",
+            hints = mapOf(
+                "кот" to "game.hint.cat_generic",
+                "кошка" to "game.hint.cat_generic",
+                "cat" to "game.hint.cat_generic"
+            ),
+            region = Region.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "The Eurasian lynx is the largest lynx species and inhabits forests across Europe and northern Asia.",
+                    ru = "Евразийская рысь — самый крупный представитель рода рысей, обитающий в лесах Европы и северной Азии.",
+                    uk = "Рись євразійська — найбільший представник роду рисей, що мешкає в лісах Європи та північної Азії."
+                ),
+                Fact(
+                    en = "Its tufted ears improve hearing and help determine the direction of sounds while hunting.",
+                    ru = "Кисточки на ушах помогают рыси лучше определять направление звука во время охоты.",
+                    uk = "Китички на вухах допомагають рисі краще визначати напрямок звуку під час полювання."
+                ),
+                Fact(
+                    en = "In many ecosystems, lynx numbers closely follow hare populations. When hares become abundant, lynx populations grow; when hares decline, lynx numbers also decrease.",
+                    ru = "Во многих экосистемах численность рысей тесно связана с численностью зайцев. Когда зайцев становится много, популяция рысей тоже растёт, а когда их становится мало — сокращается и число рысей.",
+                    uk = "У багатьох екосистемах чисельність рисей тісно пов'язана з чисельністю зайців. Коли зайців стає багато, популяція рисей також зростає, а коли їх меншає — скорочується й кількість рисей."
+                )
+            )
+        ),
+        Animal(
+            id = "giant_anteater",
+            nameEn = "Giant Anteater",
+            nameRu = "Гигантский муравьед",
+            nameUk = "Великий мурахоїд",
+            aliasesEn = listOf("giant anteater", "anteater"),
+            aliasesRu = listOf("гигантский муравьед", "муравьед"),
+            aliasesUk = listOf("великий мурахоїд", "мурахоїд"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/giant_anteater.jpg",
+            hints = mapOf(
+                "муравей" to "game.hint.anteater_not_ant",
+                "ant" to "game.hint.anteater_not_ant"
+            ),
+            region = Region.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "Giant anteaters inhabit grasslands, savannas, and tropical forests of Central and South America.",
+                    ru = "Гигантские муравьеды обитают в саваннах, лугах и тропических лесах Центральной и Южной Америки.",
+                    uk = "Великі мурахоїди мешкають у саванах, луках і тропічних лісах Центральної та Південної Америки."
+                ),
+                Fact(
+                    en = "Their tongue can reach up to 60 cm in length and flicks in and out over 150 times per minute, allowing them to consume thousands of ants and termites every day.",
+                    ru = "Их язык достигает 60 см в длину и высовывается до 150 раз в минуту, позволяя съедать тысячи муравьёв и термитов каждый день.",
+                    uk = "Їхній язик сягає 60 см завдовжки й висовується до 150 разів на хвилину, дозволяючи з'їдати тисячі мурах і термітів щодня."
+                ),
+                Fact(
+                    en = "Despite having no teeth, giant anteaters possess huge curved claws powerful enough to tear open termite mounds and defend themselves from jaguars.",
+                    ru = "Несмотря на отсутствие зубов, гигантские муравьеды обладают огромными изогнутыми когтями, которыми вскрывают термитники и даже могут защищаться от ягуаров.",
+                    uk = "Попри відсутність зубів, великі мурахоїди мають величезні вигнуті кігті, якими розкривають термітники й навіть можуть захищатися від ягуарів."
+                )
+            )
         )
     )
 }
