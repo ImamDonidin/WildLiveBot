@@ -7,6 +7,7 @@ import com.wildlivebot.game.repository.GameConfigRepository
 import com.wildlivebot.model.Biome
 import com.wildlivebot.utils.LangManager
 import com.wildlivebot.utils.localizedName
+import com.wildlivebot.utils.sendAchievementUnlocks
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
