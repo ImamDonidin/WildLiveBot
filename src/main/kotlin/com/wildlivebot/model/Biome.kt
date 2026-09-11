@@ -1,6 +1,6 @@
 package com.wildlivebot.model
 
-enum class Region(
+enum class Biome(
     val nameEn: String,
     val nameRu: String,
     val nameUk: String

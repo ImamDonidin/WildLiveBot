@@ -1,10 +1,10 @@
-package com.wildlivebot.regestry
+package com.wildlivebot.registry
 
 import com.wildlivebot.model.Animal
 import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
-import com.wildlivebot.model.Region
+import com.wildlivebot.model.Biome
 
 object LegendaryAnimals {
     val list = listOf(
@@ -18,7 +18,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("бандікут", "сумчастий борсук"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/bandicoot.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -48,7 +48,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("африканський лев", "лев", "левчик"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/lion.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -78,7 +78,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("сніговий барс", "ірбіс", "барс"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/snow_leopard.jpg",
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -108,7 +108,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("гризлі", "ведмідь гризлі"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/grizzly.jpg",
-            region = Region.BOREAL_FORESTS,
+            biome = Biome.BOREAL_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -133,7 +133,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("пума", "кугуар", "гірський лев"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/cougar.jpg",
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             hints = mapOf(
                 "лев" to "game.hint.cougar_not_lion",
                 "lion" to "game.hint.cougar_not_lion",
@@ -164,7 +164,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("плащеносець казковий", "рожевий броненосець", "казковий броненосець", "плащеносець"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/pink_fairy_armadillo.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -194,7 +194,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("росомаха"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/wolverine.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             hints = mapOf(
                 "барсук" to "game.hint.wolverine_not_badger",
                 "badger" to "game.hint.wolverine_not_badger"
@@ -223,7 +223,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("зубр", "європейський бізон"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/european_bison.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             hints = mapOf(
                 "бизон" to "game.hint.wisent_not_bison",
                 "bison" to "game.hint.wisent_not_bison",
@@ -253,7 +253,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("африканський слон", "слон", "слоник"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/african_elephant.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -293,7 +293,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("аксолотль", "водяний дракон", "аксик"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/axolotl.jpg",
-            region = Region.RIVERS_LAKES,
+            biome = Biome.RIVERS_LAKES,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -318,7 +318,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("полярний ведмідь", "білий ведмідь"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/polar_bear.jpg",
-            region = Region.ARCTIC,
+            biome = Biome.ARCTIC,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -348,7 +348,7 @@ object LegendaryAnimals {
                 "эму" to "game.hint.ostrich_not_emu",
                 "emu" to "game.hint.ostrich_not_emu"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -378,7 +378,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("південний казуар", "казуар"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/southern_cassowary.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -408,7 +408,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("королівський пінгвін", "пінгвін"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/king_penguin.jpg",
-            region = Region.ANTARCTICA,
+            biome = Biome.ANTARCTICA,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -438,7 +438,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("нарвал", "морський єдиноріг"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/narwhal.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -468,7 +468,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("рудий кенгуру", "кенгуру"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/red_kangaroo.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -503,7 +503,7 @@ object LegendaryAnimals {
                 "попугай" to "game.hint.parrot_generic",
                 "parrot" to "game.hint.parrot_generic"
             ),
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -539,7 +539,7 @@ object LegendaryAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -569,7 +569,7 @@ object LegendaryAnimals {
             aliasesUk = listOf("косатка"),
             rarity = Rarity.LEGENDARY,
             imagePath = "/images/orca.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -606,7 +606,7 @@ object LegendaryAnimals {
                 "cat" to "game.hint.cat_generic",
                 "leopard" to "game.hint.cheetah_not_leopard"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -623,6 +623,36 @@ object LegendaryAnimals {
                     en = "Unlike most big cats, cheetahs cannot roar. Instead, they communicate by chirping, purring, hissing, and growling.",
                     ru = "В отличие от большинства крупных кошек, гепарды не умеют рычать. Вместо этого они мурлычут, чирикают, шипят и рычат.",
                     uk = "На відміну від більшості великих кішок, гепарди не вміють ревіти. Натомість вони муркочуть, цвірінькають, шиплять і гарчать."
+                )
+            )
+        ),
+        Animal(
+            id = "north_island_brown_kiwi",
+            nameEn = "North Island Brown Kiwi",
+            nameRu = "Северный бурый киви",
+            nameUk = "Північний бурий ківі",
+            aliasesEn = listOf("north island brown kiwi", "brown kiwi", "kiwi"),
+            aliasesRu = listOf("северный бурый киви", "бурый киви", "киви"),
+            aliasesUk = listOf("північний бурий ківі", "бурий ківі", "ківі"),
+            rarity = Rarity.LEGENDARY,
+            imagePath = "/images/north_island_brown_kiwi.jpg",
+            biome = Biome.TEMPERATE_FORESTS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "North Island brown kiwis are flightless birds that live in forests and other dense vegetation on New Zealand's North Island.",
+                    ru = "Северные бурые киви — нелетающие птицы, обитающие в лесах и другой густой растительности на Северном острове Новой Зеландии.",
+                    uk = "Північні бурі ківі — нелітаючі птахи, що мешкають у лісах та іншій густій рослинності на Північному острові Нової Зеландії."
+                ),
+                Fact(
+                    en = "Unlike most birds, kiwis have nostrils at the tip of their bill, which they use to locate food underground.",
+                    ru = "В отличие от большинства птиц, у киви ноздри расположены на кончике клюва, что помогает им находить пищу под землёй.",
+                    uk = "На відміну від більшості птахів, у ківі ніздрі розташовані на кінчику дзьоба, що допомагає їм знаходити їжу під землею."
+                ),
+                Fact(
+                    en = "A kiwi egg is exceptionally large relative to the mother's body, and a single egg can weigh around one-fifth of her body mass.",
+                    ru = "Яйцо киви необычайно велико по отношению к телу самки: одно яйцо может весить около одной пятой её массы.",
+                    uk = "Яйце ківі надзвичайно велике порівняно з тілом самки: одне яйце може важити близько однієї п'ятої її маси."
                 )
             )
         )

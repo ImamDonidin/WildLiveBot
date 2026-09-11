@@ -26,15 +26,6 @@ object LangManager {
         "en" to DiscordLocale.ENGLISH_US
     )
 
-    fun getGuildLocale(languageName: String): DiscordLocale {
-        val name = languageName.lowercase()
-        return when {
-            name.startsWith("ukr") -> DiscordLocale.UKRAINIAN
-            name.startsWith("rus") -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
-    }
-
     fun parseUserAnswer(rawAnswer: String): Pair<DiscordLocale?, String> {
         val parts = rawAnswer.split("\\s+".toRegex(), 2)
         if (parts.size < 2) return Pair(null, rawAnswer)

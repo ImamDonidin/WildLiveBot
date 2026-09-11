@@ -1,10 +1,10 @@
-package com.wildlivebot.regestry
+package com.wildlivebot.registry
 
 import com.wildlivebot.model.Animal
 import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
+import com.wildlivebot.model.Biome
 import com.wildlivebot.model.Rarity
-import com.wildlivebot.model.Region
 
 object EpicAnimals {
     val list = listOf(
@@ -18,7 +18,7 @@ object EpicAnimals {
             aliasesUk = listOf("кабан", "вепр", "дикий кабан", "сікач"),
             rarity = Rarity.EPIC,
             imagePath = "/images/wild_boar.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             hints = mapOf(
                 "бородавочник" to "game.hint.boar_not_warthog",
                 "warthog" to "game.hint.boar_not_warthog",
@@ -54,7 +54,7 @@ object EpicAnimals {
             aliasesUk = listOf("броненосець", "дев'ятипоясний броненосець"),
             rarity = Rarity.EPIC,
             imagePath = "/images/armadillo.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -84,7 +84,7 @@ object EpicAnimals {
             aliasesUk = listOf("качкодзьоб"),
             rarity = Rarity.EPIC,
             imagePath = "/images/platypus.jpg",
-            region = Region.RIVERS_LAKES,
+            biome = Biome.RIVERS_LAKES,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -114,7 +114,7 @@ object EpicAnimals {
             aliasesUk = listOf("канадський бобер", "бобер", "бобр"),
             rarity = Rarity.EPIC,
             imagePath = "/images/beaver.jpg",
-            region = Region.RIVERS_LAKES,
+            biome = Biome.RIVERS_LAKES,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -144,7 +144,7 @@ object EpicAnimals {
             aliasesUk = listOf("європейський борсук", "борсук"),
             rarity = Rarity.EPIC,
             imagePath = "/images/european_badger.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -180,7 +180,7 @@ object EpicAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -210,7 +210,7 @@ object EpicAnimals {
             aliasesUk = listOf("африканський буйвіл", "капський буйвіл", "буйвіл"),
             rarity = Rarity.EPIC,
             imagePath = "/images/african_buffalo.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -240,7 +240,7 @@ object EpicAnimals {
             aliasesUk = listOf("жираф", "жирафа"),
             rarity = Rarity.EPIC,
             imagePath = "/images/giraffe.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -270,7 +270,7 @@ object EpicAnimals {
             aliasesUk = listOf("вовк", "сірий вовк", "вовчик"),
             rarity = Rarity.EPIC,
             imagePath = "/images/grey_wolf.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -299,7 +299,7 @@ object EpicAnimals {
                 "тюлень" to "game.hint.seal_not_walrus",
                 "seal" to "game.hint.seal_not_walrus"
             ),
-            region = Region.ARCTIC,
+            biome = Biome.ARCTIC,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -329,7 +329,7 @@ object EpicAnimals {
             aliasesUk = listOf("південний морський слон", "морський слон"),
             rarity = Rarity.EPIC,
             imagePath = "/images/elephant_seal.jpg",
-            region = Region.ANTARCTICA,
+            biome = Biome.ANTARCTICA,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -354,7 +354,7 @@ object EpicAnimals {
             aliasesUk = listOf("сухопутна черепаха", "грецька черепаха"),
             rarity = Rarity.EPIC,
             imagePath = "/images/tortoise.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             hints = mapOf(
                 "болотная черепаха" to "game.hint.tortoise_not_pond",
                 "морская черепаха" to "game.hint.tortoise_not_sea",
@@ -389,7 +389,7 @@ object EpicAnimals {
             aliasesUk = listOf("індійський павич", "павич", "пава"),
             rarity = Rarity.EPIC,
             imagePath = "/images/indian_peafowl.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -419,7 +419,7 @@ object EpicAnimals {
             aliasesUk = listOf("китоголов"),
             rarity = Rarity.EPIC,
             imagePath = "/images/shoebill.jpg",
-            region = Region.WETLANDS,
+            biome = Biome.WETLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -455,7 +455,7 @@ object EpicAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -485,7 +485,7 @@ object EpicAnimals {
             aliasesUk = listOf("гірський козел", "козел", "cнігова коза"),
             rarity = Rarity.EPIC,
             imagePath = "/images/mountain_goat.jpg",
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -515,7 +515,7 @@ object EpicAnimals {
             aliasesUk = listOf("гарпія", "орел гарпія"),
             rarity = Rarity.EPIC,
             imagePath = "/images/harpy_eagle.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -549,7 +549,7 @@ object EpicAnimals {
                 "ласка" to "game.hint.stoat_not_weasel",
                 "weasel" to "game.hint.stoat_not_weasel"
             ),
-            region = Region.BOREAL_FORESTS,
+            biome = Biome.BOREAL_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -579,7 +579,7 @@ object EpicAnimals {
             aliasesUk = listOf("афаліна", "дельфін-афаліна", "дельфін"),
             rarity = Rarity.EPIC,
             imagePath = "/images/bottlenose_dolphin.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -609,7 +609,7 @@ object EpicAnimals {
             aliasesUk = listOf("блакитнонога олуша", "олуша"),
             rarity = Rarity.EPIC,
             imagePath = "/images/blue_footed_booby.jpg",
-            region = Region.COASTS,
+            biome = Biome.COASTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -639,7 +639,7 @@ object EpicAnimals {
             aliasesUk = listOf("жако", "сірий папуга"),
             rarity = Rarity.EPIC,
             imagePath = "/images/african_grey_parrot.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             hints = mapOf(
                 "папуга" to "game.hint.parrot_generic",
                 "попугай" to "game.hint.parrot_generic",
@@ -680,7 +680,7 @@ object EpicAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -710,7 +710,7 @@ object EpicAnimals {
             aliasesUk = listOf("вомбат звичайний", "вомбат"),
             rarity = Rarity.EPIC,
             imagePath = "/images/common_wombat.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -746,7 +746,7 @@ object EpicAnimals {
                 "floppa" to "game.hint.caracal_not_bigfloppa",
                 "big floppa" to "game.hint.caracal_not_bigfloppa"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -786,7 +786,7 @@ object EpicAnimals {
                 "кошка" to "game.hint.cat_generic",
                 "cat" to "game.hint.cat_generic"
             ),
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -821,7 +821,7 @@ object EpicAnimals {
                 "кошка" to "game.hint.cat_generic",
                 "cat" to "game.hint.cat_generic"
             ),
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -855,7 +855,7 @@ object EpicAnimals {
                 "муравей" to "game.hint.anteater_not_ant",
                 "ant" to "game.hint.anteater_not_ant"
             ),
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -872,6 +872,114 @@ object EpicAnimals {
                     en = "Despite having no teeth, giant anteaters possess huge curved claws powerful enough to tear open termite mounds and defend themselves from jaguars.",
                     ru = "Несмотря на отсутствие зубов, гигантские муравьеды обладают огромными изогнутыми когтями, которыми вскрывают термитники и даже могут защищаться от ягуаров.",
                     uk = "Попри відсутність зубів, великі мурахоїди мають величезні вигнуті кігті, якими розкривають термітники й навіть можуть захищатися від ягуарів."
+                )
+            )
+        ),
+        Animal(
+            id = "eurasian_otter",
+            nameEn = "Eurasian Otter",
+            nameRu = "Обыкновенная выдра",
+            nameUk = "Видра річкова",
+            aliasesEn = listOf(
+                "eurasian otter",
+                "otter",
+                "common otter",
+                "european otter"
+            ),
+            aliasesRu = listOf(
+                "обыкновенная выдра",
+                "выдра",
+                "речная выдра"
+            ),
+            aliasesUk = listOf(
+                "видра річкова",
+                "видра",
+                "європейська видра"
+            ),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/eurasian_otter.jpg",
+            biome = Biome.RIVERS_LAKES,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "The Eurasian otter is a semi-aquatic mammal found across large parts of Europe and Asia, usually near freshwater habitats.",
+                    ru = "Обыкновенная выдра — полуводное млекопитающее, распространённое в значительной части Европы и Азии, обычно вблизи пресных водоёмов.",
+                    uk = "Видра річкова — напівводний ссавець, поширений у значній частині Європи та Азії, зазвичай поблизу прісних водойм."
+                ),
+                Fact(
+                    en = "Its streamlined body, webbed feet, and powerful tail make it well adapted for swimming and underwater hunting.",
+                    ru = "Обтекаемое тело, перепончатые лапы и мощный хвост хорошо приспособлены для плавания и охоты под водой.",
+                    uk = "Обтічне тіло, перетинчасті лапи та потужний хвіст добре пристосовані до плавання й полювання під водою."
+                ),
+                Fact(
+                    en = "Eurasian otters have extremely dense fur that helps insulate their bodies in cold water.",
+                    ru = "У обыкновенных выдр чрезвычайно густой мех, который помогает сохранять тепло в холодной воде.",
+                    uk = "У річкових видр надзвичайно густе хутро, яке допомагає зберігати тепло в холодній воді."
+                ),
+                Fact(
+                    en = "They mainly feed on fish but also eat amphibians, crustaceans, insects, and other aquatic or semi-aquatic animals.",
+                    ru = "Основу их рациона обычно составляет рыба, но они также едят земноводных, ракообразных, насекомых и других водных или полуводных животных.",
+                    uk = "Основу їхнього раціону зазвичай становить риба, але вони також їдять земноводних, ракоподібних, комах та інших водних або напівводних тварин."
+                )
+            )
+        ),
+        Animal(
+            id = "south_american_tapir",
+            nameEn = "South American Tapir",
+            nameRu = "Равнинный тапир",
+            nameUk = "Рівнинний тапір",
+            aliasesEn = listOf("south american tapir", "lowland tapir", "tapir"),
+            aliasesRu = listOf("равнинный тапир", "южноамериканский тапир", "тапир"),
+            aliasesUk = listOf("рівнинний тапір", "південноамериканський тапір", "тапір"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/south_american_tapir.jpg",
+            biome = Biome.TROPICAL_RAINFORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "South American tapirs inhabit forests, wetlands, and grasslands across much of northern and central South America.",
+                    ru = "Равнинные тапиры обитают в лесах, заболоченных местах и на лугах в значительной части северной и центральной Южной Америки.",
+                    uk = "Рівнинні тапіри мешкають у лісах, заболочених місцевостях і на луках у значній частині північної та центральної Південної Америки."
+                ),
+                Fact(
+                    en = "Their flexible trunk-like snout is used to grasp leaves, fruits, and other vegetation.",
+                    ru = "Их гибкий хоботок используется для захвата листьев, плодов и другой растительности.",
+                    uk = "Їхнє гнучке хоботоподібне рило використовується для захоплення листя, плодів та іншої рослинності."
+                ),
+                Fact(
+                    en = "South American tapirs are strong swimmers and often enter water to cool down, escape danger, or feed on aquatic vegetation.",
+                    ru = "Равнинные тапиры хорошо плавают и часто заходят в воду, чтобы охладиться, спастись от опасности или питаться водной растительностью.",
+                    uk = "Рівнинні тапіри добре плавають і часто заходять у воду, щоб охолодитися, втекти від небезпеки або живитися водною рослинністю."
+                )
+            )
+        ),
+        Animal(
+            id = "greater_flamingo",
+            nameEn = "Greater Flamingo",
+            nameRu = "Розовый фламинго",
+            nameUk = "Рожевий фламінго",
+            aliasesEn = listOf("greater flamingo", "flamingo"),
+            aliasesRu = listOf("розовый фламинго", "фламинго"),
+            aliasesUk = listOf("рожевий фламінго", "фламінго"),
+            rarity = Rarity.EPIC,
+            imagePath = "/images/greater_flamingo.jpg",
+            biome = Biome.WETLANDS,
+            type = AnimalType.BIRD,
+            facts = listOf(
+                Fact(
+                    en = "Greater flamingos live in shallow wetlands such as lagoons, salt lakes, estuaries, and coastal mudflats.",
+                    ru = "Розовые фламинго обитают на мелководных водоёмах, включая лагуны, солёные озёра, эстуарии и прибрежные илистые отмели.",
+                    uk = "Рожеві фламінго мешкають на мілководних водно-болотних угіддях, зокрема в лагунах, солоних озерах, естуаріях і прибережних мулистих мілинах."
+                ),
+                Fact(
+                    en = "Their pink and reddish coloration comes mainly from carotenoid pigments in the algae and small aquatic organisms they eat.",
+                    ru = "Их розовая и красноватая окраска в основном обусловлена каротиноидными пигментами из водорослей и мелких водных организмов, которыми они питаются.",
+                    uk = "Їхнє рожеве та червонувате забарвлення переважно зумовлене каротиноїдними пігментами з водоростей і дрібних водних організмів, якими вони живляться."
+                ),
+                Fact(
+                    en = "Greater flamingos use their specialized bills to filter small organisms and particles from water and mud.",
+                    ru = "Розовые фламинго используют особый клюв, чтобы отфильтровывать из воды и ила мелкие организмы и частицы пищи.",
+                    uk = "Рожеві фламінго використовують спеціалізований дзьоб, щоб фільтрувати з води та мулу дрібні організми й частинки їжі."
                 )
             )
         )

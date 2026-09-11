@@ -1,10 +1,13 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
-import com.wildlivebot.model.Region
+import com.wildlivebot.game.repository.LeaderboardRepository
+import com.wildlivebot.game.repository.InventoryRepository
+import com.wildlivebot.game.ShopService
+import com.wildlivebot.game.repository.GameConfigRepository
+import com.wildlivebot.model.Biome
 import com.wildlivebot.utils.LangManager
+import com.wildlivebot.utils.localizedName
 import net.dv8tion.jda.api.EmbedBuilder
-import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import java.awt.Color
@@ -13,25 +16,18 @@ import org.slf4j.LoggerFactory
 class ShopCommand : ListenerAdapter() {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
-    private val baitPrice = 150
-    private val cameraPrice = 500
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if (event.name != "shop" && event.name != "buy") return
 
-        val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
-
+        val displayLocale = LangManager.getSupportedLocale(event.userLocale)
         val userId = event.user.id
+        val prices = GameConfigRepository.current()
 
         if (event.name == "shop") {
-            val userPoints = GameManager.getPoints(userId)
-            val userBaits = GameManager.getUserBaits(userId)
-            val hasCamera = GameManager.hasTool(userId, "sky_camera")
+            val userPoints = LeaderboardRepository.getPoints(userId)
+            val userBaits = InventoryRepository.getBaits(userId)
+            val hasCamera = InventoryRepository.hasTool(userId, "sky_camera")
 
             val embed = EmbedBuilder()
                 .setTitle(LangManager.getString(displayLocale, "command.shop.title"))
@@ -40,21 +36,17 @@ class ShopCommand : ListenerAdapter() {
 
             val goodsList = StringBuilder()
 
-            Region.values().forEach { region ->
-                val regionName = when (displayLocale) {
-                    DiscordLocale.UKRAINIAN -> region.nameUk
-                    DiscordLocale.RUSSIAN -> region.nameRu
-                    else -> region.nameEn
-                }
-                goodsList.append("• **$regionName Bait** `(${region.name.lowercase()})` — **$baitPrice 🪙**\n")
+            Biome.values().forEach { biome ->
+                val biomeName = biome.localizedName(displayLocale)
+                goodsList.append("• **$biomeName Bait** `(${biome.name.lowercase()})` — **${prices.baitPrice} 🪙**\n")
             }
 
             val cameraName = LangManager.getString(displayLocale, "item.sky_camera.name")
-            goodsList.append("\n📷 **$cameraName** `(sky_camera)` — **$cameraPrice 🪙**\n")
+            goodsList.append("\n📷 **$cameraName** `(sky_camera)` — **${prices.skyCameraPrice} 🪙**\n")
             goodsList.append(LangManager.getString(displayLocale, "item.sky_camera.desc"))
 
             embed.addField(
-                LangManager.getString(displayLocale, "command.shop.goods_title"),
+                LangManager.getString(displayLocale, "command.shop.goods_title", prices.baitPrice),
                 goodsList.toString(),
                 false
             )
@@ -62,16 +54,9 @@ class ShopCommand : ListenerAdapter() {
             val inventoryContent = StringBuilder()
 
             if (userBaits.isNotEmpty()) {
-                val baitsStr = userBaits.entries.mapNotNull { (regionId, count) ->
-                    val region = try { Region.valueOf(regionId.uppercase()) } catch (e: Exception) { null }
-                    if (region != null) {
-                        val name = when (displayLocale) {
-                            DiscordLocale.UKRAINIAN -> region.nameUk
-                            DiscordLocale.RUSSIAN -> region.nameRu
-                            else -> region.nameEn
-                        }
-                        LangManager.getString(displayLocale, "game.inventory.count", name, count)
-                    } else null
+                val baitsStr = userBaits.entries.mapNotNull { (biomeId, count) ->
+                    val biome = try { Biome.valueOf(biomeId.uppercase()) } catch (e: Exception) { null }
+                    biome?.let { LangManager.getString(displayLocale, "game.inventory.count", it.localizedName(displayLocale), count) }
                 }.joinToString("\n")
                 inventoryContent.append(baitsStr)
             }
@@ -101,39 +86,37 @@ class ShopCommand : ListenerAdapter() {
             event.deferReply().setEphemeral(true).queue({ hook ->
                 try {
                     if (rawItemId == "sky_camera") {
-                        if (GameManager.hasTool(userId, "sky_camera")) {
+                        if (InventoryRepository.hasTool(userId, "sky_camera")) {
                             hook.sendMessage(LangManager.getString(displayLocale, "command.buy.already_owned")).queue()
                             return@queue
                         }
 
-                        val success = GameManager.buyTool(userId, "sky_camera", cameraPrice)
+                        val success = ShopService.buyTool(userId, "sky_camera", prices.skyCameraPrice)
                         if (success) {
                             val cameraName = LangManager.getString(displayLocale, "item.sky_camera.name")
                             hook.sendMessage(LangManager.getString(displayLocale, "command.buy.success", cameraName)).queue()
+
+                            val unlocked = com.wildlivebot.game.AchievementService.checkAndUnlock(userId)
+                            if (unlocked.isNotEmpty()) sendAchievementUnlocks(hook, displayLocale, unlocked)
                         } else {
-                            hook.sendMessage(LangManager.getString(displayLocale, "command.buy.no_points")).queue()
+                            hook.sendMessage(LangManager.getString(displayLocale, "command.buy.no_points", prices.skyCameraPrice)).queue()
                         }
                         return@queue
                     }
 
-                    val validRegion = try { Region.valueOf(rawItemId.uppercase()) } catch (e: Exception) { null }
+                    val validBiome = try { Biome.valueOf(rawItemId.uppercase()) } catch (e: Exception) { null }
 
-                    if (validRegion == null) {
+                    if (validBiome == null) {
                         hook.sendMessage(LangManager.getString(displayLocale, "command.buy.wrong_id", rawItemId)).queue()
                         return@queue
                     }
 
-                    val success = GameManager.buyBait(userId, validRegion.name.lowercase(), baitPrice)
+                    val success = ShopService.buyBait(userId, validBiome.name.lowercase(), prices.baitPrice)
 
                     if (success) {
-                        val regionName = when (displayLocale) {
-                            DiscordLocale.UKRAINIAN -> validRegion.nameUk
-                            DiscordLocale.RUSSIAN -> validRegion.nameRu
-                            else -> validRegion.nameEn
-                        }
-                        hook.sendMessage(LangManager.getString(displayLocale, "command.buy.success", regionName)).queue()
+                        hook.sendMessage(LangManager.getString(displayLocale, "command.buy.success", validBiome.localizedName(displayLocale))).queue()
                     } else {
-                        hook.sendMessage(LangManager.getString(displayLocale, "command.buy.no_points")).queue()
+                        hook.sendMessage(LangManager.getString(displayLocale, "command.buy.no_points", prices.baitPrice)).queue()
                     }
                 } catch (e: Exception) {
                     logger.error("Error inside deferred buy command block", e)

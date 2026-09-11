@@ -9,9 +9,13 @@ import com.wildlivebot.command.ShopCommand
 import com.wildlivebot.command.UseCommand
 import com.wildlivebot.command.QuestsCommand
 import com.wildlivebot.command.CollectionCommand
-import com.wildlivebot.game.GameManager
+import com.wildlivebot.command.ConfigCommand
+import com.wildlivebot.game.repository.QuestRepository
 import com.wildlivebot.listener.MessageListener
-import com.wildlivebot.model.Region
+import com.wildlivebot.model.Biome
+import com.wildlivebot.command.AchievementsCommand
+import com.wildlivebot.command.HelpCommand
+import com.wildlivebot.listener.WelcomeListener
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.api.requests.GatewayIntent
@@ -29,7 +33,7 @@ fun main() {
     logger.info("Initializing WildLiveBot...")
 
     try {
-        GameManager.checkWeeklyReset()
+        QuestRepository.checkWeeklyReset()
     } catch (e: Exception) {
         logger.error("Failed to initialize game quests storage on start", e)
     }
@@ -49,7 +53,11 @@ fun main() {
                 ShopCommand(),
                 UseCommand(),
                 QuestsCommand(),
-                CollectionCommand()
+                CollectionCommand(),
+                ConfigCommand(),
+                AchievementsCommand(),
+                HelpCommand(),
+                WelcomeListener()
             )
             .build()
 
@@ -71,7 +79,7 @@ fun main() {
             }
         })
 
-        val buyChoices = Region.values().map { region ->
+        val buyChoices = Biome.values().map { region ->
             net.dv8tion.jda.api.interactions.commands.Command.Choice(region.nameEn, region.name.lowercase())
         }.toMutableList()
 
@@ -79,7 +87,7 @@ fun main() {
             net.dv8tion.jda.api.interactions.commands.Command.Choice("Sky Camera (sky_camera)", "sky_camera")
         )
 
-        val useChoices = Region.values().map { region ->
+        val useChoices = Biome.values().map { region ->
             net.dv8tion.jda.api.interactions.commands.Command.Choice(region.nameEn, region.name.lowercase())
         }
 
@@ -88,6 +96,19 @@ fun main() {
 
         val useBaitOption = OptionData(OptionType.STRING, "id", "The ID of the biome bait you want to activate", true)
             .addChoices(useChoices)
+
+        val configFieldKeys = listOf(
+            "catch_cooldown_minutes", "weekly_bonus_points", "wrong_guess_points",
+            "bait_price", "sky_camera_price",
+            "quest_region_target", "quest_rarity_target", "quest_type_target", "quest_any_target",
+            "roll_common_max", "roll_rare_max", "roll_epic_max", "roll_legendary_max"
+        )
+        val configFieldChoices = configFieldKeys.map { key ->
+            net.dv8tion.jda.api.interactions.commands.Command.Choice(key, key)
+        }
+        val configSetFieldOption = OptionData(OptionType.STRING, "field", "The configuration field to change", true)
+            .addChoices(configFieldChoices)
+        val configSetValueOption = OptionData(OptionType.STRING, "value", "The new numeric value", true)
 
         jda.updateCommands().addCommands(
             Commands.slash("catch", "Catch a wild animal!"),
@@ -107,6 +128,17 @@ fun main() {
 
             Commands.slash("buy", "Buy a specific item or biome bait").addOptions(buyItemOption),
             Commands.slash("use", "Activate a biome bait in the current channel").addOptions(useBaitOption),
+
+            Commands.slash("config", "View or change game balance settings (admin only)")
+                .addSubcommands(
+                    SubcommandData("view", "View all current configuration values"),
+                    SubcommandData("set", "Change a configuration value")
+                        .addOptions(configSetFieldOption, configSetValueOption)
+                ),
+
+            Commands.slash("achievements", "View all achievements and your progress"),
+
+            Commands.slash("help", "Show a guide to all WildLiveBot commands"),
 
             Commands.slash("quests", "Manage your weekly hunting quests")
                 .addSubcommands(

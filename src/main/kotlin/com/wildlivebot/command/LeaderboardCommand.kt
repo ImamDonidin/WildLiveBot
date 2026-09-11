@@ -1,6 +1,6 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
+import com.wildlivebot.game.repository.LeaderboardRepository
 import com.wildlivebot.utils.LangManager
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -17,14 +17,9 @@ class LeaderboardCommand : ListenerAdapter() {
 
         logger.info("User ${event.user.name} requested the leaderboard.")
 
-        val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
+        val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
-        val topPlayers = GameManager.getTopPlayers(10)
+        val topPlayers = LeaderboardRepository.getTopPlayers(10)
 
         val embed = EmbedBuilder()
             .setTitle(LangManager.getString(displayLocale, "command.leaderboard.title"))
@@ -34,7 +29,7 @@ class LeaderboardCommand : ListenerAdapter() {
         if (topPlayers.isEmpty()) {
             embed.setDescription(LangManager.getString(displayLocale, "command.leaderboard.empty"))
         } else {
-            val sb = java.lang.StringBuilder()
+            val sb = StringBuilder()
 
             topPlayers.forEachIndexed { index, pair ->
                 val userId = pair.first

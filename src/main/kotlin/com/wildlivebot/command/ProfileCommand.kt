@@ -1,10 +1,14 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
-import com.wildlivebot.regestry.AnimalRepository
+import com.wildlivebot.game.GameConfig
+import com.wildlivebot.game.repository.LeaderboardRepository
+import com.wildlivebot.game.repository.CollectionRepository
+import com.wildlivebot.registry.AnimalRepository
 import com.wildlivebot.utils.LangManager
+import com.wildlivebot.utils.localizedName
 import net.dv8tion.jda.api.EmbedBuilder
-import net.dv8tion.jda.api.interactions.DiscordLocale
+import com.wildlivebot.game.repository.AchievementRepository
+import com.wildlivebot.model.Achievement
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import java.awt.Color
@@ -16,27 +20,25 @@ class ProfileCommand : ListenerAdapter() {
         val targetUser = event.getOption("user")?.asUser ?: event.user
         val userId = targetUser.id
 
-        val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
+        val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
-        val points = GameManager.getPoints(userId)
-        val rank = GameManager.getUserRank(userId)
+        val points = LeaderboardRepository.getPoints(userId)
+        val rank = LeaderboardRepository.getUserRank(userId)
 
-        val collection = GameManager.getUserCollection(userId)
+        val collection = CollectionRepository.getCollection(userId)
         val uniqueCaughtCount = collection.distinct().size
         val totalAnimalsCount = AnimalRepository.getAllAnimals().size
         val totalCaughtCount = collection.size
 
         val progressPercent = if (totalAnimalsCount > 0) (uniqueCaughtCount * 100) / totalAnimalsCount else 0
-        val filledBlocks = progressPercent / 10
-        val progressBar = "🟩".repeat(filledBlocks) + "⬜".repeat(10 - filledBlocks)
+        val filledBlocks = progressPercent / GameConfig.PROGRESS_BAR_SEGMENTS
+        val progressBar = "🟩".repeat(filledBlocks) + "⬜".repeat(GameConfig.PROGRESS_BAR_SEGMENTS - filledBlocks)
 
-        val favAnimalId = GameManager.getFavoriteAnimalId(userId)
+        val favAnimalId = CollectionRepository.getFavorite(userId)
         val favAnimal = favAnimalId?.let { AnimalRepository.getAnimalById(it) }
+
+        val collectionValue = LangManager.getString(displayLocale, "command.profile.collection_value", uniqueCaughtCount, totalAnimalsCount)
+        val totalCaughtLine = LangManager.getString(displayLocale, "command.profile.total_caught", totalCaughtCount)
 
         val embed = EmbedBuilder()
             .setAuthor(LangManager.getString(displayLocale, "command.profile.author", targetUser.name), null, targetUser.effectiveAvatarUrl)
@@ -45,16 +47,24 @@ class ProfileCommand : ListenerAdapter() {
 
             .addField(
                 LangManager.getString(displayLocale, "command.profile.collection"),
-                "🎒 $uniqueCaughtCount / $totalAnimalsCount\n✨ Total caught: **$totalCaughtCount**\n$progressBar",
+                "🎒 $collectionValue\n$totalCaughtLine\n$progressBar",
                 false
             )
 
+        val unlockedAchievements = AchievementRepository.getUnlocked(userId)
+        val achievementsValue = if (unlockedAchievements.isEmpty()) {
+            LangManager.getString(displayLocale, "command.profile.achievements_none")
+        } else {
+            unlockedAchievements.joinToString(" ") { it.icon }
+        }
+        embed.addField(
+            LangManager.getString(displayLocale, "command.profile.achievements", unlockedAchievements.size, Achievement.values().size),
+            achievementsValue,
+            false
+        )
+
         if (favAnimal != null) {
-            val animalName = when (displayLocale) {
-                DiscordLocale.UKRAINIAN -> favAnimal.nameUk
-                DiscordLocale.RUSSIAN -> favAnimal.nameRu
-                else -> favAnimal.nameEn
-            }
+            val animalName = favAnimal.localizedName(displayLocale)
             embed.addField(LangManager.getString(displayLocale, "command.profile.favorite"), "**$animalName** (${favAnimal.rarity.displayName})", false)
             embed.setColor(Color.decode(favAnimal.rarity.colorHex))
         } else {

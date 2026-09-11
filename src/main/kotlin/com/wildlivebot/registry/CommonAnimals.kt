@@ -1,10 +1,10 @@
-package com.wildlivebot.regestry
+package com.wildlivebot.registry
 
 import com.wildlivebot.model.Animal
 import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
-import com.wildlivebot.model.Region
+import com.wildlivebot.model.Biome
 
 object CommonAnimals {
     val list = listOf(
@@ -18,7 +18,7 @@ object CommonAnimals {
             aliasesUk = listOf("капібара", "капі", "капібарка"),
             rarity = Rarity.COMMON,
             imagePath = "/images/capybara.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -48,7 +48,7 @@ object CommonAnimals {
             aliasesUk = listOf("руда лисиця", "лисиця", "лисичка", "лиса"),
             rarity = Rarity.COMMON,
             imagePath = "/images/red_fox.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -78,7 +78,7 @@ object CommonAnimals {
             aliasesUk = listOf("єнот", "єнотик", "ракун"),
             rarity = Rarity.COMMON,
             imagePath = "/images/raccoon.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -108,7 +108,7 @@ object CommonAnimals {
             aliasesUk = listOf("смугастий скунс", "скунс"),
             rarity = Rarity.COMMON,
             imagePath = "/images/striped_skunk.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -138,7 +138,7 @@ object CommonAnimals {
             aliasesUk = listOf("їжак європейський", "їжак", "їжачок"),
             rarity = Rarity.COMMON,
             imagePath = "/images/european_hedgehog.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -168,7 +168,7 @@ object CommonAnimals {
             aliasesUk = listOf("сурикат", "сурикатик"),
             rarity = Rarity.COMMON,
             imagePath = "/images/meerkat.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -204,7 +204,7 @@ object CommonAnimals {
                 "rabbit" to "game.hint.rabbit_not_hare",
                 "bunny" to "game.hint.rabbit_not_hare"
             ),
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -234,7 +234,7 @@ object CommonAnimals {
             aliasesUk = listOf("дикий кріль", "кріль", "кролик", "кролик"),
             rarity = Rarity.COMMON,
             imagePath = "/images/european_rabbit.png",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -264,7 +264,7 @@ object CommonAnimals {
             aliasesUk = listOf("морська свинка", "кавія", "свинка"),
             rarity = Rarity.COMMON,
             imagePath = "/images/guinea_pig.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -294,7 +294,7 @@ object CommonAnimals {
             aliasesUk = listOf("тюлень звичайний", "тюлень", "нерпа"),
             rarity = Rarity.COMMON,
             imagePath = "/images/harbor_seal.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -340,7 +340,7 @@ object CommonAnimals {
             ),
             rarity = Rarity.COMMON,
             imagePath = "/images/house_sparrow.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -370,7 +370,7 @@ object CommonAnimals {
             aliasesUk = listOf("сизий голуб", "голуб", "дикий голуб"),
             rarity = Rarity.COMMON,
             imagePath = "/images/rock_pigeon.jpg",
-            region = Region.CLIFFS,
+            biome = Biome.CLIFFS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -412,7 +412,7 @@ object CommonAnimals {
             ),
             rarity = Rarity.COMMON,
             imagePath = "/images/thomsons_gazelle.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             hints = mapOf(
                 "антилопа" to "game.hint.antelope_generic",
                 "antelope" to "game.hint.antelope_generic"
@@ -446,7 +446,7 @@ object CommonAnimals {
             aliasesUk = listOf("ходуличник"),
             rarity = Rarity.COMMON,
             imagePath = "/images/black_winged_stilt.jpg",
-            region = Region.WETLANDS,
+            biome = Biome.WETLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -476,7 +476,7 @@ object CommonAnimals {
             aliasesUk = listOf("великий єгипетський тушканчик", "єгипетський тушканчик", "тушканчик"),
             rarity = Rarity.COMMON,
             imagePath = "/images/greater_egyptian_jerboa.jpg",
-            region = Region.DESERTS_SEMIDESERTS,
+            biome = Biome.DESERTS_SEMIDESERTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -506,7 +506,7 @@ object CommonAnimals {
             aliasesUk = listOf("вальдшнеп"),
             rarity = Rarity.COMMON,
             imagePath = "/images/woodcock.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -541,7 +541,7 @@ object CommonAnimals {
             aliasesUk = listOf("європейський ховрах", "ховрах", "суслик"),
             rarity = Rarity.COMMON,
             imagePath = "/images/european_ground_squirrel.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -577,7 +577,7 @@ object CommonAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -607,7 +607,7 @@ object CommonAnimals {
             aliasesUk = listOf("лама"),
             rarity = Rarity.COMMON,
             imagePath = "/images/llama.jpg",
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -624,6 +624,53 @@ object CommonAnimals {
                     en = "Unlike camels, llamas do not have humps. They store fat throughout their bodies instead of in a hump.",
                     ru = "В отличие от верблюдов, у лам нет горбов. Запасы жира распределяются по всему телу, а не накапливаются в одном месте.",
                     uk = "На відміну від верблюдів, лами не мають горбів. Запаси жиру розподіляються по всьому тілу, а не накопичуються в одному місці."
+                )
+            )
+        ),
+        Animal(
+            id = "virginia_opossum",
+            nameEn = "Virginia Opossum",
+            nameRu = "Опоссум виргинский",
+            nameUk = "Опосум віргінський",
+            aliasesEn = listOf(
+                "virginia opossum",
+                "opossum",
+                "common opossum"
+            ),
+            aliasesRu = listOf(
+                "опоссум виргинский",
+                "опоссум",
+                "опосум"
+            ),
+            aliasesUk = listOf(
+                "опосум віргінський",
+                "опосум",
+                "віргінський опосум"
+            ),
+            rarity = Rarity.COMMON,
+            imagePath = "/images/virginia_opossum.jpg",
+            biome = Biome.TEMPERATE_FORESTS,
+            type = AnimalType.ANIMAL,
+            facts = listOf(
+                Fact(
+                    en = "The Virginia opossum is the only marsupial native to the United States and Canada.",
+                    ru = "Опоссум виргинский — единственный сумчатый, естественный ареал которого охватывает США и Канаду.",
+                    uk = "Опосум віргінський — єдиний сумчастий, природний ареал якого охоплює США та Канаду."
+                ),
+                Fact(
+                    en = "Virginia opossums are opportunistic omnivores that eat a wide variety of foods, including insects, fruits, small vertebrates, and carrion.",
+                    ru = "Опоссумы виргинские — всеядные оппортунисты, питающиеся насекомыми, плодами, мелкими позвоночными и падалью.",
+                    uk = "Віргінські опосуми — всеїдні опортуністи, що живляться комахами, плодами, дрібними хребетними та падаллю."
+                ),
+                Fact(
+                    en = "When threatened, a Virginia opossum may enter an involuntary state of apparent death, commonly known as 'playing possum'.",
+                    ru = "При угрозе опоссум виргинский может впасть в непроизвольное состояние, при котором выглядит мёртвым. Такое поведение обычно называют «притвориться мёртвым».",
+                    uk = "У разі загрози віргінський опосум може мимоволі впасти у стан, за якого виглядає мертвим. Таку поведінку зазвичай називають «прикинутися мертвим»."
+                ),
+                Fact(
+                    en = "Newborn Virginia opossums are extremely small and continue developing inside their mother's pouch after birth.",
+                    ru = "Новорождённые опоссумы виргинские чрезвычайно малы и продолжают развиваться в сумке матери после рождения.",
+                    uk = "Новонароджені віргінські опосуми надзвичайно малі й продовжують розвиватися в сумці матері після народження."
                 )
             )
         )

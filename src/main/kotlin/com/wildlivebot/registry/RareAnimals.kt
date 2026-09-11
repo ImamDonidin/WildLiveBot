@@ -1,10 +1,10 @@
-package com.wildlivebot.regestry
+package com.wildlivebot.registry
 
 import com.wildlivebot.model.Animal
 import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
-import com.wildlivebot.model.Region
+import com.wildlivebot.model.Biome
 
 object RareAnimals {
     val list = listOf(
@@ -18,7 +18,7 @@ object RareAnimals {
             aliasesUk = listOf("американський бізон", "бізон", "буффало"),
             rarity = Rarity.RARE,
             imagePath = "/images/bison.jpg",
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             hints = mapOf(
                 "зубр" to "game.hint.bison_not_wisent",
                 "european bison" to "game.hint.bison_not_wisent",
@@ -53,7 +53,7 @@ object RareAnimals {
             aliasesUk = listOf("велика панда", "панда"),
             rarity = Rarity.RARE,
             imagePath = "/images/panda.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -89,7 +89,7 @@ object RareAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -114,7 +114,7 @@ object RareAnimals {
             aliasesUk = listOf("благородний олень", "олень"),
             rarity = Rarity.RARE,
             imagePath = "/images/red_deer.jpg",
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -144,7 +144,7 @@ object RareAnimals {
             aliasesUk = listOf("двогорбий верблюд", "верблюд", "бактріан"),
             rarity = Rarity.RARE,
             imagePath = "/images/bactrian_camel.jpg",
-            region = Region.DESERTS_SEMIDESERTS,
+            biome = Biome.DESERTS_SEMIDESERTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -174,7 +174,7 @@ object RareAnimals {
             aliasesUk = listOf("бородавочник"),
             rarity = Rarity.RARE,
             imagePath = "/images/warthog.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             hints = mapOf(
                 "кабан" to "game.hint.warthog_not_boar",
                 "wild boar" to "game.hint.warthog_not_boar",
@@ -216,7 +216,7 @@ object RareAnimals {
                 "нерпа" to "game.hint.seal_not_sealion",
                 "seal" to "game.hint.seal_not_sealion"
             ),
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -259,7 +259,7 @@ object RareAnimals {
                 "ворона" to "game.hint.raven_not_crow",
                 "crow" to "game.hint.raven_not_crow"
             ),
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -293,7 +293,7 @@ object RareAnimals {
                 "стриж" to "game.hint.swallow_not_swift",
                 "swift" to "game.hint.swallow_not_swift"
             ),
-            region = Region.GRASSLANDS,
+            biome = Biome.GRASSLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -323,7 +323,7 @@ object RareAnimals {
             aliasesUk = listOf("рівнинна зебра", "зебра"),
             rarity = Rarity.RARE,
             imagePath = "/images/plains_zebra.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -353,7 +353,7 @@ object RareAnimals {
             aliasesUk = listOf("чорний водоріз", "водоріз"),
             rarity = Rarity.RARE,
             imagePath = "/images/black_skimmer.jpg",
-            region = Region.COASTS,
+            biome = Biome.COASTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -383,7 +383,7 @@ object RareAnimals {
             aliasesUk = listOf("сіра чапля", "чапля"),
             rarity = Rarity.RARE,
             imagePath = "/images/grey_heron.jpg",
-            region = Region.WETLANDS,
+            biome = Biome.WETLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -413,7 +413,7 @@ object RareAnimals {
             aliasesUk = listOf("дік-дік Кірка", "дік-дік", "дікдік"),
             rarity = Rarity.RARE,
             imagePath = "/images/kirks_dik_dik.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             hints = mapOf(
                 "антилопа" to "game.hint.antelope_generic",
                 "газель" to "game.hint.antelope_generic",
@@ -449,7 +449,7 @@ object RareAnimals {
             aliasesUk = listOf("пукеко", "султанка"),
             rarity = Rarity.RARE,
             imagePath = "/images/pukeko.jpg",
-            region = Region.WETLANDS,
+            biome = Biome.WETLANDS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -479,7 +479,7 @@ object RareAnimals {
             aliasesUk = listOf("рожевий какаду", "какаду інка"),
             rarity = Rarity.RARE,
             imagePath = "/images/major_mitchell_cockatoo.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             hints = mapOf(
                 "папуга" to "game.hint.parrot_generic",
                 "попугай" to "game.hint.parrot_generic",
@@ -514,7 +514,7 @@ object RareAnimals {
             aliasesUk = listOf("корела"),
             rarity = Rarity.RARE,
             imagePath = "/images/cockatiel.jpg",
-            region = Region.SAVANNAS,
+            biome = Biome.SAVANNAS,
             hints = mapOf(
                 "папуга" to "game.hint.parrot_generic",
                 "попугай" to "game.hint.parrot_generic",
@@ -555,7 +555,7 @@ object RareAnimals {
                 "antelope" to "game.hint.antelope_generic",
                 "gazelle" to "game.hint.antelope_generic"
             ),
-            region = Region.DESERTS_SEMIDESERTS,
+            biome = Biome.DESERTS_SEMIDESERTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -585,7 +585,7 @@ object RareAnimals {
             aliasesUk = listOf("єменський хамелеон", "хамелеон"),
             rarity = Rarity.RARE,
             imagePath = "/images/veiled_chameleon.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -615,7 +615,7 @@ object RareAnimals {
             aliasesUk = listOf("трипалий лінивець", "лінивець"),
             rarity = Rarity.RARE,
             imagePath = "/images/brown_throated_sloth.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(

@@ -1,8 +1,9 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
-import com.wildlivebot.regestry.AnimalRepository
+import com.wildlivebot.game.repository.CollectionRepository
+import com.wildlivebot.registry.AnimalRepository
 import com.wildlivebot.utils.LangManager
+import com.wildlivebot.utils.localizedName
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
@@ -14,12 +15,7 @@ class FavoriteCommand : ListenerAdapter() {
         val input = event.getOption("animal")?.asString?.trim() ?: return
         val userId = event.user.id
 
-        val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
+        val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
         val animal = AnimalRepository.getAnimalById(input)
             ?: AnimalRepository.getAllAnimals().find {
@@ -37,13 +33,9 @@ class FavoriteCommand : ListenerAdapter() {
             return
         }
 
-        val animalName = when (displayLocale) {
-            DiscordLocale.UKRAINIAN -> animal.nameUk
-            DiscordLocale.RUSSIAN -> animal.nameRu
-            else -> animal.nameEn
-        }
+        val animalName = animal.localizedName(displayLocale)
 
-        val success = GameManager.setFavoriteAnimal(userId, animal.id)
+        val success = CollectionRepository.setFavorite(userId, animal.id)
 
         if (success) {
             event.reply(LangManager.getString(displayLocale, "command.favorite.success", animalName))

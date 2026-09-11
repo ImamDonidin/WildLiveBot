@@ -1,6 +1,6 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
+import com.wildlivebot.game.repository.GuildConfigRepository
 import com.wildlivebot.utils.LangManager
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -11,12 +11,7 @@ class SetupChannelCommand : ListenerAdapter() {
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if (event.name != "setup-channel") return
 
-        val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
+        val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
         val member = event.member ?: return
         if (!member.hasPermission(Permission.MANAGE_SERVER)) {
@@ -28,7 +23,7 @@ class SetupChannelCommand : ListenerAdapter() {
         val targetChannel = event.getOption("channel")?.asChannel ?: return
         val guildId = event.guild?.id ?: return
 
-        GameManager.setGuildChannel(guildId, targetChannel.id)
+        GuildConfigRepository.setChannel(guildId, targetChannel.id)
 
         event.reply(LangManager.getString(displayLocale, "command.setup.success", targetChannel.asMention))
             .queue()

@@ -1,19 +1,76 @@
 package com.wildlivebot.listener
 
-import com.wildlivebot.game.GameManager
-import com.wildlivebot.regestry.AnimalRepository
+import com.wildlivebot.game.RuntimeGameState
+import com.wildlivebot.game.repository.GuildConfigRepository
+import com.wildlivebot.game.repository.CollectionRepository
+import com.wildlivebot.game.repository.GameConfigRepository
+import com.wildlivebot.game.repository.LeaderboardRepository
+import com.wildlivebot.game.repository.QuestRepository
+import com.wildlivebot.game.repository.InventoryRepository
 import com.wildlivebot.utils.LangManager
+import com.wildlivebot.registry.AnimalRepository
+import com.wildlivebot.utils.localizedName
+import com.wildlivebot.utils.localizedText
+import com.wildlivebot.game.AchievementService
+import com.wildlivebot.utils.sendAchievementUnlocks
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
-import net.dv8tion.jda.api.interactions.components.buttons.Button
+import net.dv8tion.jda.api.components.buttons.Button
+import net.dv8tion.jda.api.components.actionrow.ActionRow
 import java.awt.Color
 import org.slf4j.LoggerFactory
 
 class MessageListener : ListenerAdapter() {
     private val logger = LoggerFactory.getLogger(MessageListener::class.java)
+
+    companion object {
+        private val UKRAINIAN_ONLY_LETTERS = charArrayOf('і', 'ї', 'є', 'ґ')
+    }
+
+    private fun guessAnswerLocale(forcedLocale: DiscordLocale?, guildLocaleRaw: String, userAnswer: String): DiscordLocale {
+        if (forcedLocale != null) return forcedLocale
+        if (guildLocaleRaw.startsWith("ukr")) return DiscordLocale.UKRAINIAN
+        if (guildLocaleRaw.startsWith("rus")) return DiscordLocale.RUSSIAN
+
+        val hasCyrillic = userAnswer.any { it in 'а'..'я' || it in UKRAINIAN_ONLY_LETTERS }
+        if (!hasCyrillic) return DiscordLocale.ENGLISH_US
+        return if (userAnswer.any { it in UKRAINIAN_ONLY_LETTERS }) DiscordLocale.UKRAINIAN else DiscordLocale.RUSSIAN
+    }
+
+    private fun resolveMatchedLocale(
+        fitsUk: Boolean, fitsRu: Boolean, fitsEn: Boolean,
+        forcedLocale: DiscordLocale?, guildLocaleRaw: String, userAnswer: String
+    ): DiscordLocale? {
+        if (forcedLocale != null) {
+            return when (forcedLocale) {
+                DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN.takeIf { fitsUk }
+                DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN.takeIf { fitsRu }
+                else -> DiscordLocale.ENGLISH_US.takeIf { fitsEn }
+            }
+        }
+
+        val matchCount = listOf(fitsUk, fitsRu, fitsEn).count { it }
+        if (matchCount == 0) return null
+        if (matchCount == 1) {
+            return when {
+                fitsUk -> DiscordLocale.UKRAINIAN
+                fitsRu -> DiscordLocale.RUSSIAN
+                else -> DiscordLocale.ENGLISH_US
+            }
+        }
+
+        return when {
+            fitsUk && guildLocaleRaw.startsWith("ukr") -> DiscordLocale.UKRAINIAN
+            fitsRu && guildLocaleRaw.startsWith("rus") -> DiscordLocale.RUSSIAN
+            fitsEn && guildLocaleRaw.startsWith("eng") -> DiscordLocale.ENGLISH_US
+            fitsUk && userAnswer.any { it in UKRAINIAN_ONLY_LETTERS } -> DiscordLocale.UKRAINIAN
+            fitsRu -> DiscordLocale.RUSSIAN
+            else -> DiscordLocale.ENGLISH_US
+        }
+    }
 
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if (event.author.isBot || !event.isFromGuild) return
@@ -21,16 +78,15 @@ class MessageListener : ListenerAdapter() {
         val channelId = event.channel.id
         val guildId = event.guild.id
 
-        val allowedChannelId = GameManager.getGuildChannel(guildId)
+        val allowedChannelId = GuildConfigRepository.getChannel(guildId)
         if (allowedChannelId == null || channelId != allowedChannelId) return
 
-        val activeAnimal = GameManager.getActiveAnimal(channelId) ?: return
+        val activeAnimal = RuntimeGameState.getActiveAnimal(channelId) ?: return
 
         val rawAnswer = event.message.contentRaw.lowercase().trim()
         val userId = event.author.id
 
         val localeRaw = event.guild.locale.languageName.lowercase()
-        val serverLocale = LangManager.getGuildLocale(localeRaw)
 
         val (forcedLocale, userAnswer) = LangManager.parseUserAnswer(rawAnswer)
 
@@ -38,41 +94,8 @@ class MessageListener : ListenerAdapter() {
         val fitsRu = activeAnimal.aliasesRu.contains(userAnswer)
         val fitsEn = activeAnimal.aliasesEn.contains(userAnswer)
 
-        val hasCyrillic = userAnswer.any { it in 'а'..'я' || it == 'і' || it == 'ї' || it == 'є' || it == 'ґ' }
-        val defaultLocale = when {
-            forcedLocale != null -> forcedLocale
-            localeRaw.startsWith("ukr") -> DiscordLocale.UKRAINIAN
-            localeRaw.startsWith("rus") -> DiscordLocale.RUSSIAN
-            hasCyrillic -> {
-                if (userAnswer.any { it in listOf('і', 'ї', 'є', 'ґ') }) DiscordLocale.UKRAINIAN
-                else DiscordLocale.RUSSIAN
-            }
-            else -> DiscordLocale.ENGLISH_US
-        }
-
-        val matchedLocale = if (forcedLocale != null) {
-            when (forcedLocale) {
-                DiscordLocale.UKRAINIAN -> if (fitsUk) DiscordLocale.UKRAINIAN else null
-                DiscordLocale.RUSSIAN -> if (fitsRu) DiscordLocale.RUSSIAN else null
-                else -> if (fitsEn) DiscordLocale.ENGLISH_US else null
-            }
-        } else {
-            when {
-                !fitsUk && !fitsRu && !fitsEn -> null
-
-                fitsUk && !fitsRu && !fitsEn -> DiscordLocale.UKRAINIAN
-                fitsRu && !fitsUk && !fitsEn -> DiscordLocale.RUSSIAN
-                fitsEn && !fitsUk && !fitsRu -> DiscordLocale.ENGLISH_US
-
-                fitsUk && localeRaw.startsWith("ukr") -> DiscordLocale.UKRAINIAN
-                fitsRu && localeRaw.startsWith("rus") -> DiscordLocale.RUSSIAN
-                fitsEn && localeRaw.startsWith("eng") -> DiscordLocale.ENGLISH_US
-
-                fitsUk && userAnswer.any { it in listOf('і', 'ї', 'є', 'ґ') } -> DiscordLocale.UKRAINIAN
-                fitsRu -> DiscordLocale.RUSSIAN
-                else -> DiscordLocale.ENGLISH_US
-            }
-        }
+        val defaultLocale = guessAnswerLocale(forcedLocale, localeRaw, userAnswer)
+        val matchedLocale = resolveMatchedLocale(fitsUk, fitsRu, fitsEn, forcedLocale, localeRaw, userAnswer)
 
         if (matchedLocale != null) {
 
@@ -89,12 +112,8 @@ class MessageListener : ListenerAdapter() {
             }
 
             if (activeAnimal.type == com.wildlivebot.model.AnimalType.BIRD) {
-                if (!GameManager.hasTool(userId, "sky_camera")) {
-                    val localizedAnimalName = when (matchedLocale) {
-                        DiscordLocale.UKRAINIAN -> activeAnimal.nameUk
-                        DiscordLocale.RUSSIAN -> activeAnimal.nameRu
-                        else -> activeAnimal.nameEn
-                    }
+                if (!InventoryRepository.hasTool(userId, "sky_camera")) {
+                    val localizedAnimalName = activeAnimal.localizedName(matchedLocale)
 
                     val noCameraMessage = LangManager.getString(
                         matchedLocale,
@@ -107,14 +126,16 @@ class MessageListener : ListenerAdapter() {
                 }
             }
 
-            GameManager.removeActiveAnimal(channelId)
-            GameManager.removeActiveBaitForChannel(channelId)
+            RuntimeGameState.removeActiveAnimal(channelId)
+            RuntimeGameState.removeActiveBait(channelId)
 
             val pointsToAward = activeAnimal.rarity.rewardPoints
-            val totalPoints = GameManager.addPoints(userId, pointsToAward)
+            val totalPoints = LeaderboardRepository.addPoints(userId, pointsToAward)
 
-            GameManager.catchAnimalForCollection(userId, activeAnimal.id)
-            GameManager.updateQuestProgress(userId, activeAnimal)
+            CollectionRepository.catchAnimal(userId, activeAnimal.id)
+            QuestRepository.updateProgress(userId, activeAnimal)
+
+            val unlocked = AchievementService.checkAndUnlock(userId)
 
             val successEmbed = EmbedBuilder()
                 .setTitle(LangManager.getString(matchedLocale, "game.correct_catch"))
@@ -130,8 +151,14 @@ class MessageListener : ListenerAdapter() {
             )
 
             event.channel.sendMessageEmbeds(successEmbed)
-                .setActionRow(revealButton)
+                .setComponents(ActionRow.of(revealButton))
                 .queue()
+
+            event.channel.sendMessageEmbeds(successEmbed)
+                .setComponents(ActionRow.of(revealButton))
+                .queue()
+
+            sendAchievementUnlocks(event.channel, matchedLocale, unlocked)
         }
         else {
             val customHintKey = activeAnimal.hints[userAnswer]
@@ -142,8 +169,11 @@ class MessageListener : ListenerAdapter() {
                 return
             }
 
-            val earnedPoints = GameManager.addPointsForWrongGuess(channelId, userId)
-            val totalPoints = GameManager.getPoints(userId)
+            val earnedPoints = RuntimeGameState.addPointsForWrongGuess(channelId, userId)
+            if (earnedPoints) {
+                LeaderboardRepository.addPoints(userId, GameConfigRepository.current().wrongGuessPoints)
+            }
+            val totalPoints = LeaderboardRepository.getPoints(userId)
 
             if (earnedPoints) {
                 val response = LangManager.getString(defaultLocale, "game.wrong_name", totalPoints)
@@ -182,7 +212,7 @@ class MessageListener : ListenerAdapter() {
             )
 
             event.editMessageEmbeds(response.first)
-                .setActionRow(response.second)
+                .setComponents(ActionRow.of(response.second))
                 .queue()
             return
         }
@@ -195,11 +225,7 @@ class MessageListener : ListenerAdapter() {
         val clickerId = event.user.id
 
         val userLocale = event.userLocale
-        val displayLocale = when (userLocale) {
-            DiscordLocale.UKRAINIAN -> DiscordLocale.UKRAINIAN
-            DiscordLocale.RUSSIAN -> DiscordLocale.RUSSIAN
-            else -> DiscordLocale.ENGLISH_US
-        }
+        val displayLocale = LangManager.getSupportedLocale(userLocale)
 
         if (clickerId != catcherId) {
             val failMessage = LangManager.getString(displayLocale, "game.reveal.locked_error")
@@ -207,24 +233,16 @@ class MessageListener : ListenerAdapter() {
             return
         }
 
-        val animal = com.wildlivebot.regestry.AnimalRepository.getAnimalById(animalId)
+        val animal = AnimalRepository.getAnimalById(animalId)
         if (animal == null) {
             event.reply("Critical error: Animal not found.").setEphemeral(true).queue()
             return
         }
 
-        val animalName = when (displayLocale) {
-            DiscordLocale.UKRAINIAN -> animal.nameUk
-            DiscordLocale.RUSSIAN -> animal.nameRu
-            else -> animal.nameEn
-        }
+        val animalName = animal.localizedName(displayLocale)
 
         val randomFactObject = animal.facts.random()
-        val translatedFact = when (displayLocale) {
-            DiscordLocale.UKRAINIAN -> randomFactObject.uk
-            DiscordLocale.RUSSIAN -> randomFactObject.ru
-            else -> randomFactObject.en
-        }
+        val translatedFact: String = randomFactObject.localizedText(displayLocale)
 
         val revealEmbed = EmbedBuilder()
             .setTitle(LangManager.getString(displayLocale, "game.reveal.title"))

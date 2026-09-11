@@ -1,10 +1,10 @@
-package com.wildlivebot.regestry
+package com.wildlivebot.registry
 
 import com.wildlivebot.model.Animal
 import com.wildlivebot.model.AnimalType
 import com.wildlivebot.model.Fact
 import com.wildlivebot.model.Rarity
-import com.wildlivebot.model.Region
+import com.wildlivebot.model.Biome
 
 object MythicAnimals {
     val list = listOf(
@@ -18,7 +18,7 @@ object MythicAnimals {
             aliasesUk = listOf("бородач", "ягнятник"),
             rarity = Rarity.MYTHIC,
             imagePath = "/images/bearded_vulture.jpg",
-            region = Region.MOUNTAINS,
+            biome = Biome.MOUNTAINS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -48,7 +48,7 @@ object MythicAnimals {
             aliasesUk = listOf("синьо-жовтий ара"),
             rarity = Rarity.MYTHIC,
             imagePath = "/images/blue_and_yellow_macaw.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             hints = mapOf(
                 "папуга" to "game.hint.parrot_generic",
                 "попугай" to "game.hint.parrot_generic",
@@ -85,7 +85,7 @@ object MythicAnimals {
             aliasesUk = listOf("синій кит", "кит"),
             rarity = Rarity.MYTHIC,
             imagePath = "/images/blue_whale.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -115,7 +115,7 @@ object MythicAnimals {
             aliasesUk = listOf("панголін", "ящір"),
             rarity = Rarity.MYTHIC,
             imagePath = "/images/pangolin.jpg",
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -145,7 +145,7 @@ object MythicAnimals {
             aliasesUk = listOf("кашалот"),
             rarity = Rarity.MYTHIC,
             imagePath = "/images/sperm_whale.jpg",
-            region = Region.OCEANS,
+            biome = Biome.OCEANS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(
@@ -180,7 +180,7 @@ object MythicAnimals {
                 "попугай" to "game.hint.parrot_generic",
                 "parrot" to "game.hint.parrot_generic"
             ),
-            region = Region.TEMPERATE_FORESTS,
+            biome = Biome.TEMPERATE_FORESTS,
             type = AnimalType.BIRD,
             facts = listOf(
                 Fact(
@@ -215,7 +215,7 @@ object MythicAnimals {
                 "кошка" to "game.hint.cat_generic",
                 "cat" to "game.hint.cat_generic"
             ),
-            region = Region.TROPICAL_RAINFORESTS,
+            biome = Biome.TROPICAL_RAINFORESTS,
             type = AnimalType.ANIMAL,
             facts = listOf(
                 Fact(

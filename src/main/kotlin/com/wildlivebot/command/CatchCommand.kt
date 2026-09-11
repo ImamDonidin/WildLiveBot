@@ -1,11 +1,13 @@
 package com.wildlivebot.command
 
-import com.wildlivebot.game.GameManager
-import com.wildlivebot.regestry.AnimalRepository
+import com.wildlivebot.game.GameConfig
+import com.wildlivebot.game.repository.GuildConfigRepository
+import com.wildlivebot.game.RuntimeGameState
+import com.wildlivebot.registry.AnimalRepository
+import com.wildlivebot.utils.localizedName
 import com.wildlivebot.utils.LangManager
 import com.wildlivebot.utils.ImageUtils
 import net.dv8tion.jda.api.EmbedBuilder
-import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.utils.FileUpload
@@ -26,7 +28,7 @@ class CatchCommand : ListenerAdapter() {
                 val channelId = event.channel.id
                 val guildId = event.guild?.id ?: return@queue
 
-                val allowedChannelId = GameManager.getGuildChannel(guildId)
+                val allowedChannelId = GuildConfigRepository.getChannel(guildId)
                 if (allowedChannelId == null) {
                     hook.sendMessage(LangManager.getString(displayLocale, "command.catch.setup_required")).queue()
                     return@queue
@@ -37,7 +39,7 @@ class CatchCommand : ListenerAdapter() {
                     return@queue
                 }
 
-                val remainingSeconds = GameManager.getRemainingCooldown(userId)
+                val remainingSeconds = RuntimeGameState.getRemainingCooldown(userId)
                 if (remainingSeconds != null) {
                     val minutes = remainingSeconds / 60
                     val seconds = remainingSeconds % 60
@@ -45,12 +47,12 @@ class CatchCommand : ListenerAdapter() {
                     return@queue
                 }
 
-                if (GameManager.getActiveAnimal(channelId) != null) {
+                if (RuntimeGameState.getActiveAnimal(channelId) != null) {
                     hook.sendMessage(LangManager.getString(displayLocale, "command.catch.already_spawned")).queue()
                     return@queue
                 }
 
-                val activeBait = GameManager.getActiveBaitForChannel(channelId)
+                val activeBait = RuntimeGameState.getActiveBait(channelId)
                 val animal = AnimalRepository.getRandomAnimal(activeBait)
                 logger.info("Spawning ${animal.nameEn} in channel $channelId for user ${event.user.name}.")
 
@@ -63,7 +65,12 @@ class CatchCommand : ListenerAdapter() {
                 }
 
                 val imageBytes = imageStream.use { stream ->
-                    ImageUtils.compressImage(stream, animal.imagePath, maxDimension = 1200, quality = 0.8f)
+                    ImageUtils.compressImage(
+                        stream,
+                        animal.imagePath,
+                        maxDimension = GameConfig.CATCH_IMAGE_MAX_DIMENSION,
+                        quality = GameConfig.CATCH_IMAGE_QUALITY
+                    )
                 }
 
                 if (imageBytes.isEmpty()) {
@@ -73,17 +80,13 @@ class CatchCommand : ListenerAdapter() {
                     return@queue
                 }
 
-                GameManager.setCooldown(userId)
-                GameManager.spawnAnimal(channelId, animal)
+                RuntimeGameState.setCooldown(userId)
+                RuntimeGameState.spawnAnimal(channelId, animal)
 
                 val fileName = animal.imagePath.substringAfterLast("/")
                 val file = FileUpload.fromData(imageBytes, fileName)
 
-                val localizedBiome = when (displayLocale) {
-                    DiscordLocale.UKRAINIAN -> animal.region.nameUk
-                    DiscordLocale.RUSSIAN -> animal.region.nameRu
-                    else -> animal.region.nameEn
-                }
+                val localizedBiome = animal.biome.localizedName(displayLocale)
 
                 val rarityString = LangManager.getString(displayLocale, "game.rarity", animal.rarity.displayName)
                 val biomeString = LangManager.getString(displayLocale, "game.biome", localizedBiome)
