@@ -133,9 +133,9 @@ class MessageListener : ListenerAdapter() {
             val totalPoints = LeaderboardRepository.addPoints(userId, pointsToAward)
 
             CollectionRepository.catchAnimal(userId, activeAnimal.id)
-            QuestRepository.updateProgress(userId, activeAnimal)
+            QuestRepository.updateProgress(guildId, userId, activeAnimal)
 
-            val unlocked = AchievementService.checkAndUnlock(userId)
+            val unlocked = AchievementService.checkAndUnlock(guildId, userId)
 
             val successEmbed = EmbedBuilder()
                 .setTitle(LangManager.getString(matchedLocale, "game.correct_catch"))
@@ -154,10 +154,6 @@ class MessageListener : ListenerAdapter() {
                 .setComponents(ActionRow.of(revealButton))
                 .queue()
 
-            event.channel.sendMessageEmbeds(successEmbed)
-                .setComponents(ActionRow.of(revealButton))
-                .queue()
-
             sendAchievementUnlocks(event.channel, matchedLocale, unlocked)
         }
         else {
@@ -171,7 +167,7 @@ class MessageListener : ListenerAdapter() {
 
             val earnedPoints = RuntimeGameState.addPointsForWrongGuess(channelId, userId)
             if (earnedPoints) {
-                LeaderboardRepository.addPoints(userId, GameConfigRepository.current().wrongGuessPoints)
+                LeaderboardRepository.addPoints(userId, GameConfigRepository.current(guildId).wrongGuessPoints)
             }
             val totalPoints = LeaderboardRepository.getPoints(userId)
 

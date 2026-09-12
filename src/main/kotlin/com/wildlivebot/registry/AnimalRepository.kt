@@ -11,10 +11,9 @@ object AnimalRepository {
             EpicAnimals.list +
             LegendaryAnimals.list +
             MythicAnimals.list
-
-    fun getRandomAnimal(targetBiome: Biome? = null): Animal {
+    fun getRandomAnimal(guildId: String, targetBiome: Biome? = null): Animal {
         val roll = (1..100).random()
-        val config = GameConfigRepository.current()
+        val config = GameConfigRepository.current(guildId)
 
         val selectedRarity = when {
             roll <= config.rollCommonMax -> Rarity.COMMON

@@ -20,6 +20,7 @@ class QuestsCommand : ListenerAdapter() {
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if (event.name != "quests") return
+        val guildId = event.guild?.id ?: return
 
         val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
@@ -27,13 +28,13 @@ class QuestsCommand : ListenerAdapter() {
         val subcommand = event.subcommandName
 
         if (subcommand == "claim") {
-            val bonus = QuestRepository.claimWeeklyReward(userId)
+            val bonus = QuestRepository.claimWeeklyReward(guildId, userId)
             if (bonus != null) {
                 LeaderboardRepository.addPoints(userId, bonus)
                 event.reply(LangManager.getString(displayLocale, "command.quests.reward_success", bonus)).queue()
-                sendAchievementUnlocks(event.channel, displayLocale, AchievementService.checkAndUnlock(userId))
+                sendAchievementUnlocks(event.channel, displayLocale, AchievementService.checkAndUnlock(guildId, userId))
             } else {
-                if (QuestRepository.hasClaimedWeekly(userId)) {
+                if (QuestRepository.hasClaimedWeekly(guildId, userId))  {
                     event.reply(LangManager.getString(displayLocale, "command.quests.claimed")).setEphemeral(true).queue()
                 } else {
                     event.reply(LangManager.getString(displayLocale, "command.quests.not_ready")).setEphemeral(true).queue()
@@ -44,11 +45,11 @@ class QuestsCommand : ListenerAdapter() {
         }
 
         if (subcommand == "view" || subcommand == null) {
-            val quests = QuestRepository.getWeeklyQuests()
-            val progress = QuestRepository.getProgress(userId)
-            val hasClaimed = QuestRepository.hasClaimedWeekly(userId)
+            val quests = QuestRepository.getWeeklyQuests(guildId)
+            val progress = QuestRepository.getProgress(guildId, userId)
+            val hasClaimed = QuestRepository.hasClaimedWeekly(guildId, userId)
 
-            val bonus = GameConfigRepository.current().weeklyBonusPoints
+            val bonus = GameConfigRepository.current(guildId).weeklyBonusPoints
             val embed = EmbedBuilder()
 
                 .setTitle(LangManager.getString(displayLocale, "command.quests.title"))

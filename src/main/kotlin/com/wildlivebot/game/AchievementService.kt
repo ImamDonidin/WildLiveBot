@@ -12,7 +12,7 @@ import com.wildlivebot.registry.AnimalRepository
 
 object AchievementService {
 
-    fun checkAndUnlock(userId: String): List<Achievement> {
+    fun checkAndUnlock(guildId: String, userId: String): List<Achievement> {
         val newlyUnlocked = mutableListOf<Achievement>()
 
         fun tryUnlock(achievement: Achievement, condition: Boolean) {
@@ -37,7 +37,7 @@ object AchievementService {
         tryUnlock(Achievement.SKY_HUNTER, hasCaughtBird && InventoryRepository.hasTool(userId, "sky_camera"))
 
         tryUnlock(Achievement.RICH_HUNTER, LeaderboardRepository.getPoints(userId) >= 5000)
-        tryUnlock(Achievement.QUEST_MASTER, QuestRepository.getClaimedWeeksCount(userId) >= 5)
+        tryUnlock(Achievement.QUEST_MASTER, QuestRepository.getClaimedWeeksCount(guildId, userId) >= 5)
 
         return newlyUnlocked
     }

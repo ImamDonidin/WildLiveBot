@@ -19,11 +19,12 @@ class ShopCommand : ListenerAdapter() {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
+        val guildId = event.guild?.id ?: return
         if (event.name != "shop" && event.name != "buy") return
 
         val displayLocale = LangManager.getSupportedLocale(event.userLocale)
         val userId = event.user.id
-        val prices = GameConfigRepository.current()
+        val prices = GameConfigRepository.current(guildId)
 
         if (event.name == "shop") {
             val userPoints = LeaderboardRepository.getPoints(userId)
@@ -97,7 +98,7 @@ class ShopCommand : ListenerAdapter() {
                             val cameraName = LangManager.getString(displayLocale, "item.sky_camera.name")
                             hook.sendMessage(LangManager.getString(displayLocale, "command.buy.success", cameraName)).queue()
 
-                            val unlocked = com.wildlivebot.game.AchievementService.checkAndUnlock(userId)
+                            val unlocked = com.wildlivebot.game.AchievementService.checkAndUnlock(guildId, userId)
                             if (unlocked.isNotEmpty()) sendAchievementUnlocks(hook, displayLocale, unlocked)
                         } else {
                             hook.sendMessage(LangManager.getString(displayLocale, "command.buy.no_points", prices.skyCameraPrice)).queue()

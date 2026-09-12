@@ -15,8 +15,10 @@ object RuntimeGameState {
     private val roundWrongGuesses = ConcurrentHashMap<String, MutableSet<String>>()
     private val activeBaits = ConcurrentHashMap<String, Biome>()
 
-    fun getRemainingCooldown(userId: String): Long? {
-        val nextAvailable = cooldowns[userId]?.plus(Duration.ofMinutes(GameConfigRepository.current().catchCooldownMinutes)) ?: return null
+    fun getRemainingCooldown(guildId: String, userId: String): Long? {
+        val nextAvailable = cooldowns[userId]?.plus(
+            Duration.ofMinutes(GameConfigRepository.current(guildId).catchCooldownMinutes)
+        ) ?: return null
         val now = Instant.now()
         return if (now.isBefore(nextAvailable)) Duration.between(now, nextAvailable).seconds else null
     }

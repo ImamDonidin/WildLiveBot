@@ -18,6 +18,7 @@ class ConfigCommand : ListenerAdapter() {
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if (event.name != "config") return
+        val guildId = event.guild?.id ?: return
 
         val displayLocale = LangManager.getSupportedLocale(event.userLocale)
 
@@ -29,13 +30,14 @@ class ConfigCommand : ListenerAdapter() {
         }
 
         when (event.subcommandName) {
-            "view" -> handleView(event, displayLocale)
-            "set" -> handleSet(event, displayLocale)
+            "view" -> handleView(event, guildId, displayLocale)
+            "set" -> handleSet(event, guildId, displayLocale)
         }
     }
 
-    private fun handleView(event: SlashCommandInteractionEvent, displayLocale: DiscordLocale) {
-        val c = GameConfigRepository.current()
+
+private fun handleView(event: SlashCommandInteractionEvent, guildId: String, displayLocale: DiscordLocale) {
+    val c = GameConfigRepository.current(guildId)
         val lines = listOf(
             "catch_cooldown_minutes" to c.catchCooldownMinutes.toString(),
             "weekly_bonus_points" to c.weeklyBonusPoints.toString(),
@@ -58,7 +60,7 @@ class ConfigCommand : ListenerAdapter() {
             .setEphemeral(true).queue()
     }
 
-    private fun handleSet(event: SlashCommandInteractionEvent, displayLocale: DiscordLocale) {
+        private fun handleSet(event: SlashCommandInteractionEvent, guildId: String, displayLocale: DiscordLocale) {
         val field = event.getOption("field")?.asString ?: return
         val rawValue = event.getOption("value")?.asString ?: return
 
@@ -75,7 +77,7 @@ class ConfigCommand : ListenerAdapter() {
                     .setEphemeral(true).queue()
                 return
             }
-            GameConfigRepository.update { it.copy(catchCooldownMinutes = value) }
+            GameConfigRepository.update(guildId) { it.copy(catchCooldownMinutes = value) }
         } else {
             val value = rawValue.toIntOrNull()
             if (value == null) {
@@ -83,7 +85,7 @@ class ConfigCommand : ListenerAdapter() {
                     .setEphemeral(true).queue()
                 return
             }
-            GameConfigRepository.update { current ->
+            GameConfigRepository.update(guildId) { current ->
                 when (field) {
                     "weekly_bonus_points" -> current.copy(weeklyBonusPoints = value)
                     "wrong_guess_points" -> current.copy(wrongGuessPoints = value)

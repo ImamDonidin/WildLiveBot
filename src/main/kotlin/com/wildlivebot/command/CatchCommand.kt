@@ -39,7 +39,7 @@ class CatchCommand : ListenerAdapter() {
                     return@queue
                 }
 
-                val remainingSeconds = RuntimeGameState.getRemainingCooldown(userId)
+                val remainingSeconds = RuntimeGameState.getRemainingCooldown(guildId, userId)
                 if (remainingSeconds != null) {
                     val minutes = remainingSeconds / 60
                     val seconds = remainingSeconds % 60
@@ -53,7 +53,7 @@ class CatchCommand : ListenerAdapter() {
                 }
 
                 val activeBait = RuntimeGameState.getActiveBait(channelId)
-                val animal = AnimalRepository.getRandomAnimal(activeBait)
+                val animal = AnimalRepository.getRandomAnimal(guildId, activeBait)
                 logger.info("Spawning ${animal.nameEn} in channel $channelId for user ${event.user.name}.")
 
                 val imageStream = this::class.java.getResourceAsStream(animal.imagePath)

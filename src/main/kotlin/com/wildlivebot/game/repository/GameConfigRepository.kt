@@ -4,6 +4,7 @@ import com.wildlivebot.storage.loadJson
 import com.wildlivebot.storage.saveJson
 import kotlinx.serialization.Serializable
 import java.io.File
+import java.util.concurrent.ConcurrentHashMap
 
 @Serializable
 data class GameConfigData(
@@ -24,14 +25,14 @@ data class GameConfigData(
 
 object GameConfigRepository {
     private val file = File("data/game_config.json")
+    private val configs = ConcurrentHashMap(loadJson(file) { emptyMap<String, GameConfigData>() })
 
-    @Volatile
-    private var data = loadJson(file) { GameConfigData() }
+    fun current(guildId: String): GameConfigData = configs[guildId] ?: GameConfigData()
 
-    fun current(): GameConfigData = data
-
-    fun update(mutator: (GameConfigData) -> GameConfigData) {
-        data = mutator(data)
-        saveJson(file, data)
+    fun update(guildId: String, mutator: (GameConfigData) -> GameConfigData) {
+        configs[guildId] = mutator(current(guildId))
+        persist()
     }
+
+    private fun persist() = saveJson(file, configs.toMap())
 }
