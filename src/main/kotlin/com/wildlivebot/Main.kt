@@ -33,14 +33,7 @@ fun main() {
     logger.info("Initializing WildLiveBot...")
 
     try {
-        QuestRepository.checkWeeklyReset()
-    } catch (e: Exception) {
-        logger.error("Failed to initialize game quests storage on start", e)
-    }
-
-    try {
         val latch = CountDownLatch(1)
-
         val jda = JDABuilder.createDefault(token)
             .enableIntents(GatewayIntent.MESSAGE_CONTENT)
             .addEventListeners(
@@ -64,20 +57,12 @@ fun main() {
         jda.awaitReady()
         logger.info("Logged in successfully as: ${jda.selfUser.name}")
 
-        Runtime.getRuntime().addShutdownHook(Thread {
-            logger.info("IntelliJ IDEA stop triggered! Safely closing JDA and freezing threads...")
-            try {
-                jda.shutdown()
-                if (!jda.awaitShutdown(java.time.Duration.ofSeconds(5))) {
-                    jda.shutdownNow()
-                }
-                logger.info("JDA background threads destroyed. Process killed successfully!")
-            } catch (e: Exception) {
-                logger.error("Error during execution of JDA shutdown hook", e)
-            } finally {
-                latch.countDown()
-            }
-        })
+        try {
+            jda.guilds.forEach { guild -> QuestRepository.checkWeeklyReset(guild.id) }
+            logger.info("Initialized weekly quests for ${jda.guilds.size} known guild(s).")
+        } catch (e: Exception) {
+            logger.error("Failed to initialize weekly quests for known guilds on start", e)
+        }
 
         val buyChoices = Biome.values().map { region ->
             net.dv8tion.jda.api.interactions.commands.Command.Choice(region.nameEn, region.name.lowercase())
