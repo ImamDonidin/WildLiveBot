@@ -111,25 +111,19 @@ class MessageListener : ListenerAdapter() {
                 logger.warn("Skipped message deletion: Missing MESSAGE_MANAGE permission in channel ${channel.name}")
             }
 
-            if (activeAnimal.type == com.wildlivebot.model.AnimalType.BIRD) {
-                if (!InventoryRepository.hasTool(userId, "sky_camera")) {
-                    val localizedAnimalName = activeAnimal.localizedName(matchedLocale)
-
-                    val noCameraMessage = LangManager.getString(
-                        matchedLocale,
-                        "game.error.no_camera",
-                        event.author.asMention,
-                        localizedAnimalName
-                    )
-                    event.channel.sendMessage(noCameraMessage).queue()
-                    return
-                }
-            }
+            val isBird = activeAnimal.type == com.wildlivebot.model.AnimalType.BIRD
+            val hasCamera = InventoryRepository.hasTool(userId, "sky_camera")
+            val isBirdWithoutCamera = isBird && !hasCamera
 
             RuntimeGameState.removeActiveAnimal(channelId)
             RuntimeGameState.removeActiveBait(channelId)
 
-            val pointsToAward = activeAnimal.rarity.rewardPoints
+            val basePoints = activeAnimal.rarity.rewardPoints
+            val pointsToAward = if (isBirdWithoutCamera) {
+                (basePoints / 2).coerceAtLeast(1)
+            } else {
+                basePoints
+            }
             val totalPoints = LeaderboardRepository.addPoints(userId, pointsToAward)
 
             CollectionRepository.catchAnimal(userId, activeAnimal.id)
@@ -142,6 +136,15 @@ class MessageListener : ListenerAdapter() {
                 .setDescription(LangManager.getString(matchedLocale, "game.congratulations", event.author.asMention, "???"))
                 .addField(LangManager.getString(matchedLocale, "game.points_earned"), "+$pointsToAward 🏆 (${activeAnimal.rarity.displayName})", true)
                 .addField(LangManager.getString(matchedLocale, "game.total_score"), "$totalPoints 🪙", true)
+                .apply {
+                    if (isBirdWithoutCamera) {
+                        addField(
+                            LangManager.getString(matchedLocale, "game.no_camera_penalty_title"),
+                            LangManager.getString(matchedLocale, "game.no_camera_penalty_desc"),
+                            false
+                        )
+                    }
+                }
                 .setColor(Color.GREEN)
                 .build()
 
